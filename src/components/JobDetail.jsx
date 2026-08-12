@@ -115,7 +115,7 @@ export default function JobDetail({ job, onBack, onApply }) {
                 <div className="svc-playlist-grid">
                   <a href="https://www.youtube.com/@LGVietnam/search?query=Best%20Care" target="_blank" rel="noopener noreferrer" className="svc-playlist-card">
                     <div className="playlist-thumb-box">
-                      <img src="/svc_tech_1.jpg" alt="LG Best Care" className="playlist-thumb-img" />
+                      <img src="svc_tech_1.jpg" alt="LG Best Care" className="playlist-thumb-img" />
                       <div className="playlist-play-overlay">
                         <Play size={16} fill="#ffffff" />
                       </div>
@@ -128,7 +128,7 @@ export default function JobDetail({ job, onBack, onApply }) {
                   </a>
                   <a href="https://www.youtube.com/@LGVietnam/search?query=WashTower" target="_blank" rel="noopener noreferrer" className="svc-playlist-card">
                     <div className="playlist-thumb-box">
-                      <img src="/svc_tech_3.jpg" alt="LG WashTower" className="playlist-thumb-img" />
+                      <img src="svc_tech_3.jpg" alt="LG WashTower" className="playlist-thumb-img" />
                       <div className="playlist-play-overlay">
                         <Play size={16} fill="#ffffff" />
                       </div>
@@ -141,7 +141,7 @@ export default function JobDetail({ job, onBack, onApply }) {
                   </a>
                   <a href="https://www.youtube.com/@LGVietnam/search?query=Styler" target="_blank" rel="noopener noreferrer" className="svc-playlist-card">
                     <div className="playlist-thumb-box">
-                      <img src="/svc_tech_4.png" alt="LG Styler" className="playlist-thumb-img" />
+                      <img src="svc_tech_4.png" alt="LG Styler" className="playlist-thumb-img" />
                       <div className="playlist-play-overlay">
                         <Play size={16} fill="#ffffff" />
                       </div>
@@ -154,7 +154,7 @@ export default function JobDetail({ job, onBack, onApply }) {
                   </a>
                   <a href="https://www.youtube.com/@LGVietnam/search?query=TV" target="_blank" rel="noopener noreferrer" className="svc-playlist-card">
                     <div className="playlist-thumb-box">
-                      <img src="/svc_tech_1.jpg" alt="LG TV" className="playlist-thumb-img" />
+                      <img src="svc_tech_1.jpg" alt="LG TV" className="playlist-thumb-img" />
                       <div className="playlist-play-overlay">
                         <Play size={16} fill="#ffffff" />
                       </div>
@@ -167,7 +167,7 @@ export default function JobDetail({ job, onBack, onApply }) {
                   </a>
                   <a href="https://www.youtube.com/@LGVietnam/search?query=T%E1%BB%A7%20l%E1%BA%A1nh" target="_blank" rel="noopener noreferrer" className="svc-playlist-card">
                     <div className="playlist-thumb-box">
-                      <img src="/svc_tech_2.png" alt="LG Refrigerator" className="playlist-thumb-img" />
+                      <img src="svc_tech_2.png" alt="LG Refrigerator" className="playlist-thumb-img" />
                       <div className="playlist-play-overlay">
                         <Play size={16} fill="#ffffff" />
                       </div>
@@ -180,7 +180,7 @@ export default function JobDetail({ job, onBack, onApply }) {
                   </a>
                   <a href="https://www.youtube.com/@LGVietnam/search?query=M%C3%A1y%20r%E1%BB%A1%20b%C3%A1t" target="_blank" rel="noopener noreferrer" className="svc-playlist-card">
                     <div className="playlist-thumb-box">
-                      <img src="/svc_tech_4.png" alt="LG Dishwasher" className="playlist-thumb-img" />
+                      <img src="svc_tech_4.png" alt="LG Dishwasher" className="playlist-thumb-img" />
                       <div className="playlist-play-overlay">
                         <Play size={16} fill="#ffffff" />
                       </div>
