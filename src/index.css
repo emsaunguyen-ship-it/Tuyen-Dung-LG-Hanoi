@@ -2178,6 +2178,93 @@ button {
   box-shadow: inset 0 -40px 80px rgba(0,0,0,0.2);
 }
 
+/* Left & Right framing cards for the Seonhaeng banner */
+.hero-frame-side {
+  position: absolute;
+  top: 50%;
+  width: 350px;
+  height: 298px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  z-index: 5;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.hero-frame-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-frame-side.frame-left {
+  left: 30px;
+  transform: translateY(-50%) rotate(-3deg);
+}
+
+.hero-frame-side.frame-right {
+  right: 30px;
+  transform: translateY(-50%) rotate(3deg);
+}
+
+.hero-frame-side:hover {
+  box-shadow: 0 20px 45px rgba(165, 0, 52, 0.35);
+  border-color: var(--primary);
+  z-index: 10;
+}
+
+.hero-frame-side.frame-left:hover {
+  transform: translateY(-55%) scale(1.05) rotate(0deg);
+}
+
+.hero-frame-side.frame-right:hover {
+  transform: translateY(-55%) scale(1.05) rotate(0deg);
+}
+
+/* Hide on screens where margins are too small */
+@media (max-width: 1539px) {
+  .hero-frame-side {
+    display: none !important;
+  }
+}
+
+.lg-vn-hero-section.seonhaeng-banner {
+  background: #000000 url("/lg_seonhaeng_clean.png") center/contain no-repeat;
+  height: 480px;
+  box-shadow: none; /* No shadow overlay needed for graphic banner */
+}
+
+/* Hide overlay text on the Seonhaeng banner */
+.lg-vn-hero-section.seonhaeng-banner .hero-main-title,
+.lg-vn-hero-section.seonhaeng-banner .hero-desc,
+.lg-vn-hero-section.seonhaeng-banner .hero-tagline-container {
+  display: none !important;
+}
+
+/* Place buttons nicely on the bottom-right */
+.lg-vn-hero-section.seonhaeng-banner .hero-btn-row {
+  position: absolute;
+  bottom: 24px;
+  right: 80px;
+  z-index: 20;
+}
+
+@media (max-width: 768px) {
+  .lg-vn-hero-section.seonhaeng-banner {
+    height: 300px;
+  }
+  .lg-vn-hero-section.seonhaeng-banner .hero-btn-row {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin-top: auto;
+    margin-bottom: 20px;
+    align-self: center;
+  }
+}
+
 .hero-tagline {
   font-size: 12.5px;
   font-weight: 800;
@@ -2862,3 +2949,840 @@ button {
 }
 
 
+/* ============================================
+   LG VIETNAM CULTURE SECTION
+   ============================================ */
+
+.lg-culture-section {
+  padding: 80px 40px;
+  background: linear-gradient(180deg, #09090b 0%, #0f172a 60%, #09090b 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.lg-culture-section::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(ellipse at center, rgba(162, 28, 28, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Section Header */
+.culture-section-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 50px;
+}
+
+.culture-eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #a21c1c;
+  background: rgba(162, 28, 28, 0.12);
+  border: 1px solid rgba(162, 28, 28, 0.3);
+  padding: 5px 16px;
+  border-radius: 50px;
+  margin-bottom: 18px;
+}
+
+.culture-main-title {
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -1px;
+  line-height: 1.15;
+  margin: 0 0 16px;
+}
+
+.culture-subtitle {
+  font-size: 15px;
+  color: #a1a1aa;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Stats Bar */
+.culture-stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  max-width: 900px;
+  margin: 0 auto 60px;
+}
+
+.culture-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 28px 20px;
+  background: rgba(255, 255, 255, 0.03);
+  gap: 6px;
+  transition: background 0.2s ease;
+}
+
+.culture-stat-item:hover {
+  background: rgba(162, 28, 28, 0.08);
+}
+
+.stat-number {
+  font-size: 32px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #71717a;
+  text-align: center;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+/* Activities Grid */
+.culture-activities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.culture-activity-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 18px;
+  padding: 0;
+  overflow: hidden;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.culture-activity-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.14);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* Image at top of card */
+.activity-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  overflow: hidden;
+  border-radius: 18px 18px 0 0;
+  flex-shrink: 0;
+}
+
+.activity-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.culture-activity-card:hover .activity-img {
+  transform: scale(1.06);
+}
+
+.activity-img-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.activity-tag-overlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 50px;
+  backdrop-filter: blur(8px);
+}
+
+/* Card body */
+.activity-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 18px 18px 20px;
+  flex: 1;
+}
+
+.activity-icon-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.activity-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #f4f4f5;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.activity-desc {
+  font-size: 12.5px;
+  color: #a1a1aa;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Promo Grid 3 columns */
+.lg-promo-grid-3 {
+  grid-template-columns: repeat(3, 1fr) !important;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .culture-activities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .culture-stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lg-promo-grid-3 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .lg-culture-section {
+    padding: 50px 20px;
+  }
+
+  .culture-activities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .culture-stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .lg-promo-grid-3 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
+/* ============================================
+   SVC VIDEO PLAYLIST GRID STYLES
+   ============================================ */
+.svc-playlist-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 15px;
+}
+
+.svc-playlist-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.svc-playlist-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.playlist-thumb-box {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.playlist-thumb-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.svc-playlist-card:hover .playlist-thumb-img {
+  transform: scale(1.06);
+}
+
+.playlist-play-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.85;
+  transition: all 0.25s ease;
+}
+
+.svc-playlist-card:hover .playlist-play-overlay {
+  opacity: 1;
+  background: rgba(162, 28, 28, 0.35); /* Subtle LG red tint on hover */
+}
+
+.playlist-badge {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  font-size: 8px;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 1px 4px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.playlist-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.playlist-info h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #f4f4f5;
+  margin: 0;
+  line-height: 1.35;
+}
+
+.btn-play-link {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #a1a1aa;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.svc-playlist-card:hover .btn-play-link {
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .svc-playlist-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ============================================
+   JOB LOGO STYLE OVERRIDES (TECHNICIAN LOGO)
+   ============================================ */
+.lg-card-logo-container {
+  width: 75px !important;
+  height: 75px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  border-radius: 12px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.lg-card-logo {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+.detail-company-logo {
+  width: 140px !important;
+  height: 140px !important;
+  max-width: 140px !important;
+  max-height: 140px !important;
+  object-fit: cover !important;
+  border-radius: 16px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+  border: 2px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+/* ============================================
+   FEATURED SVC TECHNICIAN JOB CARD HIGHLIGHTS
+   ============================================ */
+.featured-svc-card {
+  position: relative !important;
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.88) 100%), url('/svc_tech_1.jpg') !important;
+  background-size: cover !important;
+  background-position: center 25% !important;
+  background-repeat: no-repeat !important;
+  border: 2px solid #A50034 !important;
+  box-shadow: 0 12px 40px rgba(165, 0, 52, 0.15) !important;
+  transform: scale(1.01) !important;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+}
+
+.featured-svc-card:hover {
+  transform: translateY(-6px) scale(1.02) !important;
+  box-shadow: 0 20px 50px rgba(165, 0, 52, 0.3) !important;
+  border-color: #FD312E !important;
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.82) 100%), url('/svc_tech_1.jpg') !important;
+}
+
+.card-badge.urgent {
+  background-color: #FD312E !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.5px !important;
+  animation: pulse-badge 1.8s infinite ease-in-out !important;
+}
+
+@keyframes pulse-badge {
+  0% {
+    box-shadow: 0 0 0 0 rgba(253, 49, 46, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(253, 49, 46, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(253, 49, 46, 0);
+  }
+}
+
+/* ============================================
+   BRAND STICKER & SLOGAN DECORATION ("Life's Good.")
+   ============================================ */
+.hero-tagline-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.lifes-good-badge {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 6px 16px;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 800;
+  font-size: 15px;
+  letter-spacing: -0.3px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.brand-text-lifes {
+  color: #ffffff;
+}
+
+.brand-text-good {
+  color: #A50034; /* LG Red */
+}
+
+.brand-text-dot {
+  color: #FD312E; /* Light Red */
+  font-size: 20px;
+  line-height: 0.8;
+  animation: pulse-dot 1.2s infinite ease-in-out;
+}
+
+.hero-tagline-sub {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  position: relative;
+  padding-left: 12px;
+}
+
+.hero-tagline-sub::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Floating Brand Sticker */
+.floating-brand-sticker {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 9999;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  animation: float-sticker 3.5s infinite ease-in-out;
+  text-decoration: none;
+}
+
+.sticker-inner {
+  background: rgba(255, 255, 255, 0.95);
+  border: 2px solid #A50034;
+  padding: 10px 18px;
+  border-radius: 30px;
+  box-shadow: 0 10px 25px rgba(165, 0, 52, 0.15);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 14.5px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.sticker-lifes {
+  color: #111111;
+}
+
+.sticker-good {
+  color: #A50034;
+}
+
+.sticker-dot {
+  color: #FD312E;
+  font-size: 18px;
+  line-height: 0.8;
+  animation: pulse-dot 1.2s infinite ease-in-out;
+}
+
+.floating-brand-sticker:hover {
+  transform: translateY(-6px) scale(1.06) rotate(3deg);
+}
+
+.floating-brand-sticker:hover .sticker-inner {
+  box-shadow: 0 15px 35px rgba(165, 0, 52, 0.3);
+  background: #ffffff;
+  border-color: #FD312E;
+}
+
+@keyframes float-sticker {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(-2deg);
+  }
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.7;
+  }
+}
+
+/* ============================================
+   LG VIETNAM MEDIA CENTER (ANNIVERSARY & INSIDER)
+   ============================================ */
+.lg-media-center-section {
+  padding: 60px 20px;
+  background-color: var(--bg-card);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-top: 20px;
+}
+
+.media-section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+}
+
+.media-eyebrow {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 13.5px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.media-main-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-top: 8px;
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+
+.media-subtitle {
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px; /* slightly smaller gap to fit 4 cards nicely */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.media-video-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+
+.media-video-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary);
+}
+
+.media-video-mockup {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border);
+}
+
+.media-thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.media-play-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(165, 0, 52, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 20px rgba(165, 0, 52, 0.35);
+  transition: all 0.3s ease;
+}
+
+.media-play-overlay svg {
+  margin-left: 2px; /* Centering tweak for play icon */
+  transition: transform 0.3s ease;
+}
+
+.media-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+}
+
+.media-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.media-card-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.35;
+}
+
+.media-card-desc {
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+  flex-grow: 1;
+}
+
+.media-watch-link {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 10px;
+  align-self: flex-start;
+  transition: color 0.2s ease;
+}
+
+.media-watch-link:hover {
+  color: var(--accent);
+}
+
+.media-video-card:hover .media-thumbnail {
+  transform: scale(1.04);
+}
+
+.media-video-card:hover .media-play-overlay {
+  background: #FD312E;
+  transform: translate(-50%, -50%) scale(1.08);
+  box-shadow: 0 10px 25px rgba(253, 49, 46, 0.45);
+}
+
+@media (max-width: 1200px) {
+  .media-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .media-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* LG Insiders Testimonials Section Styling */
+.lg-insiders-quotes-section {
+  max-width: 2000px; /* Expanded container by 20% more (total 2000px) */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.insiders-quotes-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+  max-width: 2000px; /* Expanded grid width by 20% more for larger quotes cards */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.quote-card-item {
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: none;
+  border: none;
+  background-color: transparent;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.quote-card-inner {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* Perfect square matching the 1600x1600 original images */
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px; /* Clean rounded corners */
+}
+
+.quote-card-inner img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Exact fit, NO DISTORTION, NO TOP CROP */
+  transition: transform 0.5s ease;
+}
+
+.quote-card-item:hover {
+  transform: translateY(-25px) scale(2.5); /* Zoom in to 250% (150% larger) when touched/hovered */
+  filter: drop-shadow(0 25px 50px rgba(165, 0, 52, 0.8));
+  z-index: 20; /* Ensure it stays on top of neighboring cards when zoomed */
+}
+
+.quote-card-item:hover .quote-card-inner img {
+  transform: scale(1.05);
+}
+
+@media (max-width: 1200px) {
+  .insiders-quotes-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .insiders-quotes-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .insiders-quotes-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-zoom-in {
+  animation: zoomIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}

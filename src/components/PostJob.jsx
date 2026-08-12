@@ -27,7 +27,8 @@ export default function PostJob({ onAddJob, onBackToDashboard }) {
     'Marketing / PR',
     'Sales / Business Development',
     'Design / Art',
-    'Customer Service'
+    'Customer Service',
+    'Warranty Technician'
   ];
 
   const handleInputChange = (e) => {
@@ -191,7 +192,14 @@ export default function PostJob({ onAddJob, onBackToDashboard }) {
               <label className="form-label required">Nhóm ngành nghề</label>
               <select name="industry" value={formData.industry} onChange={handleInputChange} className="form-select">
                 {industries.map(ind => (
-                  <option key={ind} value={ind}>{ind}</option>
+                  <option key={ind} value={ind}>
+                    {ind === 'IT - Software' ? 'R&D / Công nghệ' :
+                     ind === 'Marketing / PR' ? 'Marketing / PR' :
+                     ind === 'Sales / Business Development' ? 'Kinh doanh / Sales' :
+                     ind === 'Design / Art' ? 'Thiết kế / Art' :
+                     ind === 'Customer Service' ? 'Hỗ trợ khách hàng' :
+                     ind === 'Warranty Technician' ? 'Kỹ thuật viên bảo hành' : ind}
+                  </option>
                 ))}
               </select>
             </div>

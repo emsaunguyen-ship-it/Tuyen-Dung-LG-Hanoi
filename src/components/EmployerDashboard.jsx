@@ -16,6 +16,119 @@ export default function EmployerDashboard({ jobs, applications, onUpdateAppStatu
     ? applications 
     : applications.filter(app => app.jobId === selectedJobFilter);
 
+  const handleExportAndSendEmail = () => {
+    if (selectedJobFilter === 'All') return;
+    
+    const selectedJob = jobs.find(j => j.id === selectedJobFilter);
+    if (!selectedJob) return;
+
+    // Get all applications for this job position
+    const jobApps = applications.filter(app => app.jobId === selectedJobFilter);
+    if (jobApps.length === 0) {
+      alert('Chưa có ứng viên nào ứng tuyển vào vị trí này để xuất báo cáo.');
+      return;
+    }
+
+    // Sort by date (oldest first for cumulative list)
+    const sortedApps = [...jobApps].sort((a, b) => new Date(a.appliedAt) - new Date(b.appliedAt));
+
+    // Get the latest candidate (thí sinh phát sinh gần nhất)
+    const newApp = sortedApps[sortedApps.length - 1];
+
+    // 1. Generate Excel HTML template
+    const excelHeader = `
+      <html xmlns:o="urn:schemas-microsoft-error-spreadsheets:office:excel" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+      <head>
+        <meta charset="utf-8" />
+        <style>
+          table { border-collapse: collapse; }
+          th { background-color: #A50034; color: #ffffff; font-weight: bold; }
+          th, td { border: 1px solid #dddddd; padding: 8px; text-align: left; }
+        </style>
+      </head>
+      <body>
+        <h2>Báo cáo cộng dồn ứng viên vị trí: ${selectedJob.title}</h2>
+        <p>Ngày xuất báo cáo: ${new Date().toLocaleDateString('vi-VN')}</p>
+        <table>
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Tên ứng viên</th>
+              <th>Email</th>
+              <th>Số điện thoại</th>
+              <th>Thư giới thiệu</th>
+              <th>CV đính kèm</th>
+              <th>Ngày ứng tuyển</th>
+              <th>Trạng thái</th>
+            </tr>
+          </thead>
+          <tbody>
+    `;
+
+    let excelBody = '';
+    sortedApps.forEach((app, idx) => {
+      excelBody += `
+        <tr>
+          <td>${idx + 1}</td>
+          <td>${app.candidateName}</td>
+          <td>${app.email}</td>
+          <td>${app.phone}</td>
+          <td>${app.coverLetter || ''}</td>
+          <td>${app.cvFileName}</td>
+          <td>${app.appliedAt}</td>
+          <td>${app.status === 'Pending' ? 'Chờ duyệt' : app.status}</td>
+        </tr>
+      `;
+    });
+
+    const excelFooter = `
+          </tbody>
+        </table>
+      </body>
+      </html>
+    `;
+
+    const excelContent = excelHeader + excelBody + excelFooter;
+    const blob = new Blob([excelContent], { type: 'application/vnd.ms-excel;charset=utf-8;' });
+    
+    // 2. Trigger download of the Excel report
+    const downloadLink = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    downloadLink.href = url;
+    const safeJobTitle = selectedJob.title.replace(/[^a-zA-Z0-9]/g, '_');
+    downloadLink.download = `Bao_cao_cong_don_${safeJobTitle}_${new Date().toISOString().split('T')[0]}.xls`;
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+    URL.revokeObjectURL(url);
+
+    // 3. Open mail client
+    const to = 'khanhthuy.nguyen@lge.com';
+    const subject = encodeURIComponent(`[LG Careers] Báo cáo ứng tuyển cộng dồn - Vị trí: ${selectedJob.title}`);
+    
+    const emailBody = `Kính gửi Chị Khánh Thuỷ (HR Department),
+
+Hệ thống LG Careers xin gửi báo cáo cộng dồn hồ sơ ứng tuyển của vị trí: ${selectedJob.title}.
+
+Thông tin ứng viên mới phát sinh gần nhất (để trên bề mặt email):
+--------------------------------------------------
+- Họ và Tên: ${newApp.candidateName}
+- Email: ${newApp.email}
+- Số Điện Thoại: ${newApp.phone}
+- Thư giới thiệu: ${newApp.coverLetter || 'Không có'}
+- Tệp hồ sơ CV: ${newApp.cvFileName}
+- Ngày nộp: ${newApp.appliedAt}
+--------------------------------------------------
+
+* Đã đính kèm tệp Excel báo cáo cộng dồn (${sortedApps.length} ứng viên) từ đầu ngày tuyển dụng cho đến nay. Bạn hãy kiểm tra thư mục Download trên máy tính để đính kèm tệp này.
+
+Trân trọng,
+Hệ thống tuyển dụng tự động LG Electronics Việt Nam.`;
+
+    const body = encodeURIComponent(emailBody);
+    window.open(`mailto:${to}?subject=${subject}&body=${body}`, '_self');
+  };
+
   return (
     <div className="dashboard-container">
       {/* Dashboard Header */}
@@ -101,18 +214,45 @@ export default function EmployerDashboard({ jobs, applications, onUpdateAppStatu
           <div className="tab-pane-content">
             {/* Filter bar */}
             <div className="dashboard-filter-bar">
-              <label htmlFor="jobFilter" className="filter-bar-label">Lọc hồ sơ theo tin tuyển dụng:</label>
-              <select 
-                id="jobFilter" 
-                value={selectedJobFilter} 
-                onChange={(e) => setSelectedJobFilter(e.target.value)}
-                className="filter-bar-select"
-              >
-                <option value="All">Tất cả tin tuyển dụng</option>
-                {jobs.map(job => (
-                  <option key={job.id} value={job.id}>{job.title} ({job.company})</option>
-                ))}
-              </select>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexGrow: 1 }}>
+                <label htmlFor="jobFilter" className="filter-bar-label">Lọc hồ sơ theo tin tuyển dụng:</label>
+                <select 
+                  id="jobFilter" 
+                  value={selectedJobFilter} 
+                  onChange={(e) => setSelectedJobFilter(e.target.value)}
+                  className="filter-bar-select"
+                >
+                  <option value="All">Tất cả tin tuyển dụng</option>
+                  {jobs.map(job => (
+                    <option key={job.id} value={job.id}>{job.title} ({job.company})</option>
+                  ))}
+                </select>
+              </div>
+
+              {selectedJobFilter !== 'All' && (
+                <button 
+                  onClick={handleExportAndSendEmail}
+                  className="btn-export-email-lg"
+                  style={{
+                    backgroundColor: 'var(--primary)',
+                    color: '#ffffff',
+                    border: 'none',
+                    borderRadius: '30px',
+                    padding: '10px 22px',
+                    fontWeight: '700',
+                    fontSize: '13.5px',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '8px',
+                    transition: 'var(--transition)'
+                  }}
+                  onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'var(--primary-hover)'}
+                  onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'var(--primary)'}
+                >
+                  <Mail size={16} /> Gửi Báo Cáo & Email (Khánh Thuỷ)
+                </button>
+              )}
             </div>
 
             {/* Applications List */}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, MapPin, DollarSign, Clock, Tag, Briefcase, Calendar, ShieldCheck } from 'lucide-react';
+import { ArrowLeft, MapPin, DollarSign, Clock, Tag, Briefcase, Calendar, ShieldCheck, Play, Tv, Snowflake, Droplets, Laptop, Heart } from 'lucide-react';
 
 export default function JobDetail({ job, onBack, onApply }) {
   if (!job) return null;
@@ -104,6 +104,96 @@ export default function JobDetail({ job, onBack, onApply }) {
                 ))}
               </div>
             </section>
+
+            {/* If this is the SVC Technician job, show a video gallery section */}
+            {job.id === 'job-lg-4' && (
+              <section className="content-section svc-videos-section" style={{ marginTop: '30px', borderTop: '1px dashed var(--border)', paddingTop: '24px' }}>
+                <h3 className="section-title-underlined">Hoạt động thực tế & Đào tạo SVC</h3>
+                <p className="section-text-content" style={{ marginBottom: '20px', color: '#a1a1aa', fontSize: '14px' }}>
+                  Tìm hiểu các hoạt động chăm sóc khách hàng chuyên nghiệp, quy trình dịch vụ bảo dưỡng và sửa chữa thực tế của đội ngũ kỹ thuật viên qua các danh sách phát (playlist) từ kênh YouTube chính thức <strong>LG Vietnam</strong>:
+                </p>
+                <div className="svc-playlist-grid">
+                  <a href="https://www.youtube.com/@LGVietnam/search?query=Best%20Care" target="_blank" rel="noopener noreferrer" className="svc-playlist-card">
+                    <div className="playlist-thumb-box">
+                      <img src="/svc_tech_1.jpg" alt="LG Best Care" className="playlist-thumb-img" />
+                      <div className="playlist-play-overlay">
+                        <Play size={16} fill="#ffffff" />
+                      </div>
+                      <span className="playlist-badge">15 videos</span>
+                    </div>
+                    <div className="playlist-info">
+                      <h4>LG Best Care - Đội ngũ tận tâm</h4>
+                      <span className="btn-play-link"><Play size={11} style={{ marginRight: '4px' }} /> Xem danh sách phát</span>
+                    </div>
+                  </a>
+                  <a href="https://www.youtube.com/@LGVietnam/search?query=WashTower" target="_blank" rel="noopener noreferrer" className="svc-playlist-card">
+                    <div className="playlist-thumb-box">
+                      <img src="/svc_tech_3.jpg" alt="LG WashTower" className="playlist-thumb-img" />
+                      <div className="playlist-play-overlay">
+                        <Play size={16} fill="#ffffff" />
+                      </div>
+                      <span className="playlist-badge">10 videos</span>
+                    </div>
+                    <div className="playlist-info">
+                      <h4>LG Best Care - LG WashTower™</h4>
+                      <span className="btn-play-link"><Play size={11} style={{ marginRight: '4px' }} /> Xem danh sách phát</span>
+                    </div>
+                  </a>
+                  <a href="https://www.youtube.com/@LGVietnam/search?query=Styler" target="_blank" rel="noopener noreferrer" className="svc-playlist-card">
+                    <div className="playlist-thumb-box">
+                      <img src="/svc_tech_4.png" alt="LG Styler" className="playlist-thumb-img" />
+                      <div className="playlist-play-overlay">
+                        <Play size={16} fill="#ffffff" />
+                      </div>
+                      <span className="playlist-badge">7 videos</span>
+                    </div>
+                    <div className="playlist-info">
+                      <h4>LG Best Care - LG Styler™</h4>
+                      <span className="btn-play-link"><Play size={11} style={{ marginRight: '4px' }} /> Xem danh sách phát</span>
+                    </div>
+                  </a>
+                  <a href="https://www.youtube.com/@LGVietnam/search?query=TV" target="_blank" rel="noopener noreferrer" className="svc-playlist-card">
+                    <div className="playlist-thumb-box">
+                      <img src="/svc_tech_1.jpg" alt="LG TV" className="playlist-thumb-img" />
+                      <div className="playlist-play-overlay">
+                        <Play size={16} fill="#ffffff" />
+                      </div>
+                      <span className="playlist-badge">6 videos</span>
+                    </div>
+                    <div className="playlist-info">
+                      <h4>LG Best Care - TV LG màn hình lớn</h4>
+                      <span className="btn-play-link"><Play size={11} style={{ marginRight: '4px' }} /> Xem danh sách phát</span>
+                    </div>
+                  </a>
+                  <a href="https://www.youtube.com/@LGVietnam/search?query=T%E1%BB%A7%20l%E1%BA%A1nh" target="_blank" rel="noopener noreferrer" className="svc-playlist-card">
+                    <div className="playlist-thumb-box">
+                      <img src="/svc_tech_2.png" alt="LG Refrigerator" className="playlist-thumb-img" />
+                      <div className="playlist-play-overlay">
+                        <Play size={16} fill="#ffffff" />
+                      </div>
+                      <span className="playlist-badge">9 videos</span>
+                    </div>
+                    <div className="playlist-info">
+                      <h4>LG Best Care - Tủ lạnh LG cao cấp</h4>
+                      <span className="btn-play-link"><Play size={11} style={{ marginRight: '4px' }} /> Xem danh sách phát</span>
+                    </div>
+                  </a>
+                  <a href="https://www.youtube.com/@LGVietnam/search?query=M%C3%A1y%20r%E1%BB%A1%20b%C3%A1t" target="_blank" rel="noopener noreferrer" className="svc-playlist-card">
+                    <div className="playlist-thumb-box">
+                      <img src="/svc_tech_4.png" alt="LG Dishwasher" className="playlist-thumb-img" />
+                      <div className="playlist-play-overlay">
+                        <Play size={16} fill="#ffffff" />
+                      </div>
+                      <span className="playlist-badge">4 videos</span>
+                    </div>
+                    <div className="playlist-info">
+                      <h4>LG Best Care - Máy rửa bát QuadWash™</h4>
+                      <span className="btn-play-link"><Play size={11} style={{ marginRight: '4px' }} /> Xem danh sách phát</span>
+                    </div>
+                  </a>
+                </div>
+              </section>
+            )}
           </div>
         </main>
 

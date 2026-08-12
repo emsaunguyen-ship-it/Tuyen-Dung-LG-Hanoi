@@ -19,7 +19,7 @@ export default function App() {
           !job.id.startsWith('job-lg-') || 
           job.title.includes('Retention') || 
           (typeof job.logo === 'string' && (job.logo.includes('wikimedia') || job.logo.includes('wikipedia')))
-        );
+        ) || parsed[0]?.id !== 'job-lg-4';
         if (!hasOldJobs) {
           return parsed;
         }
@@ -53,6 +53,7 @@ export default function App() {
   const [currentView, setCurrentView] = useState('jobs');
   const [selectedJob, setSelectedJob] = useState(null);
   const [isApplyModalOpen, setIsApplyModalOpen] = useState(false);
+  const [emailNotification, setEmailNotification] = useState(null);
   const [webhookUrl, setWebhookUrl] = useState(() => {
     return localStorage.getItem('lg_careers_webhook_url') || '';
   });
@@ -111,6 +112,81 @@ export default function App() {
     );
   };
 
+  const handleAutoExcelAndEmail = (newApp) => {
+    // Get all applications for this job position (including the new one)
+    const jobApps = [newApp, ...applications.filter(app => app.jobId === newApp.jobId)];
+
+    // 1. Generate Excel HTML template
+    const excelHeader = `
+      <html xmlns:o="urn:schemas-microsoft-error-spreadsheets:office:excel" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+      <head>
+        <meta charset="utf-8" />
+        <style>
+          table { border-collapse: collapse; }
+          th { background-color: #A50034; color: #ffffff; font-weight: bold; }
+          th, td { border: 1px solid #dddddd; padding: 8px; text-align: left; }
+        </style>
+      </head>
+      <body>
+        <h2>Báo cáo cộng dồn ứng viên vị trí: ${newApp.jobTitle}</h2>
+        <p>Ngày xuất báo cáo: ${new Date().toLocaleDateString('vi-VN')}</p>
+        <table>
+          <thead>
+            <tr>
+              <th>STT</th>
+              <th>Tên ứng viên</th>
+              <th>Email</th>
+              <th>Số điện thoại</th>
+              <th>Thư giới thiệu</th>
+              <th>CV đính kèm</th>
+              <th>Ngày ứng tuyển</th>
+              <th>Trạng thái</th>
+            </tr>
+          </thead>
+          <tbody>
+    `;
+
+    let excelBody = '';
+    jobApps.forEach((app, idx) => {
+      excelBody += `
+        <tr>
+          <td>${idx + 1}</td>
+          <td>${app.candidateName}</td>
+          <td>${app.email}</td>
+          <td>${app.phone}</td>
+          <td>${app.coverLetter || ''}</td>
+          <td>${app.cvFileName}</td>
+          <td>${app.appliedAt}</td>
+          <td>${app.status === 'Pending' ? 'Chờ duyệt' : app.status}</td>
+        </tr>
+      `;
+    });
+
+    const excelFooter = `
+          </tbody>
+        </table>
+      </body>
+      </html>
+    `;
+
+    const excelContent = excelHeader + excelBody + excelFooter;
+    const blob = new Blob([excelContent], { type: 'application/vnd.ms-excel;charset=utf-8;' });
+    
+    // 2. Trigger download of the Excel report
+    const downloadLink = document.createElement('a');
+    const url = URL.createObjectURL(blob);
+    downloadLink.href = url;
+    const safeJobTitle = newApp.jobTitle.replace(/[^a-zA-Z0-9]/g, '_');
+    downloadLink.download = `Bao_cao_cong_don_${safeJobTitle}_${newApp.appliedAt}.xls`;
+    document.body.appendChild(downloadLink);
+    downloadLink.click();
+    document.body.removeChild(downloadLink);
+    URL.revokeObjectURL(url);
+
+    // 3. Set state to show the email simulation modal
+    setEmailNotification(newApp);
+  };
+
   // Candidates Handlers
   const handleSubmitApplication = (newApp) => {
     setApplications(prevApps => [newApp, ...prevApps]);
@@ -128,6 +204,9 @@ export default function App() {
       .then(() => console.log('Successfully synced application to Google Sheets.'))
       .catch(err => console.error('Failed to sync to Google Sheets:', err));
     }
+
+    // Auto-generate Excel report and open Email Draft (khanhthuy.nguyen@lge.com)
+    handleAutoExcelAndEmail(newApp);
   };
 
   return (
@@ -186,6 +265,21 @@ export default function App() {
         />
       )}
 
+      {/* Floating Brand Sticker "Life's Good." */}
+      <a 
+        href="https://www.lg.com/global/about-lg/brand-story/" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className="floating-brand-sticker"
+        title="Khám phá câu chuyện thương hiệu LG!"
+      >
+        <div className="sticker-inner">
+          <span className="sticker-lifes">Life's</span>
+          <span className="sticker-good">Good</span>
+          <span className="sticker-dot">.</span>
+        </div>
+      </a>
+
       {/* Footer (LG Vietnam Corporate Style) */}
       <footer className="main-footer" style={{ borderTop: '1px solid var(--border)', paddingTop: '50px', paddingBottom: '30px' }}>
         <div className="container">
@@ -214,20 +308,18 @@ export default function App() {
             <div className="footer-col">
               <h4 className="footer-col-title">Khám phá LG</h4>
               <div className="footer-col-links">
-                <a href="#" onClick={(e) => e.preventDefault()}>Về LG Electronics</a>
-                <a href="#" onClick={(e) => e.preventDefault()}>Chiến dịch "Life's Good"</a>
-                <a href="#" onClick={(e) => e.preventDefault()}>Phát Triển Bền Vững</a>
-                <a href="#" onClick={(e) => e.preventDefault()}>Trang Tin Tức LG</a>
+                <a href="https://www.lg.com/vn" target="_blank" rel="noopener noreferrer">Về LG Electronics</a>
+                <a href="https://www.lg.com/global/about-lg/brand-story/" target="_blank" rel="noopener noreferrer">Chiến dịch "Life's Good"</a>
+                <a href="https://www.lg.com/global/sustainability" target="_blank" rel="noopener noreferrer">Phát Triển Bền Vững</a>
+                <a href="https://www.lg.com/vn/tin-tuc-va-truyen-thong" target="_blank" rel="noopener noreferrer">Trang Tin Tức LG</a>
               </div>
             </div>
 
             <div className="footer-col">
               <h4 className="footer-col-title">Kết nối với LG</h4>
               <div className="footer-col-links">
-                <a href="#" onClick={(e) => e.preventDefault()}>LinkedIn Careers</a>
-                <a href="#" onClick={(e) => e.preventDefault()}>Facebook Tuyển Dụng</a>
-                <a href="#" onClick={(e) => e.preventDefault()}>Instagram LifeAtLG</a>
-                <a href="#" onClick={(e) => e.preventDefault()}>YouTube Global LG</a>
+                <a href="https://www.linkedin.com/company/lg-electronics-development-vietnam-ltd/" target="_blank" rel="noopener noreferrer">LinkedIn Careers</a>
+                <a href="https://www.youtube.com/@LGVietnam" target="_blank" rel="noopener noreferrer">YouTube LG Vietnam</a>
               </div>
             </div>
           </div>
@@ -252,6 +344,94 @@ export default function App() {
           </div>
         </div>
       </footer>
+      {/* Auto-Email Simulation Dialog */}
+      {emailNotification && (
+        <div className="modal-overlay" style={{ zIndex: 9999 }}>
+          <div className="modal-content email-simulator-modal" style={{ maxWidth: '650px', padding: '0px', overflow: 'hidden', border: '1px solid #ddd' }}>
+            <div className="email-simulator-header" style={{ backgroundColor: '#A50034', color: '#ffffff', padding: '16px 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <h3 style={{ margin: 0, fontSize: '16px', fontWeight: 'bold', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                📧 Tự Động Gửi Báo Cáo Tuyển Dụng & Excel
+              </h3>
+              <button onClick={() => setEmailNotification(null)} style={{ background: 'none', border: 'none', color: '#ffffff', cursor: 'pointer', fontSize: '18px' }}>&times;</button>
+            </div>
+            
+            <div className="email-simulator-body" style={{ padding: '24px', display: 'flex', flexDirection: 'column', gap: '16px', backgroundColor: '#f8f9fa' }}>
+              <div style={{ backgroundColor: '#ffffff', borderRadius: '8px', border: '1px solid #e2e8f0', padding: '16px', display: 'flex', flexDirection: 'column', gap: '10px', fontSize: '13.5px' }}>
+                <div><strong>Người nhận (To):</strong> <span style={{ color: '#A50034', fontWeight: 600 }}>khanhthuy.nguyen@lge.com</span></div>
+                <hr style={{ border: 'none', borderTop: '1px solid #edf2f7', margin: '4px 0' }} />
+                <div><strong>Tiêu đề (Subject):</strong> <span style={{ fontWeight: 600 }}>[LG Careers] Ứng viên mới phát sinh - Vị trí: {emailNotification.jobTitle}</span></div>
+                <hr style={{ border: 'none', borderTop: '1px solid #edf2f7', margin: '4px 0' }} />
+                <div>
+                  <strong>Tệp đính kèm (Attachment):</strong> 
+                  <span style={{ color: '#2b6cb0', fontWeight: 600, display: 'inline-flex', alignItems: 'center', gap: '4px', marginLeft: '6px' }}>
+                    📊 Bao_cao_cong_don_{emailNotification.jobTitle.replace(/[^a-zA-Z0-9]/g, '_')}_{emailNotification.appliedAt}.xls (Đã tự động tải xuống)
+                  </span>
+                </div>
+              </div>
+
+              <div style={{ backgroundColor: '#ffffff', borderRadius: '8px', border: '1px solid #e2e8f0', padding: '16px', fontFamily: 'monospace', whiteSpace: 'pre-wrap', fontSize: '12px', lineHeight: '1.5', color: '#2d3748', maxHeight: '200px', overflowY: 'auto' }}>
+{`Kính gửi Chị Khánh Thuỷ (HR Department),
+
+Hệ thống LG Careers ghi nhận có ứng viên mới ứng tuyển vào vị trí của chị quản lý.
+
+Dưới đây là thông tin ứng viên mới phát sinh (để trên bề mặt email):
+--------------------------------------------------
+- Họ và Tên: ${emailNotification.candidateName}
+- Email: ${emailNotification.email}
+- Số Điện Thoại: ${emailNotification.phone}
+- Thư giới thiệu: ${emailNotification.coverLetter || 'Không có'}
+- Tệp hồ sơ CV: ${emailNotification.cvFileName}
+- Ngày nộp: ${emailNotification.appliedAt}
+--------------------------------------------------
+
+* Hướng dẫn: Tệp Excel cộng dồn tất cả ứng viên của vị trí này từ đầu ngày tuyển dụng đã được tự động tải về máy của bạn. Vui lòng đính kèm tệp này khi gửi email.
+
+Trân trọng,
+Hệ thống tuyển dụng tự động LG Electronics Việt Nam.`}
+              </div>
+
+              <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '12px', marginTop: '10px' }}>
+                <button 
+                  onClick={() => setEmailNotification(null)}
+                  className="btn-pill-secondary" 
+                  style={{ color: '#4a5568', borderColor: '#cbd5e0', padding: '8px 18px', fontSize: '13.5px', cursor: 'pointer' }}
+                >
+                  Đóng
+                </button>
+                <button 
+                  onClick={() => {
+                    const to = 'khanhthuy.nguyen@lge.com';
+                    const subject = encodeURIComponent(`[LG Careers] Ứng viên mới phát sinh - Vị trí: ${emailNotification.jobTitle}`);
+                    const body = encodeURIComponent(`Kính gửi Chị Khánh Thuỷ (HR Department),
+
+Hệ thống LG Careers ghi nhận có ứng viên mới ứng tuyển vào vị trí của chị quản lý.
+
+Dưới đây là thông tin ứng viên mới phát sinh (để trên bề mặt email):
+--------------------------------------------------
+- Họ và Tên: ${emailNotification.candidateName}
+- Email: ${emailNotification.email}
+- Số Điện Thoại: ${emailNotification.phone}
+- Thư giới thiệu: ${emailNotification.coverLetter || 'Không có'}
+- Tệp hồ sơ CV: ${emailNotification.cvFileName}
+- Ngày nộp: ${emailNotification.appliedAt}
+--------------------------------------------------
+
+* Hướng dẫn: Tệp Excel cộng dồn tất cả ứng viên của vị trí này từ đầu ngày tuyển dụng đã được tự động tải về máy của bạn. Vui lòng đính kèm tệp này khi gửi email.
+
+Trân trọng,
+Hệ thống tuyển dụng tự động LG Electronics Việt Nam.`);
+                    window.open(`mailto:${to}?subject=${subject}&body=${body}`, '_self');
+                  }}
+                  className="btn-pill-primary"
+                  style={{ padding: '8px 18px', fontSize: '13.5px', cursor: 'pointer' }}
+                >
+                  Mở Ứng Dụng Email (Gửi Ngay)
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

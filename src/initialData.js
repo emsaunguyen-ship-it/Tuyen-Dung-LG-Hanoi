@@ -5,6 +5,21 @@ import technicianIcon from './assets/technician_icon.png';
 
 export const initialJobs = [
   {
+    id: "job-lg-4",
+    title: "Kỹ thuật viên Dịch vụ Khách hàng (SVC Technician)",
+    company: "LG Electronics Việt Nam",
+    logo: technicianIcon,
+    location: "Đà Nẵng",
+    salary: "700 - 1,100 USD",
+    type: "Full-time",
+    level: "Junior",
+    industry: "Warranty Technician",
+    description: "Thực hiện lắp đặt, bảo dưỡng, sửa chữa và khắc phục các sự cố kỹ thuật đối với sản phẩm LG (Tivi, Tủ lạnh, Điều hòa, Máy giặt) tại nhà khách hàng hoặc tại trung tâm dịch vụ kỹ thuật của LG.",
+    requirements: "• Tốt nghiệp Trung cấp/Cao đẳng trở lên chuyên ngành Điện tử, Điện lạnh, Điện công nghiệp hoặc liên quan.\n• Ít nhất 1 năm kinh nghiệm sửa chữa thực tế các thiết bị gia dụng lớn (Home Appliances).\n• Thái độ làm việc trung thực, nhiệt tình, kỹ năng giao tiếp lịch sự với khách hàng.\n• Có phương tiện đi lại (xe máy) phục vụ công việc lưu động.",
+    benefits: "• Lương cứng ổn định + Phụ cấp xăng xe, điện thoại + Phụ cấp chuyên cần + Thưởng theo sản lượng SVC.\n• Được trang bị đầy đủ dụng cụ kỹ thuật cao cấp và đồng phục chính hãng.\n• Tham gia các khóa huấn luyện chuyên sâu định kỳ về công nghệ mới của LG.\n• Bảo hiểm tai nạn 24/7 và bảo hiểm y tế bắt buộc đầy đủ.",
+    postedAt: "2026-08-04"
+  },
+  {
     id: "job-lg-1",
     title: "Chuyên viên Mua hàng Tập trung (Marketing Procurement Specialist)",
     company: "LG Electronics Việt Nam",
@@ -47,21 +62,6 @@ export const initialJobs = [
     description: "Chịu trách nhiệm lập kế hoạch và thực thi các chiến dịch Retail Marketing tại các đại lý, siêu thị điện máy (Thế Giới Di Động, Điện Máy Xanh, Nguyễn Kim...). Quản lý khu vực trưng bày sản phẩm (Brand Shop, Shop-in-shop), thiết kế và triển khai vật phẩm quảng cáo POSM đảm bảo hình ảnh thương hiệu LG nổi bật nhất.",
     requirements: "• Tốt nghiệp Đại học chuyên ngành Marketing, Quản trị kinh doanh hoặc liên quan.\n• Tối thiểu 2 năm kinh nghiệm làm Retail Marketing, Trade Marketing trong ngành điện tử tiêu dùng, FMCG hoặc bán lẻ.\n• Kinh nghiệm quản lý nhà thầu sản xuất POSM, quản lý PG/PB và thi công điểm bán tốt.\n• Sẵn sàng đi công tác và di chuyển thị trường khi có yêu cầu.",
     benefits: "• Lương cơ bản cạnh tranh + Phụ cấp đi lại, điện thoại.\n• Bảo hiểm sức khỏe PVI cao cấp của LG.\n• Thưởng KPI hiệu suất theo chương trình bán hàng.\n• Cơ hội đào tạo chuyên sâu về kỹ năng Trade/Retail Marketing.",
-    postedAt: "2026-08-04"
-  },
-  {
-    id: "job-lg-4",
-    title: "Kỹ thuật viên Dịch vụ Khách hàng (SVC Technician)",
-    company: "LG Electronics Việt Nam",
-    logo: technicianIcon,
-    location: "Đà Nẵng",
-    salary: "700 - 1,100 USD",
-    type: "Full-time",
-    level: "Junior",
-    industry: "Customer Service",
-    description: "Thực hiện lắp đặt, bảo dưỡng, sửa chữa và khắc phục các sự cố kỹ thuật đối với sản phẩm LG (Tivi, Tủ lạnh, Điều hòa, Máy giặt) tại nhà khách hàng hoặc tại trung tâm dịch vụ kỹ thuật của LG.",
-    requirements: "• Tốt nghiệp Trung cấp/Cao đẳng trở lên chuyên ngành Điện tử, Điện lạnh, Điện công nghiệp hoặc liên quan.\n• Ít nhất 1 năm kinh nghiệm sửa chữa thực tế các thiết bị gia dụng lớn (Home Appliances).\n• Thái độ làm việc trung thực, nhiệt tình, kỹ năng giao tiếp lịch sự với khách hàng.\n• Có phương tiện đi lại (xe máy) phục vụ công việc lưu động.",
-    benefits: "• Lương cứng ổn định + Phụ cấp xăng xe, điện thoại + Phụ cấp chuyên cần + Thưởng theo sản lượng SVC.\n• Được trang bị đầy đủ dụng cụ kỹ thuật cao cấp và đồng phục chính hãng.\n• Tham gia các khóa huấn luyện chuyên sâu định kỳ về công nghệ mới của LG.\n• Bảo hiểm tai nạn 24/7 và bảo hiểm y tế bắt buộc đầy đủ.",
     postedAt: "2026-08-04"
   }
 ];
