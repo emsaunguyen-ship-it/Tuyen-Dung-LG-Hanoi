@@ -777,15 +777,7 @@ export default function JobBoard({ jobs, onSelectJob }) {
           </p>
         </div>
 
-        {/* Stats Bar */}
-        <div className="culture-stats-bar">
-          {lgStats.map((stat, i) => (
-            <div key={i} className="culture-stat-item">
-              <span className="stat-number">{stat.number}</span>
-              <span className="stat-label">{stat.label}</span>
-            </div>
-          ))}
-        </div>
+
 
         {/* Activities Grid */}
         <div className="culture-activities-grid">
