@@ -275,9 +275,18 @@ export default function JobBoard({ jobs, onSelectJob }) {
               <div 
                 key={circle.value} 
                 className={`category-circle-item ${isActive ? 'active' : ''}`}
+                role="button"
+                tabIndex={0}
+                aria-label={`Lọc theo ngành ${circle.label}`}
                 onClick={() => {
                   setIndustry(circle.value);
                   window.scrollTo({ top: 950, behavior: 'smooth' });
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    setIndustry(circle.value);
+                    window.scrollTo({ top: 950, behavior: 'smooth' });
+                  }
                 }}
               >
                 <div className="circle-icon-box">
@@ -769,6 +778,10 @@ export default function JobBoard({ jobs, onSelectJob }) {
                     alt={activity.title}
                     className="activity-img"
                     style={{ objectPosition: activity.imgPosition || 'center center' }}
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80';
+                    }}
                   />
                   <div className="activity-img-overlay" style={{ background: `linear-gradient(to bottom, transparent 40%, ${activity.color}22 100%)` }} />
                   <div className="activity-tag-overlay" style={{ color: activity.color, background: `${activity.color}18`, border: `1px solid ${activity.color}40` }}>

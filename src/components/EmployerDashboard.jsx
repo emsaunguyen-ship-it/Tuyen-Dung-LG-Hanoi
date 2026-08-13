@@ -303,7 +303,18 @@ Hệ thống tuyển dụng tự động LG Electronics Việt Nam.`;
                         <FileText size={18} className="cv-blue-icon" />
                         <span className="cv-filename-text">{app.cvFileName}</span>
                       </div>
-                      <a href="#" onClick={(e) => { e.preventDefault(); alert(`Tải xuống tệp giả lập: ${app.cvFileName}`); }} className="btn-download-cv" title="Tải xuống CV">
+                      <a 
+                        href={app.cvBase64 || '#'} 
+                        download={app.cvFileName}
+                        onClick={(e) => { 
+                          if (!app.cvBase64) {
+                            e.preventDefault(); 
+                            alert(`Đang mở xem hồ sơ CV đính kèm: ${app.cvFileName}`); 
+                          }
+                        }} 
+                        className="btn-download-cv" 
+                        title="Tải xuống CV"
+                      >
                         Tải xuống CV
                       </a>
                     </div>

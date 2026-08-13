@@ -34,11 +34,17 @@ export default function ApplyModal({ job, onClose, onSubmitApplication }) {
         setErrors(prev => ({ ...prev, cvFile: 'Tệp CV không được vượt quá 5MB.' }));
         return;
       }
-      setFormData(prev => ({
-        ...prev,
-        cvFile: file,
-        cvFileName: file.name
-      }));
+      const reader = new FileReader();
+      reader.onload = () => {
+        setFormData(prev => ({
+          ...prev,
+          cvFile: file,
+          cvFileName: file.name,
+          cvBase64: reader.result
+        }));
+      };
+      reader.readAsDataURL(file);
+
       if (errors.cvFile) {
         setErrors(prev => ({ ...prev, cvFile: null }));
       }
@@ -85,6 +91,7 @@ export default function ApplyModal({ job, onClose, onSubmitApplication }) {
         email: formData.email,
         phone: formData.phone,
         cvFileName: formData.cvFileName,
+        cvBase64: formData.cvBase64,
         coverLetter: formData.coverLetter,
         appliedAt: new Date().toISOString().split('T')[0],
         status: 'Pending'
