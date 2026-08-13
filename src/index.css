@@ -2231,7 +2231,7 @@ button {
 }
 
 .lg-vn-hero-section.seonhaeng-banner {
-  background: #000000 url("/lg_seonhaeng_clean.png") center/contain no-repeat;
+  background: #000000 url("lg_seonhaeng_clean.png") center/contain no-repeat;
   height: 480px;
   box-shadow: none; /* No shadow overlay needed for graphic banner */
 }

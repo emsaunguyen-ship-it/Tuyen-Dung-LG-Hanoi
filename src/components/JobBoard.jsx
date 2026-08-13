@@ -43,7 +43,7 @@ const lgActivities = [
     title: 'AI Sharing — Lan tỏa tri thức, cùng nhau phát triển',
     desc: 'Dự án đào tạo AI nội bộ (AX Project) do anh Bảo Nguyễn giảng dạy thu hút hơn 102 nhân viên tham gia qua 7 buổi học. Lớp học giúp nhân viên hiểu cách áp dụng AI để nâng tầm kinh nghiệm thực tế, giải tỏa nỗi lo bị thay thế và tăng hiệu suất làm việc.',
     color: '#2980b9',
-    img: '/ai_specialist_sharp.png',
+    img: 'ai_specialist_sharp.png',
     imgPosition: 'center 40%'
   },
   {
