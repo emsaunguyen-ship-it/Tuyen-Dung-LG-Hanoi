@@ -34,7 +34,7 @@ const lgActivities = [
     title: 'Talent Seeds — Ươm mầm tương lai xanh',
     desc: 'Cuộc thi nghệ thuật dành cho con em nhân viên LG. Tác phẩm đoạt giải Nhất của con gái chị Tuyết Nhung (bộ phận Mua hàng) mang thông điệp đầy cảm xúc "LG 2040 - Kiến tạo tương lai xanh cho hành tinh", mang lại niềm tự hào to lớn cho gia đình và tập thể LG.',
     color: '#e74c3c',
-    img: '/talent_seeds_drawing_sharp.jpg',
+    img: 'talent_seeds_drawing_sharp.jpg',
     imgPosition: 'center 40%'
   },
   {
