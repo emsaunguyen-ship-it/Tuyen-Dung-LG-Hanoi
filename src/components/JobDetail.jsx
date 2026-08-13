@@ -5,12 +5,31 @@ import svcTech1Img from '../assets/svc_tech_1.jpg';
 import svcTech2Img from '../assets/svc_tech_2.png';
 import svcTech3Img from '../assets/svc_tech_3.jpg';
 import svcTech4Img from '../assets/svc_tech_4.png';
+import lgTechnicianImg from '../assets/lg_technician.png';
+import lgTeamGroupImg from '../assets/lg_team_group.jpg';
 
 export default function JobDetail({ job, onBack, onApply }) {
   if (!job) return null;
 
   return (
     <div className="job-detail-container">
+      {/* Decorative Side Banners on Left & Right Margins */}
+      <div className="detail-side-banner frame-left">
+        <img src={lgTechnicianImg} alt="Kỹ thuật viên LG" />
+        <div className="side-banner-caption">
+          <span className="side-banner-tag">Kỹ Thuật Viên LG</span>
+          <p>Đội ngũ Chuyên gia Đạt chuẩn Quốc tế</p>
+        </div>
+      </div>
+
+      <div className="detail-side-banner frame-right">
+        <img src={lgTeamGroupImg} alt="Đội ngũ Dịch vụ LG" />
+        <div className="side-banner-caption">
+          <span className="side-banner-tag">Life's Good</span>
+          <p>Môi trường Làm việc Chuyên nghiệp & Tận tâm</p>
+        </div>
+      </div>
+
       {/* Back Button */}
       <button className="btn-back-link" onClick={onBack}>
         <ArrowLeft size={16} />

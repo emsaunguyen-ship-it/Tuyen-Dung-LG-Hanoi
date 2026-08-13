@@ -3912,3 +3912,100 @@ button {
     grid-template-columns: 1fr;
   }
 }
+
+/* Side Floating Banner Cards for Job Details Page */
+.job-detail-container {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.detail-side-banner {
+  position: fixed;
+  top: 150px;
+  width: 210px;
+  height: 320px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  z-index: 5;
+  transition: all 0.35s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-side-banner.frame-left {
+  left: calc((100vw - 1200px) / 2 - 230px);
+}
+
+.detail-side-banner.frame-right {
+  right: calc((100vw - 1200px) / 2 - 230px);
+}
+
+@media (max-width: 1680px) {
+  .detail-side-banner.frame-left {
+    left: 15px;
+  }
+  .detail-side-banner.frame-right {
+    right: 15px;
+  }
+}
+
+@media (max-width: 1380px) {
+  .detail-side-banner {
+    display: none !important;
+  }
+}
+
+.detail-side-banner img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.detail-side-banner:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary);
+  box-shadow: 0 18px 40px rgba(165, 0, 52, 0.2);
+}
+
+.detail-side-banner:hover img {
+  transform: scale(1.06);
+}
+
+.side-banner-caption {
+  padding: 12px;
+  text-align: center;
+  background-color: var(--bg-card);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid var(--border);
+}
+
+.side-banner-tag {
+  display: inline-block;
+  font-size: 9.5px;
+  font-weight: 800;
+  color: var(--primary);
+  background: rgba(165, 0, 52, 0.08);
+  padding: 2px 8px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.side-banner-caption p {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--text-main);
+  line-height: 1.35;
+  margin: 0;
+}
