@@ -206,7 +206,7 @@ export default function JobBoard({ jobs, onSelectJob }) {
       {/* Floating GNB Search Bar Overlay */}
       <div className="search-bar-overlay">
         <div className="search-input-group">
-          <Search className="input-icon" size={18} />
+          <Search className="input-icon" size={16} />
           <input 
             type="text" 
             placeholder="Tên công việc, từ khoá tuyển dụng..."
@@ -217,7 +217,7 @@ export default function JobBoard({ jobs, onSelectJob }) {
         </div>
         
         <div className="search-input-group select-group">
-          <MapPin className="input-icon" size={18} />
+          <MapPin className="input-icon" size={16} />
           <select 
             value={location} 
             onChange={(e) => setLocation(e.target.value)}
@@ -235,7 +235,7 @@ export default function JobBoard({ jobs, onSelectJob }) {
           onClick={() => {
             window.scrollTo({ top: 950, behavior: 'smooth' });
           }}
-          style={{ height: '52px', borderRadius: '30px' }}
+          style={{ height: '40px', borderRadius: '30px' }}
         >
           Tìm kiếm
         </button>

@@ -12,15 +12,15 @@
   --accent-hover: #e02220;
   --accent-light: #f0ece4;
   
-  --bg-main: #f9f9f7;
-  --bg-card: #ffffff;
-  --bg-footer: #111111;
+  --bg-main: #f4f0ea;
+  --bg-card: #faf7f2;
+  --bg-footer: #181715;
   
-  --text-main: #111111;
-  --text-secondary: #444444;
-  --text-muted: #8c8c88;
+  --text-main: #1c1b18;
+  --text-secondary: #4a4740;
+  --text-muted: #8c877e;
   
-  --border: #e5e5e0;
+  --border: #e2dacd;
   --border-focus: #a50034;
   
   --success: #10b981;
@@ -301,12 +301,12 @@ button {
   display: flex;
   align-items: center;
   flex: 2;
-  min-width: 200px;
-  background-color: #f9fafb;
+  min-width: 150px;
+  background-color: #efebe4;
   border: 1px solid var(--border);
-  border-radius: var(--radius-md);
+  border-radius: 30px;
   padding: 0 12px;
-  height: 52px;
+  height: 40px;
   transition: var(--transition);
 }
 
@@ -348,14 +348,14 @@ button {
 
 .btn-search-submit {
   background-color: var(--accent);
-  color: var(--bg-card);
-  font-size: 15px;
+  color: #ffffff;
+  font-size: 13.5px;
   font-weight: 700;
-  padding: 0 28px;
-  border-radius: var(--radius-md);
-  height: 52px;
+  padding: 0 22px;
+  border-radius: 30px;
+  height: 40px;
   transition: var(--transition);
-  min-width: 120px;
+  min-width: 100px;
 }
 
 .btn-search-submit:hover {
@@ -2337,14 +2337,14 @@ button {
 
 /* Floating Search Bar below Hero */
 .search-bar-overlay {
-  background-color: #ffffff;
-  border-radius: var(--radius-xl);
-  padding: 16px;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+  background-color: var(--bg-card);
+  border-radius: 40px;
+  padding: 6px 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   display: flex;
-  gap: 12px;
-  max-width: 1000px;
-  margin: -40px auto 50px;
+  gap: 8px;
+  max-width: 680px;
+  margin: -25px auto 40px;
   position: relative;
   z-index: 10;
   border: 1px solid var(--border);
