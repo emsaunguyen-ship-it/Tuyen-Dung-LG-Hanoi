@@ -225,41 +225,43 @@ export default function JobBoard({ jobs, onSelectJob }) {
       </section>
 
       {/* Floating GNB Search Bar Overlay */}
-      <div className="search-bar-overlay">
-        <div className="search-input-group">
-          <Search className="input-icon" size={16} />
-          <input 
-            type="text" 
-            placeholder="Tên công việc, từ khoá tuyển dụng..."
-            value={keyword}
-            onChange={(e) => setKeyword(e.target.value)}
-            className="search-input"
-          />
-        </div>
-        
-        <div className="search-input-group select-group">
-          <MapPin className="input-icon" size={16} />
-          <select 
-            value={location} 
-            onChange={(e) => setLocation(e.target.value)}
-            className="search-select"
-          >
-            <option value="All">Tất cả địa điểm</option>
-            {locations.filter(loc => loc !== 'All').map(loc => (
-              <option key={loc} value={loc}>{loc}</option>
-            ))}
-          </select>
-        </div>
+      <div className="search-bar-container container">
+        <div className="search-bar-overlay">
+          <div className="search-input-group">
+            <Search className="input-icon" size={16} />
+            <input 
+              type="text" 
+              placeholder="Tên công việc, từ khoá tuyển dụng..."
+              value={keyword}
+              onChange={(e) => setKeyword(e.target.value)}
+              className="search-input"
+            />
+          </div>
+          
+          <div className="search-input-group select-group">
+            <MapPin className="input-icon" size={16} />
+            <select 
+              value={location} 
+              onChange={(e) => setLocation(e.target.value)}
+              className="search-select"
+            >
+              <option value="All">Tất cả địa điểm</option>
+              {locations.filter(loc => loc !== 'All').map(loc => (
+                <option key={loc} value={loc}>{loc}</option>
+              ))}
+            </select>
+          </div>
 
-        <button 
-          className="btn-search-submit"
-          onClick={() => {
-            window.scrollTo({ top: 950, behavior: 'smooth' });
-          }}
-          style={{ height: '40px', borderRadius: '30px' }}
-        >
-          Tìm kiếm
-        </button>
+          <button 
+            className="btn-search-submit"
+            onClick={() => {
+              window.scrollTo({ top: 950, behavior: 'smooth' });
+            }}
+            style={{ height: '40px', borderRadius: '30px' }}
+          >
+            Tìm kiếm
+          </button>
+        </div>
       </div>
 
       {/* Category Circles (LG VN Category Icons Style) */}
