@@ -2955,7 +2955,7 @@ button {
 
 .lg-culture-section {
   padding: 80px 40px;
-  background: linear-gradient(180deg, #09090b 0%, #0f172a 60%, #09090b 100%);
+  background-color: var(--bg-main);
   position: relative;
   overflow: hidden;
 }
@@ -2968,7 +2968,7 @@ button {
   transform: translateX(-50%);
   width: 800px;
   height: 800px;
-  background: radial-gradient(ellipse at center, rgba(162, 28, 28, 0.12) 0%, transparent 70%);
+  background: radial-gradient(ellipse at center, rgba(165, 0, 52, 0.08) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -2985,9 +2985,9 @@ button {
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #a21c1c;
-  background: rgba(162, 28, 28, 0.12);
-  border: 1px solid rgba(162, 28, 28, 0.3);
+  color: var(--primary);
+  background: rgba(165, 0, 52, 0.08);
+  border: 1px solid rgba(165, 0, 52, 0.2);
   padding: 5px 16px;
   border-radius: 50px;
   margin-bottom: 18px;
@@ -2996,7 +2996,7 @@ button {
 .culture-main-title {
   font-size: clamp(28px, 4vw, 42px);
   font-weight: 800;
-  color: #ffffff;
+  color: var(--text-main);
   letter-spacing: -1px;
   line-height: 1.15;
   margin: 0 0 16px;
@@ -3004,7 +3004,7 @@ button {
 
 .culture-subtitle {
   font-size: 15px;
-  color: #a1a1aa;
+  color: var(--text-secondary);
   line-height: 1.7;
   margin: 0;
 }
@@ -3014,8 +3014,8 @@ button {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--border);
+  border: 1px solid var(--border);
   border-radius: 16px;
   overflow: hidden;
   max-width: 900px;
@@ -3028,26 +3028,26 @@ button {
   align-items: center;
   justify-content: center;
   padding: 28px 20px;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--bg-card);
   gap: 6px;
   transition: background 0.2s ease;
 }
 
 .culture-stat-item:hover {
-  background: rgba(162, 28, 28, 0.08);
+  background: rgba(165, 0, 52, 0.04);
 }
 
 .stat-number {
   font-size: 32px;
   font-weight: 800;
-  color: #ffffff;
+  color: var(--primary);
   letter-spacing: -1px;
   line-height: 1;
 }
 
 .stat-label {
   font-size: 12px;
-  color: #71717a;
+  color: var(--text-secondary);
   text-align: center;
   line-height: 1.4;
   font-weight: 500;
@@ -3057,37 +3057,40 @@ button {
 .culture-activities-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 24px;
   max-width: 1100px;
   margin: 0 auto;
 }
+
 .culture-activity-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: 18px;
   padding: 0;
   overflow: hidden;
-  transition: all 0.25s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
   gap: 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
 }
 
 .culture-activity-card:hover {
-  background: rgba(255, 255, 255, 0.07);
-  border-color: rgba(255, 255, 255, 0.14);
-  transform: translateY(-4px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  background: var(--bg-card);
+  border-color: var(--primary);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 35px rgba(165, 0, 52, 0.12);
 }
 
 /* Image at top of card */
 .activity-img-wrap {
   position: relative;
   width: 100%;
-  height: 160px;
+  height: 180px;
   overflow: hidden;
   border-radius: 18px 18px 0 0;
   flex-shrink: 0;
+  background-color: var(--border);
 }
 
 .activity-img {
@@ -3095,11 +3098,11 @@ button {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.4s ease;
+  transition: transform 0.5s ease;
 }
 
 .culture-activity-card:hover .activity-img {
-  transform: scale(1.06);
+  transform: scale(1.08);
 }
 
 .activity-img-overlay {
@@ -3110,30 +3113,31 @@ button {
 
 .activity-tag-overlay {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
+  top: 12px;
+  left: 12px;
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 1px;
   text-transform: uppercase;
-  padding: 3px 10px;
+  padding: 4px 12px;
   border-radius: 50px;
   backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
 /* Card body */
 .activity-card-body {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 18px 18px 20px;
+  gap: 12px;
+  padding: 20px;
   flex: 1;
 }
 
 .activity-icon-wrap {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3141,16 +3145,16 @@ button {
 }
 
 .activity-title {
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
-  color: #f4f4f5;
+  color: var(--text-main);
   margin: 0;
   line-height: 1.35;
 }
 
 .activity-desc {
-  font-size: 12.5px;
-  color: #a1a1aa;
+  font-size: 13px;
+  color: var(--text-secondary);
   line-height: 1.65;
   margin: 0;
 }
