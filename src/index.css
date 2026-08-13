@@ -12,15 +12,15 @@
   --accent-hover: #e02220;
   --accent-light: #f0ece4;
   
-  --bg-main: #f4f0ea;
-  --bg-card: #faf7f2;
+  --bg-main: #f0ece4;
+  --bg-card: #f0ece4;
   --bg-footer: #181715;
   
   --text-main: #1c1b18;
   --text-secondary: #4a4740;
   --text-muted: #8c877e;
   
-  --border: #e2dacd;
+  --border: #dcd5c7;
   --border-focus: #a50034;
   
   --success: #10b981;
@@ -302,7 +302,7 @@ button {
   align-items: center;
   flex: 2;
   min-width: 150px;
-  background-color: #efebe4;
+  background-color: #e6e0d4;
   border: 1px solid var(--border);
   border-radius: 30px;
   padding: 0 12px;
@@ -2108,7 +2108,7 @@ button {
 
 /* Utility top bar on Header */
 .header-top-utility-bar {
-  background-color: #f7f7f7;
+  background-color: #e6e0d4;
   border-bottom: 1px solid var(--border);
   height: 34px;
   display: flex;
@@ -2388,12 +2388,12 @@ button {
   width: 84px;
   height: 84px;
   border-radius: 50%;
-  border: 1.5px solid #e2e8f0;
+  border: 1.5px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #4b5563;
-  background-color: #ffffff;
+  background-color: var(--bg-card);
   transition: var(--transition);
   box-shadow: 0 4px 10px rgba(0,0,0,0.02);
 }
@@ -2460,7 +2460,7 @@ button {
 
 /* LG Product Card design */
 .lg-product-card {
-  background-color: #ffffff;
+  background-color: var(--bg-card);
   border-radius: var(--radius-md);
   border: 1px solid var(--border);
   padding: 24px 20px 20px;
@@ -2512,7 +2512,7 @@ button {
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 6px;
-  background-color: #ffffff;
+  background-color: var(--bg-card);
 }
 
 .lg-card-title {
