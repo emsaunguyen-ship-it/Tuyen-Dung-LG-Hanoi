@@ -66,6 +66,50 @@ export default function App() {
   // Sync state changes to LocalStorage
   useEffect(() => {
     localStorage.setItem('lg_careers_jobs', JSON.stringify(jobs));
+
+    // Dynamically inject Google Jobs Schema.org JSON-LD for SEO & ATS crawlers
+    const existingScript = document.getElementById('google-jobs-schema');
+    if (existingScript) existingScript.remove();
+
+    const script = document.createElement('script');
+    script.id = 'google-jobs-schema';
+    script.type = 'application/ld+json';
+
+    const jobPostingSchema = jobs.map(job => ({
+      "@context": "https://schema.org/",
+      "@type": "JobPosting",
+      "title": job.title,
+      "description": job.description,
+      "datePosted": "2026-08-01",
+      "validThrough": "2026-12-31",
+      "employmentType": job.type === 'Full-time' ? 'FULL_TIME' : 'PART_TIME',
+      "hiringOrganization": {
+        "@type": "Organization",
+        "name": job.company,
+        "sameAs": "https://www.lg.com/vn",
+        "logo": "https://emsaunguyen-ship-it.github.io/Tuyen-Dung-LG-Hanoi/lg_seonhaeng_clean.png"
+      },
+      "jobLocation": {
+        "@type": "Place",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": job.location,
+          "addressCountry": "VN"
+        }
+      },
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "USD",
+        "value": {
+          "@type": "QuantitativeValue",
+          "value": job.salary,
+          "unitText": "MONTH"
+        }
+      }
+    }));
+
+    script.textContent = JSON.stringify(jobPostingSchema);
+    document.head.appendChild(script);
   }, [jobs]);
 
   useEffect(() => {

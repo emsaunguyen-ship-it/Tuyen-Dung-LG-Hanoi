@@ -168,14 +168,36 @@ export default function JobBoard({ jobs, onSelectJob }) {
     return true;
   };
 
-  // Filtered jobs memo
+  // Filtered jobs memo with AI Semantic Synonym Expansion
   const filteredJobs = useMemo(() => {
+    const synonymsMap = {
+      'ai': ['trí tuệ nhân tạo', 'machine learning', 'ax project', 'smart', 'intelligence'],
+      'trí tuệ nhân tạo': ['ai', 'machine learning', 'ax project', 'smart', 'intelligence'],
+      'mua hàng': ['procurement', 'purchasing', 'scm', 'cung ứng', 'buyer'],
+      'procurement': ['mua hàng', 'purchasing', 'scm', 'cung ứng', 'buyer'],
+      'bán hàng': ['sales', 'marketing', 'retail', 'kinh doanh', 'thương mại'],
+      'sales': ['bán hàng', 'marketing', 'retail', 'kinh doanh', 'thương mại'],
+      'kỹ thuật': ['technician', 'kỹ sư', 'engineer', 'bảo hành', 'service'],
+      'kỹ sư': ['technician', 'kỹ thuật', 'engineer', 'bảo hành', 'service'],
+      'engineer': ['technician', 'kỹ thuật', 'kỹ sư', 'bảo hành', 'service'],
+      'tài chính': ['finance', 'kế toán', 'accounting', 'ngân sách'],
+      'finance': ['tài chính', 'kế toán', 'accounting', 'ngân sách']
+    };
+
+    const kw = keyword.toLowerCase().trim();
+    let searchTerms = [kw];
+    
+    if (kw) {
+      Object.keys(synonymsMap).forEach(key => {
+        if (kw.includes(key)) {
+          searchTerms = [...searchTerms, ...synonymsMap[key]];
+        }
+      });
+    }
+
     return jobs.filter(job => {
-      const matchesKeyword = 
-        job.title.toLowerCase().includes(keyword.toLowerCase()) ||
-        job.company.toLowerCase().includes(keyword.toLowerCase()) ||
-        job.description.toLowerCase().includes(keyword.toLowerCase()) ||
-        job.industry.toLowerCase().includes(keyword.toLowerCase());
+      const fullJobText = `${job.title} ${job.company} ${job.description} ${job.industry} ${job.location} ${(job.requirements || []).join(' ')}`.toLowerCase();
+      const matchesKeyword = !kw || searchTerms.some(term => fullJobText.includes(term));
 
       const matchesLocation = location === 'All' || job.location === location;
       const matchesIndustry = industry === 'All' || job.industry === industry;
