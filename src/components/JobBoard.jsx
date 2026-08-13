@@ -26,6 +26,27 @@ import {
   Leaf
 } from 'lucide-react';
 
+// Import Activity & Media Assets
+import talentSeedsImg from '../assets/talent_seeds_drawing_sharp.jpg';
+import aiSpecialistImg from '../assets/ai_specialist_sharp.png';
+import warroomContestImg from '../assets/warroom_contest_sharp.jpg';
+import lgGramLaunchImg from '../assets/media__1786502028937.png';
+import lgBestCareImg from '../assets/media__1786502073031.png';
+import affectionateAiImg from '../assets/media__1786501969961.png';
+
+import lgAnniversaryThumb from '../assets/lg_anniversary_youtube_thumb.jpg';
+import lgInsiderEp1Thumb from '../assets/lg_insider_youtube_thumb.jpg';
+import lgInsiderEp2Thumb from '../assets/lg_insider_ep2_thumb.jpg';
+import lgInsiderEp3Thumb from '../assets/lg_insider_ep3_thumb.jpg';
+
+import post01Img from '../assets/post_01.png';
+import post02Img from '../assets/post_02.png';
+import post03Img from '../assets/post_03.png';
+import post04Img from '../assets/post_04.png';
+import post05Img from '../assets/post_05.png';
+import post06Img from '../assets/post_06.png';
+import post07Img from '../assets/post_07.png';
+
 // LG Vietnam Activities Data — sourced from Monthly Newsletter July 2026
 const lgActivities = [
   {
@@ -34,7 +55,7 @@ const lgActivities = [
     title: 'Talent Seeds — Ươm mầm tương lai xanh',
     desc: 'Cuộc thi nghệ thuật dành cho con em nhân viên LG. Tác phẩm đoạt giải Nhất của con gái chị Tuyết Nhung (bộ phận Mua hàng) mang thông điệp đầy cảm xúc "LG 2040 - Kiến tạo tương lai xanh cho hành tinh", mang lại niềm tự hào to lớn cho gia đình và tập thể LG.',
     color: '#e74c3c',
-    img: 'talent_seeds_drawing_sharp.jpg',
+    img: talentSeedsImg,
     imgPosition: 'center 40%'
   },
   {
@@ -43,7 +64,7 @@ const lgActivities = [
     title: 'AI Sharing — Lan tỏa tri thức, cùng nhau phát triển',
     desc: 'Dự án đào tạo AI nội bộ (AX Project) do anh Bảo Nguyễn giảng dạy thu hút hơn 102 nhân viên tham gia qua 7 buổi học. Lớp học giúp nhân viên hiểu cách áp dụng AI để nâng tầm kinh nghiệm thực tế, giải tỏa nỗi lo bị thay thế và tăng hiệu suất làm việc.',
     color: '#2980b9',
-    img: 'ai_specialist_sharp.png',
+    img: aiSpecialistImg,
     imgPosition: 'center 40%'
   },
   {
@@ -52,7 +73,7 @@ const lgActivities = [
     title: '1H 2026 WAR ROOM Contest',
     desc: 'Cuộc thi nội bộ kéo dài 8 tuần — nơi mọi nhân viên đều có thể gửi ý tưởng đột phá để cải thiện hiệu quả vận hành và kinh doanh. Hàng chục giải thưởng được trao trực tiếp từ Ban Giám Đốc. Đây là phong trào hiện thực hóa tinh thần "Bring Ideas Together, Change Our Actions."',
     color: '#e67e22',
-    img: 'warroom_contest_sharp.jpg',
+    img: warroomContestImg,
     imgPosition: 'center 20%'
   },
   {
@@ -61,7 +82,7 @@ const lgActivities = [
     title: 'Ra mắt LG gram AI 2026 — TP. Hồ Chí Minh',
     desc: 'Ngày 29/07/2026, LG Electronics Vietnam ra mắt dòng laptop LG gram AI tại TP. HCM — chiếc laptop đầu tiên tích hợp Dual AI và vật liệu aerominium siêu nhẹ. Nhân viên được tham gia sự kiện, trải nghiệm sản phẩm và là những người đại diện đầu tiên giới thiệu công nghệ đến khách hàng.',
     color: '#8e44ad',
-    img: 'media__1786502028937.png',
+    img: lgGramLaunchImg,
     imgPosition: 'center 15%'
   },
   {
@@ -70,7 +91,7 @@ const lgActivities = [
     title: 'LG Best Care — Khám phá dịch vụ tại Hà Nội',
     desc: `Ngày 18–19/07/2026, LG tổ chức sự kiện LG Best Care tại Vincom Mega Mall Royal City (Hà Nội): demo sản phẩm thực tế, tư vấn kỹ thuật trực tiếp, workshop không bán hàng và trải nghiệm Life's Good đích thực. Nhân viên đồng hành cùng đội ngũ Customer-Centric đem lại giá trị thực cho người tiêu dùng.`,
     color: '#27ae60',
-    img: 'media__1786502073031.png',
+    img: lgBestCareImg,
     imgPosition: 'center 5%'
   },
   {
@@ -79,7 +100,7 @@ const lgActivities = [
     title: 'Affectionate Intelligence — AI vào thực chiến',
     desc: 'LG Electronics triển khai ứng dụng AI nội bộ "Affectionate Intelligence" — cho phép nhân viên quét sản phẩm, tra cứu thông tin kỹ thuật và cá nhân hóa trải nghiệm bán hàng theo thời gian thực. Đây là bước cụ thể hóa chiến lược AI toàn cầu của LG ngay tại thị trường Việt Nam.',
     color: '#c0392b',
-    img: 'media__1786501969961.png',
+    img: affectionateAiImg,
     imgPosition: 'center 30%'
   }
 ];
@@ -469,7 +490,7 @@ export default function JobBoard({ jobs, onSelectJob }) {
               rel="noopener noreferrer" 
               className="media-video-mockup"
             >
-              <img src="lg_anniversary_youtube_thumb.jpg" alt="LG 30 Years Anniversary" className="media-thumbnail" />
+              <img src={lgAnniversaryThumb} alt="LG 30 Years Anniversary" className="media-thumbnail" />
               <div className="media-play-overlay">
                 <Play size={28} fill="#ffffff" />
               </div>
@@ -499,7 +520,7 @@ export default function JobBoard({ jobs, onSelectJob }) {
               rel="noopener noreferrer" 
               className="media-video-mockup"
             >
-              <img src="lg_insider_youtube_thumb.jpg" alt="LG Insider Ep 1" className="media-thumbnail" />
+              <img src={lgInsiderEp1Thumb} alt="LG Insider Ep 1" className="media-thumbnail" />
               <div className="media-play-overlay">
                 <Play size={28} fill="#ffffff" />
               </div>
@@ -529,7 +550,7 @@ export default function JobBoard({ jobs, onSelectJob }) {
               rel="noopener noreferrer" 
               className="media-video-mockup"
             >
-              <img src="lg_insider_ep2_thumb.jpg" alt="LG Insider Ep 2" className="media-thumbnail" />
+              <img src={lgInsiderEp2Thumb} alt="LG Insider Ep 2" className="media-thumbnail" />
               <div className="media-play-overlay">
                 <Play size={28} fill="#ffffff" />
               </div>
@@ -559,7 +580,7 @@ export default function JobBoard({ jobs, onSelectJob }) {
               rel="noopener noreferrer" 
               className="media-video-mockup"
             >
-              <img src="lg_insider_ep3_thumb.jpg" alt="LG Insider Ep 3" className="media-thumbnail" />
+              <img src={lgInsiderEp3Thumb} alt="LG Insider Ep 3" className="media-thumbnail" />
               <div className="media-play-overlay">
                 <Play size={28} fill="#ffffff" />
               </div>
@@ -592,45 +613,45 @@ export default function JobBoard({ jobs, onSelectJob }) {
 
           <div className="insiders-quotes-grid">
             {/* Card 1 */}
-            <div className="quote-card-item" onClick={() => setActiveQuoteZoom('post_01.png')} style={{ cursor: 'zoom-in' }}>
+            <div className="quote-card-item" onClick={() => setActiveQuoteZoom(post01Img)} style={{ cursor: 'zoom-in' }}>
               <div className="quote-card-inner">
-                <img src="post_01.png" alt="LG Insider Quote 1" />
+                <img src={post01Img} alt="LG Insider Quote 1" />
               </div>
             </div>
             {/* Card 2 */}
-            <div className="quote-card-item" onClick={() => setActiveQuoteZoom('post_02.png')} style={{ cursor: 'zoom-in' }}>
+            <div className="quote-card-item" onClick={() => setActiveQuoteZoom(post02Img)} style={{ cursor: 'zoom-in' }}>
               <div className="quote-card-inner">
-                <img src="post_02.png" alt="LG Insider Quote 2" />
+                <img src={post02Img} alt="LG Insider Quote 2" />
               </div>
             </div>
             {/* Card 3 */}
-            <div className="quote-card-item" onClick={() => setActiveQuoteZoom('post_03.png')} style={{ cursor: 'zoom-in' }}>
+            <div className="quote-card-item" onClick={() => setActiveQuoteZoom(post03Img)} style={{ cursor: 'zoom-in' }}>
               <div className="quote-card-inner">
-                <img src="post_03.png" alt="LG Insider Quote 3" />
+                <img src={post03Img} alt="LG Insider Quote 3" />
               </div>
             </div>
             {/* Card 4 */}
-            <div className="quote-card-item" onClick={() => setActiveQuoteZoom('post_04.png')} style={{ cursor: 'zoom-in' }}>
+            <div className="quote-card-item" onClick={() => setActiveQuoteZoom(post04Img)} style={{ cursor: 'zoom-in' }}>
               <div className="quote-card-inner">
-                <img src="post_04.png" alt="LG Insider Quote 4" />
+                <img src={post04Img} alt="LG Insider Quote 4" />
               </div>
             </div>
             {/* Card 5 */}
-            <div className="quote-card-item" onClick={() => setActiveQuoteZoom('post_05.png')} style={{ cursor: 'zoom-in' }}>
+            <div className="quote-card-item" onClick={() => setActiveQuoteZoom(post05Img)} style={{ cursor: 'zoom-in' }}>
               <div className="quote-card-inner">
-                <img src="post_05.png" alt="LG Insider Quote 5" />
+                <img src={post05Img} alt="LG Insider Quote 5" />
               </div>
             </div>
             {/* Card 6 */}
-            <div className="quote-card-item" onClick={() => setActiveQuoteZoom('post_06.png')} style={{ cursor: 'zoom-in' }}>
+            <div className="quote-card-item" onClick={() => setActiveQuoteZoom(post06Img)} style={{ cursor: 'zoom-in' }}>
               <div className="quote-card-inner">
-                <img src="post_06.png" alt="LG Insider Quote 6" />
+                <img src={post06Img} alt="LG Insider Quote 6" />
               </div>
             </div>
             {/* Card 7 */}
-            <div className="quote-card-item" onClick={() => setActiveQuoteZoom('post_07.png')} style={{ cursor: 'zoom-in' }}>
+            <div className="quote-card-item" onClick={() => setActiveQuoteZoom(post07Img)} style={{ cursor: 'zoom-in' }}>
               <div className="quote-card-inner">
-                <img src="post_07.png" alt="LG Insider Quote 7" />
+                <img src={post07Img} alt="LG Insider Quote 7" />
               </div>
             </div>
           </div>
