@@ -2351,7 +2351,7 @@ button {
   gap: 8px;
   max-width: 680px;
   width: 100%;
-  margin: -25px 0 40px 0;
+  margin: 28px 0 35px 0;
   position: relative;
   z-index: 10;
   border: 1px solid var(--border);
