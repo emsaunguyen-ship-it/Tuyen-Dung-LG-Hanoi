@@ -305,6 +305,12 @@ export default function ApplyModal({ job, onClose, onSubmitApplication }) {
             <p className="success-message">
               {t('applySuccessMessage')}
             </p>
+            <div className="success-drive-sync" style={{ backgroundColor: '#f0fdf4', color: '#166534', border: '1px solid #bbf7d0', padding: '10px 14px', borderRadius: '10px', fontSize: '12.5px', fontWeight: 600, margin: '12px 0', textAlign: 'left' }}>
+              <ShieldCheck size={16} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '6px', color: '#16a34a' }} />
+              {lang === 'vi' 
+                ? 'Hồ sơ CV của bạn đã được đồng bộ tự động vào Thư mục Google Drive Nhà tuyển dụng LG (Folder ID: 1SOKEEiGnYrl-F8A95RZ46oSVh6NQw-eA)' 
+                : 'Your CV & profile are automatically synced to LG Recruiter Google Drive Folder'}
+            </div>
             <p className="success-subtext">
               <ShieldCheck size={14} style={{ display: 'inline', verticalAlign: 'middle', marginRight: '4px', color: '#A50034' }} />
               {lang === 'vi' ? 'Bộ phận Nhân sự LG sẽ liên hệ trực tiếp với bạn qua Email hoặc Số điện thoại trong thời gian sớm nhất.' : 'LG Talent Acquisition Team will contact you via Email or Phone shortly.'}
