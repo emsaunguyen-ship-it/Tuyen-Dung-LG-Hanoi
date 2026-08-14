@@ -39,6 +39,7 @@ import lgGramLaunchImg from '../assets/media__1786502028937.webp';
 import lgBestCareImg from '../assets/media__1786502073031.webp';
 import affectionateAiImg from '../assets/media__1786501969961.webp';
 import CVTemplatesSection from './CVTemplatesSection';
+import { useLanguage } from '../LanguageContext';
 
 import lgAnniversaryThumb from '../assets/lg_anniversary_youtube_thumb.webp';
 import lgInsiderEp1Thumb from '../assets/lg_insider_youtube_thumb.webp';
@@ -120,12 +121,10 @@ const lgStats = [
 ];
 
 export default function JobBoard({ jobs, onSelectJob }) {
-  // Search state
+  const { lang, t } = useLanguage();
   const [keyword, setKeyword] = useState('');
   const [location, setLocation] = useState('All');
   const [industry, setIndustry] = useState('All');
-
-  // Filter state
   const [salaryFilter, setSalaryFilter] = useState('All');
   const [typeFilter, setTypeFilter] = useState('All');
   const [levelFilter, setLevelFilter] = useState('All');
@@ -239,15 +238,15 @@ export default function JobBoard({ jobs, onSelectJob }) {
               <span className="brand-text-white">.</span>
             </span>
             <span className="hero-anniversary-tag-light">
-              🎉 LG Vietnam 31st Anniversary
+              {t('anniversaryTag')}
             </span>
           </div>
           <h1 className="hero-main-title-light">
-            <span className="hero-title-single-line">CÙNG LG KIẾN TẠO</span>
-            <span className="text-highlight-red">CUỘC SỐNG TỐT ĐẸP HƠN</span>
+            <span className="hero-title-single-line">{t('heroTitleLine1')}</span>
+            <span className="text-highlight-red">{t('heroTitleLine2')}</span>
           </h1>
           <p className="hero-desc-light">
-            Kỷ niệm 31 năm LG đồng hành cùng Việt Nam! Khám phá cơ hội nghề nghiệp bứt phá tại Tập đoàn công nghệ hàng đầu thế giới.
+            {t('heroDesc')}
           </p>
           <div className="hero-btn-row">
             <button 
@@ -256,13 +255,13 @@ export default function JobBoard({ jobs, onSelectJob }) {
                 window.scrollTo({ top: 650, behavior: 'smooth' });
               }}
             >
-              Tìm việc ngay
+              {t('btnFindJobsNow')}
             </button>
             <button 
               className="btn-pill-outline-lg"
-              onClick={() => alert('Văn hóa LG "Life\'s Good" chào đón bạn đến với môi trường làm việc sáng tạo, cởi mở và tràn đầy năng lượng!')}
+              onClick={() => alert(lang === 'vi' ? 'Văn hóa LG "Life\'s Good" chào đón bạn đến với môi trường làm việc sáng tạo, cởi mở và tràn đầy năng lượng!' : 'LG "Life\'s Good" culture welcomes you to a creative, open, and energetic work environment!')}
             >
-              Về văn hóa LG
+              {t('btnAboutCulture')}
             </button>
           </div>
         </div>
@@ -275,7 +274,7 @@ export default function JobBoard({ jobs, onSelectJob }) {
             <Search className="input-icon" size={16} />
             <input 
               type="text" 
-              placeholder="Tên công việc, từ khoá tuyển dụng..."
+              placeholder={t('searchKeywordPlaceholder')}
               value={keyword}
               onChange={(e) => setKeyword(e.target.value)}
               className="search-input"
@@ -289,7 +288,7 @@ export default function JobBoard({ jobs, onSelectJob }) {
               onChange={(e) => setLocation(e.target.value)}
               className="search-select"
             >
-              <option value="All">Tất cả địa điểm</option>
+              <option value="All">{t('allLocations')}</option>
               {locations.filter(loc => loc !== 'All').map(loc => (
                 <option key={loc} value={loc}>{loc}</option>
               ))}
