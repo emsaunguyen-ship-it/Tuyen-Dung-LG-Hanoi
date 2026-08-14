@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowLeft, MapPin, DollarSign, Clock, Tag, Briefcase, Calendar, ShieldCheck, Play, Tv, Snowflake, Droplets, Laptop, Heart } from 'lucide-react';
+import { useLanguage } from '../LanguageContext';
 
 import svcTech1Img from '../assets/svc_tech_1.webp';
 import svcTech2Img from '../assets/svc_tech_2.webp';
@@ -10,31 +11,40 @@ import lgTeamGroupImg from '../assets/lg_team_group.webp';
 import defaultLogo from '../assets/procurement_icon.webp';
 
 export default function JobDetail({ job, onBack, onApply }) {
+  const { lang, t } = useLanguage();
+
   if (!job) return null;
+
+  const title = lang === 'en' ? (job.titleEn || job.title) : job.title;
+  const company = lang === 'en' ? (job.companyEn || job.company) : job.company;
+  const location = lang === 'en' ? (job.locationEn || job.location) : job.location;
+  const description = lang === 'en' ? (job.descriptionEn || job.description) : job.description;
+  const requirements = lang === 'en' ? (job.requirementsEn || job.requirements) : job.requirements;
+  const benefits = lang === 'en' ? (job.benefitsEn || job.benefits) : job.benefits;
 
   return (
     <div className="job-detail-container">
       {/* Decorative Side Banners on Left & Right Margins */}
       <div className="detail-side-banner frame-left">
-        <img src={lgTechnicianImg} alt="Kỹ thuật viên LG" />
+        <img src={lgTechnicianImg} alt="LG Technician" />
         <div className="side-banner-caption">
-          <span className="side-banner-tag">Kỹ Thuật Viên LG</span>
-          <p>Đội ngũ Chuyên gia Đạt chuẩn Quốc tế</p>
+          <span className="side-banner-tag">{lang === 'vi' ? 'Kỹ Thuật Viên LG' : 'LG Technicians'}</span>
+          <p>{lang === 'vi' ? 'Đội ngũ Chuyên gia Đạt chuẩn Quốc tế' : 'World-Class Technical Experts'}</p>
         </div>
       </div>
 
       <div className="detail-side-banner frame-right">
-        <img src={lgTeamGroupImg} alt="Đội ngũ Dịch vụ LG" />
+        <img src={lgTeamGroupImg} alt="LG Team" />
         <div className="side-banner-caption">
           <span className="side-banner-tag">Life's Good</span>
-          <p>Môi trường Làm việc Chuyên nghiệp & Tận tâm</p>
+          <p>{lang === 'vi' ? 'Môi trường Làm việc Chuyên nghiệp & Tận tâm' : 'Professional & Dedicated Work Culture'}</p>
         </div>
       </div>
 
       {/* Back Button */}
       <button className="btn-back-link" onClick={onBack}>
         <ArrowLeft size={16} />
-        <span>Quay lại danh sách việc làm</span>
+        <span>{lang === 'vi' ? 'Quay lại danh sách việc làm' : 'Back to Job Listings'}</span>
       </button>
 
       <div className="detail-layout">
@@ -45,7 +55,7 @@ export default function JobDetail({ job, onBack, onApply }) {
             <div className="header-card-top">
               <img 
                 src={job.logo || defaultLogo} 
-                alt={job.company} 
+                alt={company} 
                 className="detail-company-logo"
                 onError={(e) => {
                   e.target.onerror = null;
@@ -53,8 +63,8 @@ export default function JobDetail({ job, onBack, onApply }) {
                 }}
               />
               <div className="header-title-section">
-                <h1 className="detail-job-title">{job.title}</h1>
-                <h2 className="detail-company-name">{job.company}</h2>
+                <h1 className="detail-job-title">{title}</h1>
+                <h2 className="detail-company-name">{company}</h2>
                 <div className="detail-quick-badges">
                   <span className="badge badge-type">{job.type}</span>
                   <span className="badge badge-level">{job.level}</span>
@@ -68,25 +78,25 @@ export default function JobDetail({ job, onBack, onApply }) {
             {/* Quick Metrics Grid */}
             <div className="quick-metrics-grid">
               <div className="metric-box">
-                <span className="metric-label">Mức lương</span>
+                <span className="metric-label">{lang === 'vi' ? 'Mức lương' : 'Salary Range'}</span>
                 <span className="metric-value highlight-orange">
                   <DollarSign size={18} /> {job.salary}
                 </span>
               </div>
               <div className="metric-box">
-                <span className="metric-label">Địa điểm</span>
+                <span className="metric-label">{lang === 'vi' ? 'Địa điểm' : 'Location'}</span>
                 <span className="metric-value">
-                  <MapPin size={18} /> {job.location}
+                  <MapPin size={18} /> {location}
                 </span>
               </div>
               <div className="metric-box">
-                <span className="metric-label">Ngày đăng</span>
+                <span className="metric-label">{t('postedDate')}</span>
                 <span className="metric-value">
                   <Calendar size={18} /> {job.postedAt}
                 </span>
               </div>
               <div className="metric-box">
-                <span className="metric-label">Hình thức</span>
+                <span className="metric-label">{lang === 'vi' ? 'Hình thức' : 'Employment Type'}</span>
                 <span className="metric-value">
                   <Clock size={18} /> {job.type}
                 </span>
@@ -96,11 +106,11 @@ export default function JobDetail({ job, onBack, onApply }) {
             {/* Main Action Banner */}
             <div className="action-banner-row">
               <button className="btn-apply-main" onClick={() => onApply(job)}>
-                Ứng tuyển ngay
+                {t('btnApplyNow')}
               </button>
               <div className="safety-badge">
                 <ShieldCheck size={16} />
-                <span>Tin tuyển dụng đã xác thực</span>
+                <span>{lang === 'vi' ? 'Tin tuyển dụng đã xác thực' : 'Verified LG Official Job Post'}</span>
               </div>
             </div>
           </div>
@@ -108,23 +118,23 @@ export default function JobDetail({ job, onBack, onApply }) {
           {/* Job Descriptions & Details */}
           <div className="job-content-card">
             <section className="content-section">
-              <h3 className="section-title-underlined">Mô tả công việc</h3>
-              <p className="section-text-content">{job.description}</p>
+              <h3 className="section-title-underlined">{lang === 'vi' ? 'Mô tả công việc' : 'Job Description'}</h3>
+              <p className="section-text-content">{description}</p>
             </section>
 
             <section className="content-section">
-              <h3 className="section-title-underlined">Yêu cầu công việc</h3>
+              <h3 className="section-title-underlined">{lang === 'vi' ? 'Yêu cầu công việc' : 'Job Requirements'}</h3>
               <div className="section-bullet-points">
-                {job.requirements.split('\n').map((line, index) => (
+                {requirements.split('\n').map((line, index) => (
                   <p key={index} className="bullet-point">{line}</p>
                 ))}
               </div>
             </section>
 
             <section className="content-section">
-              <h3 className="section-title-underlined">Quyền lợi được hưởng</h3>
+              <h3 className="section-title-underlined">{lang === 'vi' ? 'Quyền lợi được hưởng' : 'Benefits & Perks'}</h3>
               <div className="section-bullet-points">
-                {job.benefits.split('\n').map((line, index) => (
+                {benefits.split('\n').map((line, index) => (
                   <p key={index} className="bullet-point">{line}</p>
                 ))}
               </div>
@@ -133,9 +143,12 @@ export default function JobDetail({ job, onBack, onApply }) {
             {/* If this is the SVC Technician job, show a video gallery section */}
             {job.id === 'job-lg-4' && (
               <section className="content-section svc-videos-section" style={{ marginTop: '30px', borderTop: '1px dashed var(--border)', paddingTop: '24px' }}>
-                <h3 className="section-title-underlined">Hoạt động thực tế & Đào tạo SVC</h3>
+                <h3 className="section-title-underlined">{lang === 'vi' ? 'Hoạt động thực tế & Đào tạo SVC' : 'Field Operations & SVC Training'}</h3>
                 <p className="section-text-content" style={{ marginBottom: '20px', color: '#a1a1aa', fontSize: '14px' }}>
-                  Tìm hiểu các hoạt động chăm sóc khách hàng chuyên nghiệp, quy trình dịch vụ bảo dưỡng và sửa chữa thực tế của đội ngũ kỹ thuật viên qua các danh sách phát (playlist) từ kênh YouTube chính thức <strong>LG Vietnam</strong>:
+                  {lang === 'vi'
+                    ? 'Tìm hiểu các hoạt động chăm sóc khách hàng chuyên nghiệp, quy trình dịch vụ bảo dưỡng và sửa chữa thực tế của đội ngũ kỹ thuật viên qua các danh sách phát (playlist) từ kênh YouTube chính thức LG Vietnam:'
+                    : 'Explore professional customer service operations and hands-on maintenance procedures from the official LG Vietnam YouTube playlists:'
+                  }
                 </p>
                 <div className="svc-playlist-grid">
                   <a href="https://www.youtube.com/@LGVietnam/search?query=Best%20Care" target="_blank" rel="noopener noreferrer" className="svc-playlist-card">
@@ -147,8 +160,8 @@ export default function JobDetail({ job, onBack, onApply }) {
                       <span className="playlist-badge">15 videos</span>
                     </div>
                     <div className="playlist-info">
-                      <h4>LG Best Care - Đội ngũ tận tâm</h4>
-                      <span className="btn-play-link"><Play size={11} style={{ marginRight: '4px' }} /> Xem danh sách phát</span>
+                      <h4>LG Best Care - Dedicated Team</h4>
+                      <span className="btn-play-link"><Play size={11} style={{ marginRight: '4px' }} /> {lang === 'vi' ? 'Xem danh sách phát' : 'Watch Playlist'}</span>
                     </div>
                   </a>
                   <a href="https://www.youtube.com/@LGVietnam/search?query=WashTower" target="_blank" rel="noopener noreferrer" className="svc-playlist-card">
@@ -161,7 +174,7 @@ export default function JobDetail({ job, onBack, onApply }) {
                     </div>
                     <div className="playlist-info">
                       <h4>LG Best Care - LG WashTower™</h4>
-                      <span className="btn-play-link"><Play size={11} style={{ marginRight: '4px' }} /> Xem danh sách phát</span>
+                      <span className="btn-play-link"><Play size={11} style={{ marginRight: '4px' }} /> {lang === 'vi' ? 'Xem danh sách phát' : 'Watch Playlist'}</span>
                     </div>
                   </a>
                   <a href="https://www.youtube.com/@LGVietnam/search?query=Styler" target="_blank" rel="noopener noreferrer" className="svc-playlist-card">
@@ -174,7 +187,7 @@ export default function JobDetail({ job, onBack, onApply }) {
                     </div>
                     <div className="playlist-info">
                       <h4>LG Best Care - LG Styler™</h4>
-                      <span className="btn-play-link"><Play size={11} style={{ marginRight: '4px' }} /> Xem danh sách phát</span>
+                      <span className="btn-play-link"><Play size={11} style={{ marginRight: '4px' }} /> {lang === 'vi' ? 'Xem danh sách phát' : 'Watch Playlist'}</span>
                     </div>
                   </a>
                   <a href="https://www.youtube.com/@LGVietnam/search?query=TV" target="_blank" rel="noopener noreferrer" className="svc-playlist-card">
@@ -186,34 +199,8 @@ export default function JobDetail({ job, onBack, onApply }) {
                       <span className="playlist-badge">6 videos</span>
                     </div>
                     <div className="playlist-info">
-                      <h4>LG Best Care - TV LG màn hình lớn</h4>
-                      <span className="btn-play-link"><Play size={11} style={{ marginRight: '4px' }} /> Xem danh sách phát</span>
-                    </div>
-                  </a>
-                  <a href="https://www.youtube.com/@LGVietnam/search?query=T%E1%BB%A7%20l%E1%BA%A1nh" target="_blank" rel="noopener noreferrer" className="svc-playlist-card">
-                    <div className="playlist-thumb-box">
-                      <img src={svcTech2Img} alt="LG Refrigerator" className="playlist-thumb-img" />
-                      <div className="playlist-play-overlay">
-                        <Play size={16} fill="#ffffff" />
-                      </div>
-                      <span className="playlist-badge">9 videos</span>
-                    </div>
-                    <div className="playlist-info">
-                      <h4>LG Best Care - Tủ lạnh LG cao cấp</h4>
-                      <span className="btn-play-link"><Play size={11} style={{ marginRight: '4px' }} /> Xem danh sách phát</span>
-                    </div>
-                  </a>
-                  <a href="https://www.youtube.com/@LGVietnam/search?query=M%C3%A1y%20r%E1%BB%A1%20b%C3%A1t" target="_blank" rel="noopener noreferrer" className="svc-playlist-card">
-                    <div className="playlist-thumb-box">
-                      <img src={svcTech4Img} alt="LG Dishwasher" className="playlist-thumb-img" />
-                      <div className="playlist-play-overlay">
-                        <Play size={16} fill="#ffffff" />
-                      </div>
-                      <span className="playlist-badge">4 videos</span>
-                    </div>
-                    <div className="playlist-info">
-                      <h4>LG Best Care - Máy rửa bát QuadWash™</h4>
-                      <span className="btn-play-link"><Play size={11} style={{ marginRight: '4px' }} /> Xem danh sách phát</span>
+                      <h4>LG Best Care - Large Screen LG TV</h4>
+                      <span className="btn-play-link"><Play size={11} style={{ marginRight: '4px' }} /> {lang === 'vi' ? 'Xem danh sách phát' : 'Watch Playlist'}</span>
                     </div>
                   </a>
                 </div>
@@ -226,61 +213,64 @@ export default function JobDetail({ job, onBack, onApply }) {
         <aside className="detail-sidebar">
           {/* Company Brief Card */}
           <div className="sidebar-card company-card">
-            <h3 className="sidebar-card-title">Thông tin công ty</h3>
+            <h3 className="sidebar-card-title">{lang === 'vi' ? 'Thông tin công ty' : 'Company Profile'}</h3>
             <div className="sidebar-company-header">
               <img 
                 src={job.logo || defaultLogo} 
-                alt={job.company} 
+                alt={company} 
                 className="sidebar-company-logo"
               />
               <div>
-                <h4>{job.company}</h4>
-                <p className="company-size">Quy mô: 100 - 500 nhân viên</p>
+                <h4>{company}</h4>
+                <p className="company-size">{lang === 'vi' ? 'Quy mô: 1,000 - 5,000 nhân viên' : 'Size: 1,000 - 5,000 Employees'}</p>
               </div>
             </div>
             <p className="company-brief-desc">
-              Là một trong những doanh nghiệp đi đầu trong lĩnh vực kinh doanh của mình, cam kết mang đến giá trị và dịch vụ tốt nhất cùng môi trường phát triển tài năng chuyên nghiệp cho nhân sự.
+              {lang === 'vi' 
+                ? 'Là tập đoàn công nghệ hàng đầu thế giới, LG Electronics cam kết mang lại cuộc sống tốt đẹp hơn cho người tiêu dùng và tạo dựng môi trường làm việc sáng tạo, chuyên nghiệp cho mọi tài năng.'
+                : 'A global technology leader, LG Electronics is committed to enriching lives and creating an innovative, empowering work environment for top talent.'
+              }
             </p>
             <div className="company-details-list">
               <div className="company-detail-item">
-                <strong>Lĩnh vực:</strong> <span>{job.industry}</span>
+                <strong>{lang === 'vi' ? 'Lĩnh vực:' : 'Industry:'}</strong> <span>{job.industry}</span>
               </div>
               <div className="company-detail-item">
-                <strong>Địa chỉ:</strong> <span>Quận 1, TP. Hồ Chí Minh / Cầu Giấy, Hà Nội</span>
+                <strong>{lang === 'vi' ? 'Địa chỉ:' : 'Headquarters:'}</strong> <span>Ho Chi Minh City / Hanoi, Vietnam</span>
               </div>
             </div>
           </div>
 
           {/* Hiring Policy Card */}
           <div className="sidebar-card policy-card">
-            <h3 className="sidebar-card-title">Quy trình tuyển dụng</h3>
+            <h3 className="sidebar-card-title">{lang === 'vi' ? 'Quy trình tuyển dụng' : 'Recruitment Process'}</h3>
             <ol className="recruitment-steps">
               <li>
                 <div className="step-num">1</div>
                 <div className="step-info">
-                  <strong>Nộp hồ sơ trực tuyến</strong>
-                  <p>Ứng viên nộp CV và thư xin việc thông qua hệ thống.</p>
+                  <strong>{lang === 'vi' ? 'Nộp hồ sơ trực tuyến' : 'Online Application'}</strong>
+                  <p>{lang === 'vi' ? 'Ứng viên nộp CV và thông tin qua cổng tuyển dụng.' : 'Submit your resume via the LG Careers portal.'}</p>
                 </div>
               </li>
               <li>
                 <div className="step-num">2</div>
                 <div className="step-info">
-                  <strong>Sàng lọc hồ sơ</strong>
-                  <p>Bộ phận tuyển dụng đánh giá năng lực phù hợp của CV.</p>
+                  <strong>{lang === 'vi' ? 'Sàng lọc hồ sơ (HR Audit)' : 'Resume Screening'}</strong>
+                  <p>{lang === 'vi' ? 'Chuyên viên Nhân sự LG trực tiếp đánh giá hồ sơ.' : '100% evaluated by LG HR Talent Acquisition team.'}</p>
                 </div>
               </li>
               <li>
                 <div className="step-num">3</div>
                 <div className="step-info">
-                  <strong>Phỏng vấn chuyên môn</strong>
-                  <p>Phỏng vấn trực tiếp hoặc online cùng Trưởng bộ phận.</p>
+                  <strong>{lang === 'vi' ? 'Phỏng vấn chuyên môn' : 'Technical Interview'}</strong>
+                  <p>{lang === 'vi' ? 'Phỏng vấn trực tiếp hoặc online cùng Trưởng bộ phận.' : 'In-depth interview with Department Manager.'}</p>
                 </div>
               </li>
               <li>
                 <div className="step-num">4</div>
                 <div className="step-info">
-                  <strong>Thư mời nhận việc</strong>
-                  <p>Gửi offer chính thức và hoàn tất thủ tục nhận việc.</p>
+                  <strong>{lang === 'vi' ? 'Thư mời nhận việc (Offer)' : 'Official Job Offer'}</strong>
+                  <p>{lang === 'vi' ? 'Gửi offer chính thức và đón chào nhân sự mới.' : 'Formal offer letter & onboarding welcome.'}</p>
                 </div>
               </li>
             </ol>

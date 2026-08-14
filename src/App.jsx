@@ -7,6 +7,7 @@ import PostJob from './components/PostJob';
 import EmployerDashboard from './components/EmployerDashboard';
 import UrgentHiringPopup from './components/UrgentHiringPopup';
 import { initialJobs, initialApplications } from './initialData';
+import { useLanguage } from './LanguageContext';
 
 export default function App() {
   // Initialize state from LocalStorage or fallback to initial mockup data
@@ -346,37 +347,37 @@ export default function App() {
           {/* Footer Grid Columns */}
           <div className="footer-grid">
             <div className="footer-col">
-              <h4 className="footer-col-title">Cơ hội việc làm</h4>
+              <h4 className="footer-col-title">{t('navJobs')}</h4>
               <div className="footer-col-links">
-                <a href="#" onClick={(e) => { e.preventDefault(); handleViewChange('jobs'); }}>Lĩnh Vực Công Nghệ</a>
-                <a href="#" onClick={(e) => { e.preventDefault(); handleViewChange('jobs'); }}>Lĩnh Vực Marketing</a>
-                <a href="#" onClick={(e) => { e.preventDefault(); handleViewChange('jobs'); }}>Lĩnh Vực Kinh Doanh</a>
-                <a href="#" onClick={(e) => { e.preventDefault(); handleViewChange('jobs'); }}>Việc Làm Nổi Bật</a>
+                <a href="#" onClick={(e) => { e.preventDefault(); handleViewChange('jobs'); }}>{lang === 'vi' ? 'Lĩnh Vực Công Nghệ' : 'Technology & AI'}</a>
+                <a href="#" onClick={(e) => { e.preventDefault(); handleViewChange('jobs'); }}>{lang === 'vi' ? 'Lĩnh Vực Marketing' : 'Marketing & Digital'}</a>
+                <a href="#" onClick={(e) => { e.preventDefault(); handleViewChange('jobs'); }}>{lang === 'vi' ? 'Lĩnh Vực Kinh Doanh' : 'Sales & Retail'}</a>
+                <a href="#" onClick={(e) => { e.preventDefault(); handleViewChange('jobs'); }}>{t('featuredJobsTitle')}</a>
               </div>
             </div>
 
             <div className="footer-col">
-              <h4 className="footer-col-title">Hỗ trợ ứng viên</h4>
+              <h4 className="footer-col-title">{t('navSupport')}</h4>
               <div className="footer-col-links">
-                <a href="#" onClick={(e) => e.preventDefault()}>Quy Trình Ứng Tuyển</a>
-                <a href="#" onClick={(e) => e.preventDefault()}>Chính Sách Bảo Mật</a>
-                <a href="#" onClick={(e) => e.preventDefault()}>Điều Khoản Sử Dụng</a>
-                <a href="#" onClick={(e) => e.preventDefault()}>Liên Hệ Trợ Giúp</a>
+                <a href="#" onClick={(e) => e.preventDefault()}>{t('navProcess')}</a>
+                <a href="#" onClick={(e) => e.preventDefault()}>{lang === 'vi' ? 'Chính Sách Bảo Mật' : 'Privacy Policy'}</a>
+                <a href="#" onClick={(e) => e.preventDefault()}>{lang === 'vi' ? 'Điều Khoản Sử Dụng' : 'Terms of Service'}</a>
+                <a href="#" onClick={(e) => e.preventDefault()}>{lang === 'vi' ? 'Liên Hệ Trợ Giúp' : 'Help & Contact'}</a>
               </div>
             </div>
 
             <div className="footer-col">
-              <h4 className="footer-col-title">Khám phá LG</h4>
+              <h4 className="footer-col-title">{t('navDiscover')}</h4>
               <div className="footer-col-links">
-                <a href="https://www.lg.com/vn" target="_blank" rel="noopener noreferrer">Về LG Electronics</a>
-                <a href="https://www.lg.com/global/about-lg/brand-story/" target="_blank" rel="noopener noreferrer">Chiến dịch "Life's Good"</a>
-                <a href="https://www.lg.com/global/sustainability" target="_blank" rel="noopener noreferrer">Phát Triển Bền Vững</a>
-                <a href="https://www.lg.com/vn/tin-tuc-va-truyen-thong" target="_blank" rel="noopener noreferrer">Trang Tin Tức LG</a>
+                <a href="https://www.lg.com/vn" target="_blank" rel="noopener noreferrer">{t('navAboutLG')}</a>
+                <a href="https://www.lg.com/global/about-lg/brand-story/" target="_blank" rel="noopener noreferrer">"Life's Good" Brand Campaign</a>
+                <a href="https://www.lg.com/global/sustainability" target="_blank" rel="noopener noreferrer">{lang === 'vi' ? 'Phát Triển Bền Vững' : 'Sustainability'}</a>
+                <a href="https://www.lg.com/vn/tin-tuc-va-truyen-thong" target="_blank" rel="noopener noreferrer">{lang === 'vi' ? 'Trang Tin Tức LG' : 'LG Newsroom'}</a>
               </div>
             </div>
 
             <div className="footer-col">
-              <h4 className="footer-col-title">Kết nối với LG</h4>
+              <h4 className="footer-col-title">{lang === 'vi' ? 'Kết nối với LG' : 'Connect with LG'}</h4>
               <div className="footer-col-links">
                 <a href="https://www.linkedin.com/company/lg-electronics-development-vietnam-ltd/" target="_blank" rel="noopener noreferrer">LinkedIn Careers</a>
                 <a href="https://www.youtube.com/@LGVietnam" target="_blank" rel="noopener noreferrer">YouTube LG Vietnam</a>
@@ -399,7 +400,7 @@ export default function App() {
               </span>
             </div>
             <p style={{ fontSize: '12px', color: '#71717a', textAlign: 'center', maxWidth: '600px', margin: '0' }}>
-              &copy; {new Date().getFullYear()} LG Electronics. Bản quyền nội dung thuộc về Tập đoàn LG. Layout được mô phỏng theo cổng thông tin điện tử của LG Việt Nam.
+              &copy; {new Date().getFullYear()} LG Electronics. {lang === 'vi' ? 'Bản quyền nội dung thuộc về Tập đoàn LG. Layout được mô phỏng theo cổng thông tin điện tử của LG Việt Nam.' : 'All rights reserved by LG Electronics Group. Layout modeled after LG Vietnam recruitment portal.'}
             </p>
           </div>
         </div>

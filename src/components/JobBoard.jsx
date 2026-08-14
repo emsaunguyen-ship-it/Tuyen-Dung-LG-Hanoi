@@ -145,12 +145,12 @@ export default function JobBoard({ jobs, onSelectJob }) {
   
   // Custom mapping for department circles (LG VN Product Categories style)
   const departmentCircles = [
-    { label: 'Tất Cả Ngành', value: 'All', icon: Briefcase },
-    { label: 'Marketing / PR', value: 'Marketing / PR', icon: Megaphone },
-    { label: 'Kinh doanh / Sales', value: 'Sales / Business Development', icon: TrendingUp },
-    { label: 'Thiết kế / Art', value: 'Design / Art', icon: Palette },
-    { label: 'Hỗ trợ khách hàng', value: 'Customer Service', icon: HeartHandshake },
-    { label: 'Kỹ thuật viên bảo hành', value: 'Warranty Technician', icon: Wrench }
+    { label: lang === 'vi' ? 'Tất Cả Ngành' : 'All Sectors', value: 'All', icon: Briefcase },
+    { label: lang === 'vi' ? 'Marketing / PR' : 'Marketing & PR', value: 'Marketing / PR', icon: Megaphone },
+    { label: lang === 'vi' ? 'Kinh doanh / Sales' : 'Sales & Business', value: 'Sales / Business Development', icon: TrendingUp },
+    { label: lang === 'vi' ? 'Thiết kế / Art' : 'Design & Creative', value: 'Design / Art', icon: Palette },
+    { label: lang === 'vi' ? 'Hỗ trợ khách hàng' : 'Customer Support', value: 'Customer Service', icon: HeartHandshake },
+    { label: lang === 'vi' ? 'Kỹ thuật viên bảo hành' : 'Warranty Service', value: 'Warranty Technician', icon: Wrench }
   ];
 
   // Helper to parse salary range for filtering
@@ -452,73 +452,82 @@ export default function JobBoard({ jobs, onSelectJob }) {
           {/* Product-style Job Cards Grid */}
           <div className="job-cards-grid product-cards-grid">
             {filteredJobs.length > 0 ? (
-              filteredJobs.map(job => (
-                <div 
-                  key={job.id} 
-                  className={`lg-product-card ${job.id === 'job-lg-4' ? 'featured-svc-card' : ''}`} 
-                  onClick={() => onSelectJob(job)}
-                >
-                  {/* Badge */}
-                  <span className={`card-badge ${job.id === 'job-lg-4' ? 'urgent' : (job.level === 'Senior' || job.level === 'Manager' ? 'hot' : '')}`}>
-                    {job.id === 'job-lg-4' ? 'Tuyển Gấp' : (job.level === 'Senior' || job.level === 'Manager' ? 'Hot' : 'Mới')}
-                  </span>
+              filteredJobs.map(job => {
+                const jobTitle = lang === 'en' ? (job.titleEn || job.title) : job.title;
+                const companyName = lang === 'en' ? (job.companyEn || job.company) : job.company;
+                const jobLoc = lang === 'en' ? (job.locationEn || job.location) : job.location;
+                
+                return (
+                  <div 
+                    key={job.id} 
+                    className={`lg-product-card ${job.id === 'job-lg-4' ? 'featured-svc-card' : ''}`} 
+                    onClick={() => onSelectJob(job)}
+                  >
+                    {/* Badge */}
+                    <span className={`card-badge ${job.id === 'job-lg-4' ? 'urgent' : (job.level === 'Senior' || job.level === 'Manager' ? 'hot' : '')}`}>
+                      {job.id === 'job-lg-4' 
+                        ? (lang === 'vi' ? 'Tuyển Gấp' : 'Urgent') 
+                        : (job.level === 'Senior' || job.level === 'Manager' ? 'Hot' : (lang === 'vi' ? 'Mới' : 'New'))
+                      }
+                    </span>
 
-                  {/* Logo Container */}
-                  <div className="lg-card-logo-container">
-                    <img 
-                      src={job.logo || aiSpecialistImg} 
-                      alt={job.company} 
-                      className="lg-card-logo"
-                      onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = aiSpecialistImg;
-                      }}
-                    />
-                  </div>
-
-                  {/* Title & Company */}
-                  <h3 className="lg-card-title">{job.title}</h3>
-                  <p className="lg-card-company">{job.company}</p>
-
-                  {/* Salary price tag */}
-                  <div className="lg-card-price-tag">
-                    {job.salary}
-                  </div>
-
-                  {/* Info details */}
-                  <div className="lg-card-info-list">
-                    <div className="lg-card-info-item">
-                      <MapPin size={14} />
-                      <span>{job.location}</span>
+                    {/* Logo Container */}
+                    <div className="lg-card-logo-container">
+                      <img 
+                        src={job.logo || aiSpecialistImg} 
+                        alt={companyName} 
+                        className="lg-card-logo"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = aiSpecialistImg;
+                        }}
+                      />
                     </div>
-                    <div className="lg-card-info-item">
-                      <Briefcase size={14} />
-                      <span>{job.type} • {job.industry}</span>
-                    </div>
-                    <div className="lg-card-info-item">
-                      <Calendar size={14} />
-                      <span>Đăng ngày: {job.postedAt}</span>
-                    </div>
-                  </div>
 
-                  {/* Buy/Learn button row */}
-                  <div className="lg-card-btn-row">
-                    <button className="lg-btn-buy">
-                      Ứng tuyển
-                    </button>
-                    <button className="lg-btn-learn">
-                      Chi tiết
-                    </button>
+                    {/* Title & Company */}
+                    <h3 className="lg-card-title">{jobTitle}</h3>
+                    <p className="lg-card-company">{companyName}</p>
+
+                    {/* Salary price tag */}
+                    <div className="lg-card-price-tag">
+                      {job.salary}
+                    </div>
+
+                    {/* Info details */}
+                    <div className="lg-card-info-list">
+                      <div className="lg-card-info-item">
+                        <MapPin size={14} />
+                        <span>{jobLoc}</span>
+                      </div>
+                      <div className="lg-card-info-item">
+                        <Briefcase size={14} />
+                        <span>{job.type} • {job.industry}</span>
+                      </div>
+                      <div className="lg-card-info-item">
+                        <Calendar size={14} />
+                        <span>{t('postedDate')}: {job.postedAt}</span>
+                      </div>
+                    </div>
+
+                    {/* Buy/Learn button row */}
+                    <div className="lg-card-btn-row">
+                      <button className="lg-btn-buy">
+                        {t('btnApplyNow')}
+                      </button>
+                      <button className="lg-btn-learn">
+                        {t('btnViewDetails')}
+                      </button>
+                    </div>
                   </div>
-                </div>
-              ))
+                );
+              })
             ) : (
               <div className="empty-results-box" style={{ gridColumn: '1 / -1' }}>
                 <div className="empty-icon">📂</div>
-                <h3>Không tìm thấy công việc phù hợp</h3>
-                <p>Thử điều chỉnh lại từ khoá tìm kiếm hoặc đặt lại bộ lọc để tìm được nhiều việc làm hơn.</p>
+                <h3>{lang === 'vi' ? 'Không tìm thấy công việc phù hợp' : 'No matching jobs found'}</h3>
+                <p>{lang === 'vi' ? 'Thử điều chỉnh lại từ khoá tìm kiếm hoặc đặt lại bộ lọc để tìm được nhiều việc làm hơn.' : 'Try adjusting your search keywords or resetting filters to discover more open roles.'}</p>
                 <button className="btn-clear-all" onClick={handleResetFilters}>
-                  Xoá tất cả bộ lọc
+                  {t('btnResetFilters')}
                 </button>
               </div>
             )}
