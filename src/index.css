@@ -6342,7 +6342,7 @@ button {
   cursor: not-allowed;
 }
 
-/* Mobile AI Chatbot Overrides */
+/* Mobile & Multi-Device AI Chatbot & Input Overrides */
 @media (max-width: 767px) {
   .ai-chatbot-root-container {
     bottom: 16px;
@@ -6351,9 +6351,40 @@ button {
 
   .ai-chat-drawer-container {
     width: calc(100vw - 32px);
-    right: 0;
-    bottom: 0;
-    height: 78vh;
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    height: 80vh;
     border-radius: 20px;
+    z-index: 10001;
+  }
+
+  /* Prevent iOS Safari Auto-Zoom on form inputs */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  select,
+  textarea,
+  .chat-input-field {
+    font-size: 16px !important;
+  }
+
+  .trigger-text-box {
+    display: none;
+  }
+
+  .ai-chatbot-trigger-btn {
+    padding: 6px;
+    border-radius: 50%;
   }
 }
+
+/* Tablet & iPad Responsive Overrides (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .ai-chat-drawer-container {
+    width: 360px;
+    height: 520px;
+  }
+}
+
