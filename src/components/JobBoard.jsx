@@ -38,6 +38,7 @@ import lgTechnicianImg from '../assets/lg_technician.webp';
 import lgGramLaunchImg from '../assets/media__1786502028937.webp';
 import lgBestCareImg from '../assets/media__1786502073031.webp';
 import affectionateAiImg from '../assets/media__1786501969961.webp';
+import CVTemplatesSection from './CVTemplatesSection';
 
 import lgAnniversaryThumb from '../assets/lg_anniversary_youtube_thumb.webp';
 import lgInsiderEp1Thumb from '../assets/lg_insider_youtube_thumb.webp';
@@ -525,6 +526,10 @@ export default function JobBoard({ jobs, onSelectJob }) {
           </div>
         </main>
       </div>
+
+      {/* ====== LG STANDARD CV TEMPLATES RESOURCE HUB ====== */}
+      <CVTemplatesSection />
+
       {/* ====== LG VIETNAM MEDIA CENTER (ANNIVERSARY & INSIDER VIDEOS) ====== */}
       <section className="lg-media-center-section">
         <div className="media-section-header">
