@@ -52,12 +52,9 @@ export default function Header({ currentView, onViewChange, role, onRoleChange }
           <span style={{ color: '#000000', fontSize: '20px', fontWeight: '800', letterSpacing: '-0.5px', fontFamily: "'Inter', sans-serif", lineHeight: '1' }}>
             LG
           </span>
-          <div className="logo-text-group" style={{ display: 'flex', flexDirection: 'column', gap: '0px', alignItems: 'flex-start', borderLeft: '1px solid #e5e5e0', paddingLeft: '8px', marginLeft: '2px' }}>
-            <span className="logo-text" style={{ fontSize: '15px', fontWeight: '700', color: 'var(--primary)', lineHeight: '1.1' }}>
+          <div className="logo-text-group" style={{ display: 'flex', alignItems: 'center', borderLeft: '1px solid #e5e5e0', paddingLeft: '8px', marginLeft: '2px' }}>
+            <span className="logo-text" style={{ fontSize: '15px', fontWeight: '700', color: 'var(--primary)', lineHeight: '1' }}>
               Careers
-            </span>
-            <span className="logo-slogan" style={{ fontSize: '9px', color: 'var(--text-muted)', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '0.5px', lineHeight: '1' }}>
-              Life's Good.
             </span>
           </div>
         </div>
