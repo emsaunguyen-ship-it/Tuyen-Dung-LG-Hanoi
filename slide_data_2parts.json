@@ -1,0 +1,42 @@
+{
+  "vi": {
+    "title_tag": "✨ CASE STUDY • ANTIGRAVITY AI EMPOWERMENT & PROJECT OVERVIEW",
+    "headline": "Ứng Dụng Antigravity AI Cho Người Không Chuyên & Giới Thiệu Dự Án Portal Tuyển Dụng LG Hanoi",
+    "part1_title": "💡 PHẦN 1: ÍCH LỢI CỦA ANTIGRAVITY AI DÀNH CHO NGƯỜI KHÔNG CHUYÊN",
+    "part1_items": [
+      "Đột phá với Antigravity AI (Google DeepMind): Là Trưởng phòng Mua sắm (không chuyên IT), tôi sử dụng Antigravity AI làm đối tác lập trình agentic, biến ý tưởng trên giấy thành Website hoạt động thực tế (Live URL) mà không biết viết code.",
+      "Antigravity AI thực thi 100% logic: Antigravity AI tự tạo dự án React/Vite, thiết kế giao diện chuẩn BI LG (Life's Good), xử lý logic nộp CV 1-click, đồng bộ Webhook Google Sheets & tự sinh slide PowerPoint.",
+      "Bứt phá tốc độ thi hành (Execution Velocity): Hoàn thiện một ứng dụng web tuyển dụng doanh nghiệp hoàn chỉnh trong vài giờ thay vì chờ dự án IT kéo dài nhiều tháng.",
+      "Lan tỏa tinh thần Đổi mới (10-70-20): 10% Học • 70% Làm • 20% Chia sẻ. \"Antigravity AI không thay thế con người – Antigravity AI chắp cánh cho người quản lý chủ động tạo giải pháp số.\""
+    ],
+    "part2_title": "🚀 PHẦN 2: GIỚI THIỆU DỰ ÁN PORTAL TUYỂN DỤNG LG HANOI",
+    "part2_items": [
+      "Giải bài toán tuyển SVC khó khăn: Thay thế các bài đăng tin văn bản khô khan bằng Cổng thông tin trực quan, hiển thị hình ảnh môi trường làm việc & công việc kỹ thuật thực tế.",
+      "Truyền thông văn hóa LG Insider: Tích hợp chuỗi câu chuyện nhân viên thực tế, video hoạt động sự kiện (Áo Dài Day, Family Day, Office Opening) tạo niềm tin tuyệt đối cho ứng viên.",
+      "Trải nghiệm Nộp CV 1-Click: Tối ưu mượt mà trên Mobile & Web, ứng viên nộp CV nhanh chóng không cần đăng ký tài khoản rườm rà.",
+      "Tự động hóa 100% HR Workflow: Tự động tổng hợp file Excel báo cáo cộng dồn ứng viên, đồng bộ Google Sheets Webhook & tự động gửi email thông báo tới HR Manager (khanhthuy.nguyen@lge.com)."
+    ],
+    "footer_left": "Tác giả: Trưởng phòng Mua sắm (Sales & Marketing) | AI Partner: Antigravity AI (Google DeepMind)",
+    "live_url": "🌐 Live URL: https://emsaunguyen-ship-it.github.io/Tuyen-Dung-LG-Hanoi/?v=12"
+  },
+  "en": {
+    "title_tag": "✨ CASE STUDY • ANTIGRAVITY AI EMPOWERMENT & PROJECT OVERVIEW",
+    "headline": "Antigravity AI Benefits for Non-Tech Professionals & LG Hanoi Talent Portal Overview",
+    "part1_title": "💡 PART 1: ANTIGRAVITY AI BENEFITS FOR NON-TECH PROFESSIONALS",
+    "part1_items": [
+      "Breakthrough with Antigravity AI (Google DeepMind): As a Procurement Manager (Non-Tech), I leveraged Antigravity AI as an agentic coding partner to build a live working web application without writing code.",
+      "Antigravity AI Executes 100% Full-Stack Logic: Antigravity AI architected the React/Vite portal, crafted LG Brand UI (Life's Good), built 1-click candidate apply workflows, synced Google Sheets Webhooks, and generated PPTX decks.",
+      "Unlocking Speed to Execution: Delivered an enterprise-grade recruitment platform within hours, eliminating months of waiting for traditional IT development resources.",
+      "Inspiring Team Innovation (10-70-20): 10% Learn • 70% Practice • 20% Share. \"Antigravity AI won't replace people; Antigravity AI empowers proactive managers to build their own digital solutions.\""
+    ],
+    "part2_title": "🚀 PART 2: LG HANOI TALENT PORTAL OVERVIEW",
+    "part2_items": [
+      "Solving SVC Hiring Bottlenecks: Replaced generic text-only job postings with an authentic, image-rich portal showcasing actual technical roles and workplace environments.",
+      "Authentic Culture & LG Insider Series: Integrated real employee stories and team event media (Ao Dai Day, Family Day) to build high candidate trust and engagement.",
+      "Frictionless 1-Click Candidate Apply: Optimized for Mobile & Desktop, allowing candidates to submit CVs instantly without tedious account registration.",
+      "100% HR Workflow Automation: Automatically generates accumulated candidate Excel reports, syncs to Google Sheets Webhook, and triggers direct email notifications to HR Manager."
+    ],
+    "footer_left": "Author: Procurement Manager (Sales & Marketing) | AI Partner: Antigravity AI (Google DeepMind)",
+    "live_url": "🌐 Live URL: https://emsaunguyen-ship-it.github.io/Tuyen-Dung-LG-Hanoi/?v=12"
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "vi": [
+    {
+      "pill": "[1. NON-TECH AI]",
+      "pill_bg": "0xF3E8FF",
+      "pill_fg": "0x7C3AED",
+      "title": "1. Xóa Bỏ Rào Cản Kỹ Thuật",
+      "text": "Là Trưởng phòng Mua sắm (không chuyên IT), AI giúp tự tay biến ý tưởng trên giấy thành Website hoạt động thực tế (Live URL) mà không cần biết viết code.",
+      "btn_text": "✨ Live Website Product",
+      "btn_bg": "0x7C3AED",
+      "x": 25, "y": 114, "w": 445, "h": 175
+    },
+    {
+      "pill": "[2. AI LOGIC]",
+      "pill_bg": "0xDBEAFE",
+      "pill_fg": "0x1D4ED8",
+      "title": "2. AI Co-pilot Thực Thi Logic",
+      "text": "AI cùng thiết kế giao diện chuẩn nhận diện LG (Life's Good), viết code lọc vị trí tuyển dụng, nộp CV 1-click & tự động xuất báo cáo Excel cộng dồn.",
+      "btn_text": "⚡ Execution Velocity",
+      "btn_bg": "0x1D4ED8",
+      "x": 490, "y": 114, "w": 445, "h": 175
+    },
+    {
+      "pill": "[3. PROJECT OVERVIEW]",
+      "pill_bg": "0xFBE8F3",
+      "pill_fg": "0x3400A5",
+      "title": "3. Giải Bài Toán Tuyển SVC",
+      "text": "Thay thế tin tuyển dụng văn bản khô khan bằng Cổng thông tin trực quan hiển thị hình ảnh môi trường & công việc kỹ thuật thực tế kèm chuỗi LG Insider.",
+      "btn_text": "🎯 Authentic Culture",
+      "btn_bg": "0x3400A5",
+      "x": 25, "y": 298, "w": 445, "h": 175
+    },
+    {
+      "pill": "[4. HR AUTOMATION]",
+      "pill_bg": "0xDCFCE7",
+      "pill_fg": "0x15803D",
+      "title": "4. Tự Động Hóa 100% HR Workflow",
+      "text": "Tự động tổng hợp file Excel cộng dồn ứng viên, sync Google Sheets Webhook & phát email thông báo tức thì cho HR Manager (khanhthuy.nguyen@lge.com).",
+      "btn_text": "📊 Auto-Excel & Email",
+      "btn_bg": "0x15803D",
+      "x": 490, "y": 298, "w": 445, "h": 175
+    }
+  ],
+  "en": [
+    {
+      "pill": "[1. NON-TECH AI]",
+      "pill_bg": "0xF3E8FF",
+      "pill_fg": "0x7C3AED",
+      "title": "1. Eliminating Tech Barriers",
+      "text": "As a Procurement Manager (Non-Tech), AI empowers turning paper concepts into a live working website (Live URL) without knowing how to write code.",
+      "btn_text": "✨ Live Website Product",
+      "btn_bg": "0x7C3AED",
+      "x": 25, "y": 114, "w": 445, "h": 175
+    },
+    {
+      "pill": "[2. AI LOGIC]",
+      "pill_bg": "0xDBEAFE",
+      "pill_fg": "0x1D4ED8",
+      "title": "2. AI Co-pilot Logic Building",
+      "text": "AI co-designed LG Brand Identity UI (Life's Good), coded job filters, 1-click CV submissions & automated cumulative Excel reporting.",
+      "btn_text": "⚡ Execution Velocity",
+      "btn_bg": "0x1D4ED8",
+      "x": 490, "y": 114, "w": 445, "h": 175
+    },
+    {
+      "pill": "[3. PROJECT OVERVIEW]",
+      "pill_bg": "0xFBE8F3",
+      "pill_fg": "0x3400A5",
+      "title": "3. Solving SVC Hiring Pain",
+      "text": "Replaced generic text-only job postings with an authentic visual portal displaying real workplace & technical job imagery with LG Insider stories.",
+      "btn_text": "🎯 Authentic Culture",
+      "btn_bg": "0x3400A5",
+      "x": 25, "y": 298, "w": 445, "h": 175
+    },
+    {
+      "pill": "[4. HR AUTOMATION]",
+      "pill_bg": "0xDCFCE7",
+      "pill_fg": "0x15803D",
+      "title": "4. 100% HR Automation",
+      "text": "Automatically generates accumulated candidate Excel reports, syncs Google Sheets Webhooks & triggers instant email alerts to HR Manager.",
+      "btn_text": "📊 Auto-Excel & Email",
+      "btn_bg": "0x15803D",
+      "x": 490, "y": 298, "w": 445, "h": 175
+    }
+  ]
+}

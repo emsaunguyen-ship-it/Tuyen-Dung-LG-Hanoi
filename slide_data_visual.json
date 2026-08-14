@@ -1,0 +1,109 @@
+{
+  "vi": [
+    {
+      "pill": "[1. BỨT PHÁ RANH GIỚI R&R]",
+      "pill_bg": "0xF3E8FF",
+      "pill_fg": "0x7C3AED",
+      "title": "1. Bứt Phá Rào Cản R&R - AI Non-Tech",
+      "text": "• Vượt ranh giới R&R: Dù là người Mua sắm (Sales & Marketing) không có kiến thức IT & HR, vẫn tự lập được Cổng tuyển dụng thực tế.\n• Tự động hóa nhờ AI: AI hỗ trợ thu thập dữ liệu (data) và tự động kiểm duyệt trang web hoàn chỉnh.",
+      "btn_text": "Live Website Product",
+      "btn_bg": "0x7C3AED",
+      "img": "c:\\Users\\LG\\Sau 1 AI\\Làm trang web tuyên dung\\square_non_tech_ai.png",
+      "url": "https://emsaunguyen-ship-it.github.io/Tuyen-Dung-LG-Hanoi/?v=12",
+      "x": 25, "y": 100, "w": 445, "h": 180
+    },
+    {
+      "pill": "[2. ĐỔI MỚI KÊNH THU HÚT]",
+      "pill_bg": "0xDBEAFE",
+      "pill_fg": "0x1D4ED8",
+      "title": "2. Đổi Mới Kênh Thu Hút Nhân Tài",
+      "text": "• Trải nghiệm số hóa: Nộp CV 1-Click Apply chuẩn nhận diện LG (Life's Good), nâng cao trải nghiệm ứng viên.\n• Độ tin cậy cao: Dẫn link trực tiếp về trang web chính thức, minh bạch lịch sử công ty & cập nhật hoạt động người thật việc thật hàng ngày.",
+      "btn_text": "Execution Velocity",
+      "btn_bg": "0x1D4ED8",
+      "img": "c:\\Users\\LG\\Sau 1 AI\\Làm trang web tuyên dung\\square_culture_balanced.png",
+      "url": "https://emsaunguyen-ship-it.github.io/Tuyen-Dung-LG-Hanoi/?v=12",
+      "x": 490, "y": 100, "w": 445, "h": 180
+    },
+    {
+      "pill": "[3. XỬ LÝ NGHỄN TỪ SỚM]",
+      "pill_bg": "0xFBE8F3",
+      "pill_fg": "0x3400A5",
+      "title": "3. Xử Lý Rủi Ro Vận Hành Từ Sớm",
+      "text": "• Phòng ngừa rủi ro KTV Service: Kết hợp linh hoạt 2 kênh (Cổng đăng tuyển trực tiếp LG + Tích hợp Agency uy tín trên thị trường).\n• Trực quan công việc: Tích hợp clip Premier Care thực tế giúp ứng viên dễ dàng hình dung vị trí ứng tuyển.",
+      "btn_text": "2 Hiring Solutions",
+      "btn_bg": "0x3400A5",
+      "img": "c:\\Users\\LG\\Sau 1 AI\\Làm trang web tuyên dung\\square_svc_balanced.png",
+      "url": "https://emsaunguyen-ship-it.github.io/Tuyen-Dung-LG-Hanoi/?v=12",
+      "x": 25, "y": 288, "w": 445, "h": 180
+    },
+    {
+      "pill": "[4. PHỐI HỢP NỘI BỘ]",
+      "pill_bg": "0xDCFCE7",
+      "pill_fg": "0x15803D",
+      "title": "4. Tự Động Hóa & Phối Hợp Liên Phòng",
+      "text": "• Tự động hóa luồng CV: Tổng hợp báo cáo Excel thời gian thực & phát thông báo email tức thì cho HR team.\n• Xóa khoảng trống thông tin: Kết nối dữ liệu liền mạch giữa HR team và Khối Dịch vụ.",
+      "btn_text": "Auto-Excel & Email",
+      "btn_bg": "0x15803D",
+      "img": "c:\\Users\\LG\\Sau 1 AI\\Làm trang web tuyên dung\\square_hr_stats.png",
+      "url": "https://emsaunguyen-ship-it.github.io/Tuyen-Dung-LG-Hanoi/?v=12",
+      "x": 490, "y": 288, "w": 445, "h": 180
+    }
+  ],
+  "en": [
+    {
+      "pill": "[1. BEYOND SCOPE & BOUNDARIES]",
+      "pill_bg": "0xF3E8FF",
+      "pill_fg": "0x7C3AED",
+      "title": "1. Beyond Scope - Non-Tech AI Breakthrough",
+      "text": "• Beyond R&R Scope: As a Sales & Marketing Procurement person with no IT or HR background, I built a live hiring portal using AI.\n• AI Data Automation: AI auto-collects data and validates web features cleanly.",
+      "btn_text": "Live Website Product",
+      "btn_bg": "0x7C3AED",
+      "img": "c:\\Users\\LG\\Sau 1 AI\\Làm trang web tuyên dung\\square_non_tech_ai.png",
+      "url": "https://emsaunguyen-ship-it.github.io/Tuyen-Dung-LG-Hanoi/?v=12",
+      "x": 25, "y": 100, "w": 445, "h": 180
+    },
+    {
+      "pill": "[2. STRATEGIC SOURCING]",
+      "pill_bg": "0xDBEAFE",
+      "pill_fg": "0x1D4ED8",
+      "title": "2. Strategic Sourcing - Modern Candidate UI",
+      "text": "• Digital Experience: Fast 1-Click apply with official LG Brand Identity (Life's Good).\n• High Credibility: Direct links to official LG sites, showing daily real activities, company history, and team stories.",
+      "btn_text": "Execution Velocity",
+      "btn_bg": "0x1D4ED8",
+      "img": "c:\\Users\\LG\\Sau 1 AI\\Làm trang web tuyên dung\\square_culture_balanced.png",
+      "url": "https://emsaunguyen-ship-it.github.io/Tuyen-Dung-LG-Hanoi/?v=12",
+      "x": 490, "y": 100, "w": 445, "h": 180
+    },
+    {
+      "pill": "[3. PROACTIVE RISK MITIGATION]",
+      "pill_bg": "0xFBE8F3",
+      "pill_fg": "0x3400A5",
+      "title": "3. Proactive Risk Control - SVC Sourcing",
+      "text": "• Early Risk Control: Dual-sourcing model (Direct LG Job Portal + Market Agency Integration) to prevent technician shortage.\n• Visual Job Insight: Real Premier Care video clips help candidates easily visualize their daily work.",
+      "btn_text": "2 Hiring Solutions",
+      "btn_bg": "0x3400A5",
+      "img": "c:\\Users\\LG\\Sau 1 AI\\Làm trang web tuyên dung\\square_svc_balanced.png",
+      "url": "https://emsaunguyen-ship-it.github.io/Tuyen-Dung-LG-Hanoi/?v=12",
+      "x": 25, "y": 288, "w": 445, "h": 180
+    },
+    {
+      "pill": "[4. CROSS-DEPT SYNERGY]",
+      "pill_bg": "0xDCFCE7",
+      "pill_fg": "0x15803D",
+      "title": "4. HR Automation - Cross-Dept Synergy",
+      "text": "• Auto Workflow: Real-time Excel report generation & instant email alerts to HR team.\n• Zero Info Gap: Completely removes communication barriers between HR team and Service team.",
+      "btn_text": "Auto-Excel & Email",
+      "btn_bg": "0x15803D",
+      "img": "c:\\Users\\LG\\Sau 1 AI\\Làm trang web tuyên dung\\square_hr_stats.png",
+      "url": "https://emsaunguyen-ship-it.github.io/Tuyen-Dung-LG-Hanoi/?v=12",
+      "x": 490, "y": 288, "w": 445, "h": 180
+    }
+  ],
+  "meta": {
+    "vi_title": "Chia Sẻ Ứng Dụng AI & Bài Tập Thực Hành: Portal Tuyển Dụng LG Hanoi",
+    "en_title": "AI Application Sharing & Case Study: LG Hanoi Recruitment Portal",
+    "vi_sub": "Chủ động bứt phá ranh giới R&R",
+    "en_sub": "Proactive Scope Expansion",
+    "lg_logo": "c:\\Users\\LG\\Sau 1 AI\\Làm trang web tuyên dung\\lg_seonhaeng_clean.png"
+  }
+}

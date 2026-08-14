@@ -1,12 +1,13 @@
 import React from 'react';
 import { ArrowLeft, MapPin, DollarSign, Clock, Tag, Briefcase, Calendar, ShieldCheck, Play, Tv, Snowflake, Droplets, Laptop, Heart } from 'lucide-react';
 
-import svcTech1Img from '../assets/svc_tech_1.jpg';
-import svcTech2Img from '../assets/svc_tech_2.png';
-import svcTech3Img from '../assets/svc_tech_3.jpg';
-import svcTech4Img from '../assets/svc_tech_4.png';
-import lgTechnicianImg from '../assets/lg_technician.png';
-import lgTeamGroupImg from '../assets/lg_team_group.jpg';
+import svcTech1Img from '../assets/svc_tech_1.webp';
+import svcTech2Img from '../assets/svc_tech_2.webp';
+import svcTech3Img from '../assets/svc_tech_3.webp';
+import svcTech4Img from '../assets/svc_tech_4.webp';
+import lgTechnicianImg from '../assets/lg_technician.webp';
+import lgTeamGroupImg from '../assets/lg_team_group.webp';
+import defaultLogo from '../assets/procurement_icon.webp';
 
 export default function JobDetail({ job, onBack, onApply }) {
   if (!job) return null;
@@ -43,12 +44,12 @@ export default function JobDetail({ job, onBack, onApply }) {
           <div className="job-detail-header-card">
             <div className="header-card-top">
               <img 
-                src={job.logo || "https://placehold.co/120x120/0f2c59/ffffff?text=Logo"} 
+                src={job.logo || defaultLogo} 
                 alt={job.company} 
                 className="detail-company-logo"
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = "https://placehold.co/120x120/0f2c59/ffffff?text=Company";
+                  e.target.src = defaultLogo;
                 }}
               />
               <div className="header-title-section">
@@ -228,7 +229,7 @@ export default function JobDetail({ job, onBack, onApply }) {
             <h3 className="sidebar-card-title">Thông tin công ty</h3>
             <div className="sidebar-company-header">
               <img 
-                src={job.logo || "https://placehold.co/60x60/0f2c59/ffffff?text=Logo"} 
+                src={job.logo || defaultLogo} 
                 alt={job.company} 
                 className="sidebar-company-logo"
               />

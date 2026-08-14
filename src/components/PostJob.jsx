@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { PlusCircle, FileText, AlertCircle, ArrowLeft } from 'lucide-react';
+import defaultLgLogo from '../assets/procurement_icon.webp';
 
 export default function PostJob({ onAddJob, onBackToDashboard }) {
   const [formData, setFormData] = useState({
@@ -13,7 +14,7 @@ export default function PostJob({ onAddJob, onBackToDashboard }) {
     description: '',
     requirements: '',
     benefits: '',
-    logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/LG_logo_%282015%29.svg/200px-LG_logo_%282015%29.svg.png'
+    logoUrl: defaultLgLogo
   });
 
   const [errors, setErrors] = useState({});
@@ -61,7 +62,7 @@ export default function PostJob({ onAddJob, onBackToDashboard }) {
 
     setIsSubmitting(true);
 
-    const defaultLogo = formData.logoUrl.trim() || "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/LG_logo_%282015%29.svg/200px-LG_logo_%282015%29.svg.png";
+    const defaultLogo = formData.logoUrl.trim() || defaultLgLogo;
 
     setTimeout(() => {
       const newJob = {

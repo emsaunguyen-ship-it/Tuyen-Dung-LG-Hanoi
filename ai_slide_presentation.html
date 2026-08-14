@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LG Hanoi Recruitment Portal - AI Application Story Slide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --lg-red: #A50034;
+      --lg-red-hover: #C40046;
+      --lg-dark: #0f172a;
+      --accent-blue: #1d4ed8;
+      --card-bg: #ffffff;
+      --bg-slate: #f8fafc;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border-color: #e2e8f0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: #f1f5f9;
+      color: #0f172a;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .slide-container {
+      width: 100%;
+      max-width: 1280px;
+      aspect-ratio: 16 / 9;
+      background: #ffffff;
+      color: var(--text-main);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      padding: 32px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .slide-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--lg-red) 0%, var(--accent-blue) 100%);
+    }
+
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 12px;
+    }
+
+    .brand-title-group {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .tag-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--lg-red);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .slide-headline {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--lg-dark);
+      letter-spacing: -0.5px;
+    }
+
+    .slide-headline span {
+      color: var(--lg-red);
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .lg-symbol {
+      width: 32px;
+      height: 32px;
+      background: var(--lg-red);
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 14px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lg-text {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--lg-dark);
+    }
+
+    .slide-body-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 20px;
+      margin: 16px 0;
+      flex-grow: 1;
+    }
+
+    .job-card {
+      background: #ffffff;
+      border: 1.5px solid var(--border-color);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      gap: 16px;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .job-card:hover {
+      border-color: var(--lg-red);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(165, 0, 52, 0.08);
+    }
+
+    .card-img-wrapper {
+      width: 130px;
+      height: 130px;
+      flex-shrink: 0;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      display: block;
+      cursor: pointer;
+    }
+
+    .card-img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.3s ease;
+    }
+
+    .job-card:hover .card-img-wrapper img {
+      transform: scale(1.05);
+    }
+
+    .card-img-badge {
+      position: absolute;
+      bottom: 6px;
+      left: 6px;
+      right: 6px;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(4px);
+      color: #ffffff;
+      font-size: 9px;
+      font-weight: 700;
+      text-align: center;
+      padding: 3px 0;
+      border-radius: 4px;
+    }
+
+    .card-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-grow: 1;
+    }
+
+    .card-top-pill {
+      display: inline-block;
+      font-size: 9.5px;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .pill-red {
+      background: #fbe8f3;
+      color: var(--lg-red);
+    }
+
+    .pill-blue {
+      background: #dbeafe;
+      color: var(--accent-blue);
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--lg-dark);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .card-text {
+      font-size: 11.5px;
+      color: var(--text-sub);
+      line-height: 1.45;
+    }
+
+    .card-text strong {
+      color: var(--lg-red);
+    }
+
+    .card-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #ffffff;
+      padding: 5px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      width: fit-content;
+      margin-top: auto;
+      transition: opacity 0.2s ease;
+    }
+
+    .card-btn:hover {
+      opacity: 0.9;
+    }
+
+    .btn-red { background: var(--lg-red); }
+    .btn-blue { background: var(--accent-blue); }
+
+    .slide-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      color: #0f172a;
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+
+    .footer-info {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 11.5px;
+      color: #475569;
+    }
+
+    .footer-info strong {
+      color: #0f172a;
+    }
+
+    .live-link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--lg-red);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 6px 14px;
+      border-radius: 6px;
+      transition: background 0.2s ease;
+    }
+
+    .live-link-btn:hover {
+      background: var(--lg-red-hover);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slide-container">
+    <header class="slide-header">
+      <div class="brand-title-group">
+        <div class="tag-badge">✨ Chủ động bứt phá ranh giới R&R</div>
+        <h1 class="slide-headline">
+          Chia Sẻ Ứng Dụng AI & <span>Bài Tập Ứng Dụng (Portal Tuyển Dụng LG Hanoi)</span>
+        </h1>
+      </div>
+      <div class="header-logo">
+        <div class="lg-symbol">LG</div>
+        <span class="lg-text">Careers</span>
+      </div>
+    </header>
+
+    <main class="slide-body-grid">
+      <!-- Card 1: Non-Tech AI -->
+      <div class="job-card">
+        <a href="https://emsaunguyen-ship-it.github.io/Tuyen-Dung-LG-Hanoi/?v=12" target="_blank" class="card-img-wrapper" title="Chạm vào để mở Cổng Tuyển Dụng">
+          <img src="square_non_tech_ai.png" alt="Non-Tech AI">
+          <span class="card-img-badge">🔗 Live Website</span>
+        </a>
+        <div class="card-content">
+          <div>
+            <span class="card-top-pill pill-red">[1. BỨT PHÁ RANH GIỚI R&R]</span>
+            <h2 class="card-title">1. Bứt Phá Rào Cản R&R - AI Non-Tech</h2>
+            <p class="card-text">
+              • <strong>Vượt ranh giới R&R:</strong> Là người mua hàng (Sales & Marketing) không có kiến thức về IT và HR vẫn có thể tự lập Cổng tuyển dụng thực tế.<br>
+              • <strong>Tự động hóa nhờ AI:</strong> AI hỗ trợ collect data và tự động kiểm duyệt trang web hoàn chỉnh.
+            </p>
+          </div>
+          <a href="https://emsaunguyen-ship-it.github.io/Tuyen-Dung-LG-Hanoi/?v=12" target="_blank" class="card-btn btn-red">
+            Live Website Product ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2: AI Logic Building -->
+      <div class="job-card">
+        <a href="https://emsaunguyen-ship-it.github.io/Tuyen-Dung-LG-Hanoi/?v=12" target="_blank" class="card-img-wrapper" title="Chạm vào để mở Cổng Tuyển Dụng">
+          <img src="square_logic_code.png" alt="AI Logic Building">
+          <span class="card-img-badge">🔗 Live Logic UI</span>
+        </a>
+        <div class="card-content">
+          <div>
+            <span class="card-top-pill pill-blue">[2. ĐỔI MỚI KÊNH THU HÚT]</span>
+            <h2 class="card-title">2. Đổi Mới Kênh Thu Hút Nhân Tài</h2>
+            <p class="card-text">
+              • <strong>Trải nghiệm số hóa:</strong> Nộp CV 1-Click Apply chuẩn nhận diện LG (Life's Good), nâng cao trải nghiệm ứng viên.<br>
+              • <strong>Độ tin cậy cao:</strong> Dẫn link trực tiếp web chính thức, minh bạch lịch sử công ty & cập nhật hoạt động người thật việc thật hàng ngày.
+            </p>
+          </div>
+          <a href="https://emsaunguyen-ship-it.github.io/Tuyen-Dung-LG-Hanoi/?v=12" target="_blank" class="card-btn btn-blue">
+            Execution Velocity ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3: SVC Solution (2 Options) -->
+      <div class="job-card">
+        <a href="https://emsaunguyen-ship-it.github.io/Tuyen-Dung-LG-Hanoi/?v=12" target="_blank" class="card-img-wrapper" title="Chạm vào để mở Cổng Tuyển Dụng">
+          <img src="square_svc_training.png" alt="Giải Bài Toán Tuyển SVC">
+          <span class="card-img-badge">🔗 Live SVC Portal</span>
+        </a>
+        <div class="card-content">
+          <div>
+            <span class="card-top-pill pill-red">[3. XỬ LÝ NGHỄN TỪ SỚM]</span>
+            <h2 class="card-title">3. Xử Lý Rủi Ro Vận Hành Từ Sớm</h2>
+            <p class="card-text">
+              • <strong>Phòng ngừa rủi ro KTV Service:</strong> Kết hợp linh hoạt 2 kênh (Cổng tuyển trực tiếp LG + Agency thị trường uy tín).<br>
+              • <strong>Trực quan công việc:</strong> Tích hợp clip Premier Care thực tế giúp ứng viên dễ dàng hình dung vị trí ứng tuyển.
+            </p>
+          </div>
+          <a href="https://emsaunguyen-ship-it.github.io/Tuyen-Dung-LG-Hanoi/?v=12" target="_blank" class="card-btn btn-red">
+            2 Options Tuyển Dụng ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 4: HR Automation & Media Content Hub -->
+      <div class="job-card">
+        <a href="https://emsaunguyen-ship-it.github.io/Tuyen-Dung-LG-Hanoi/?v=12" target="_blank" class="card-img-wrapper" title="Chạm vào để mở Cổng Tuyển Dụng">
+          <img src="square_hr_stats.png" alt="HR Media Content Hub">
+          <span class="card-img-badge">🔗 Live HR Hub</span>
+        </a>
+        <div class="card-content">
+          <div>
+            <span class="card-top-pill pill-blue">[4. PHỐI HỢP NỘI BỘ]</span>
+            <h2 class="card-title">4. Tự Động Hóa & Phối Hợp Liên Phòng</h2>
+            <p class="card-text">
+              • <strong>Tự động hóa luồng CV:</strong> Tổng hợp báo cáo Excel thời gian thực & phát thông báo email tức thì cho HR team.<br>
+              • <strong>Xóa khoảng trống thông tin:</strong> Kết nối dữ liệu liền mạch giữa HR team và Khối Dịch vụ.
+            </p>
+          </div>
+          <a href="https://emsaunguyen-ship-it.github.io/Tuyen-Dung-LG-Hanoi/?v=12" target="_blank" class="card-btn btn-blue">
+            Auto-Excel & Media Hub ↗
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="slide-footer">
+      <div class="footer-info">
+        <span><strong>Tác giả:</strong> Trưởng phòng Mua sắm (Sales & Marketing)</span>
+        <span>|</span>
+        <span><strong>Chỉ dẫn:</strong> <em>Chạm vào bất kỳ hình ảnh nào để thao tác trực tiếp trên Website live</em></span>
+      </div>
+      <a href="https://emsaunguyen-ship-it.github.io/Tuyen-Dung-LG-Hanoi/?v=12" target="_blank" class="live-link-btn">
+        🌐 Mở Website Tuyển Dụng Live
+      </a>
+    </footer>
+  </div>
+
+</body>
+</html>
+

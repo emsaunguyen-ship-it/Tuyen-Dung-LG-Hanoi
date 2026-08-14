@@ -1,0 +1,56 @@
+{
+  "vi": {
+    "title_tag": "✨ AI CO-PILOT CASE STUDY • INNOVATION & MINDSET SHIFT",
+    "headline": "Ứng Dụng AI Biến Ý Tưởng Thành Hiện Thực: Hành Trình Tự Tạo Portal Tuyển Dụng Dành Cho Người Không Chuyên IT",
+    "col1_title": "1. BỨT PHÁ RÀO CẢN",
+    "col1_items": [
+      "Bứt phá giới hạn Non-Tech: Là Trưởng phòng Mua sắm, trước đây tôi nghĩ xây Web là việc riêng của IT/Dev.",
+      "Góc nhìn mới với AI: AI giúp rút ngắn khoảng cách từ Ý tưởng trên giấy đến Sản phẩm chạy thật (Live URL).",
+      "Chuyển từ Chờ đợi sang Tự tạo: Không cần chờ dự án lớn, tự giải quyết điểm nghẽn công việc của chính mình."
+    ],
+    "col1_quote": "\"Chỉ cần tư duy rõ nét về bài toán, AI sẽ đồng hành xử lý toàn bộ rào cản kỹ thuật.\"",
+    "col2_title": "2. PHƯƠNG PHÁP CÙNG AI",
+    "col2_items": [
+      "AI đóng vai trò Co-pilot: Cùng phân tích bài toán SVC, gợi ý cấu trúc & giao diện chuẩn BI LG (Life's Good).",
+      "Hiện thực hóa 100% Logic: Lọc job, nộp CV 1-click, tự động xuất file Excel cộng dồn & gửi email cho HR.",
+      "Thực thi nhanh trong vài giờ: Biến ý tưởng thành sản phẩm thực tế qua nhiều vòng lặp tinh chỉnh liên tục."
+    ],
+    "col3_title": "3. LAN TỎA ĐỔI MỚI",
+    "col3_items": [
+      "Công thức ứng dụng AI (10 - 70 - 20):",
+      "• 10% Học lý thuyết căn bản.",
+      "• 70% Thực hành bài toán thật.",
+      "• 20% Chia sẻ cho đội ngũ.",
+      "Thông điệp gửi tới mọi người: Hãy chủ động dùng AI cải tiến ngay công việc hàng ngày. Nếu tôi làm được, bạn cũng làm được!"
+    ],
+    "footer_left": "Tác giả: Trưởng phòng Mua sắm (Sales & Marketing) | Triết lý: AI không thay thế con người – AI chắp cánh cho người chủ động.",
+    "live_url": "🌐 Live URL: https://emsaunguyen-ship-it.github.io/Tuyen-Dung-LG-Hanoi/?v=12"
+  },
+  "en": {
+    "title_tag": "✨ AI CO-PILOT CASE STUDY • INNOVATION & MINDSET SHIFT",
+    "headline": "Harnessing AI to Turn Ideas into Reality: A Non-Tech Manager's Journey of Building a Dedicated Talent Portal",
+    "col1_title": "1. BREAKTHROUGH MINDSET",
+    "col1_items": [
+      "Breaking Non-Tech Limits: As a Procurement Manager, I previously thought web building was strictly for IT/Devs.",
+      "New Perspective with AI: AI bridges the gap between an idea on paper and a live working product (Live URL).",
+      "From Waiting to Creating: No need to wait for big tech projects; solve your own operational bottlenecks directly."
+    ],
+    "col1_quote": "\"With clear problem framing, AI handles the technical heavy lifting.\"",
+    "col2_title": "2. CO-CREATION WITH AI",
+    "col2_items": [
+      "AI as Co-pilot: Collaborated on UX architecture, LG Brand identity alignment (Life's Good), and logic execution.",
+      "100% Logic Execution: Job filtering, 1-click candidate apply, auto-accumulation Excel report & HR email triggers.",
+      "Rapid Execution in Hours: Prototype to production in hours through continuous iterative refinement."
+    ],
+    "col3_title": "3. SPREADING INNOVATION",
+    "col3_items": [
+      "10 - 70 - 20 AI Adoption Framework:",
+      "• 10% Learn AI Fundamentals.",
+      "• 70% Apply to Real Work.",
+      "• 20% Share with Team.",
+      "Message to Everyone: Empower your daily work with AI. If I can do it, so can you!"
+    ],
+    "footer_left": "Author: Procurement Manager (Sales & Marketing) | Philosophy: \"AI won't replace people; AI empowers proactive minds.\"",
+    "live_url": "🌐 Live URL: https://emsaunguyen-ship-it.github.io/Tuyen-Dung-LG-Hanoi/?v=12"
+  }
+}

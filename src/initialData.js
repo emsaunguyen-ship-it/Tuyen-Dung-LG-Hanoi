@@ -1,7 +1,7 @@
-import procurementIcon from './assets/procurement_icon.png';
-import digitalMarketingIcon from './assets/digital_marketing_icon.png';
-import retailMarketingIcon from './assets/retail_marketing_icon.png';
-import technicianIcon from './assets/technician_icon.png';
+import procurementIcon from './assets/procurement_icon.webp';
+import digitalMarketingIcon from './assets/digital_marketing_icon.webp';
+import retailMarketingIcon from './assets/retail_marketing_icon.webp';
+import technicianIcon from './assets/technician_icon.webp';
 
 export const initialJobs = [
   {

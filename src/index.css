@@ -1,8 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
-/* ==========================================
-   DESIGN SYSTEM & VARIABLES
-   ========================================== */
+/* System Font Stack for 0-latency instant rendering */
 :root {
   --primary: #A50034;
   --primary-hover: #850027;
@@ -2167,7 +2163,7 @@ button {
 .lg-vn-hero-section {
   height: 480px;
   position: relative;
-  background: linear-gradient(rgba(17, 17, 17, 0.45), rgba(17, 17, 17, 0.65)), url("https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1600&q=80") center/cover no-repeat;
+  background: linear-gradient(135deg, #111111 0%, #1c1b18 100%);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -2230,17 +2226,464 @@ button {
   }
 }
 
-.lg-vn-hero-section.anniversary-hero-banner {
-  height: 520px;
+.lg-vn-hero-section.anniversary-hero-banner-light-center {
   position: relative;
+  height: 500px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 40px;
+  background: linear-gradient(135deg, #ffffff 0%, #fff2f5 50%, #fce8ec 100%);
+  border-bottom: 1px solid #f2d6dc;
+  overflow: hidden;
+}
+
+/* Centered Photo Layer: Perfectly Centered with Website Content */
+.hero-photo-centered-banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-centered-photo-img {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center center;
+  filter: contrast(1.04) brightness(1.02) drop-shadow(0 15px 35px rgba(165, 0, 52, 0.16));
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.88) 8%, #000000 20%, #000000 80%, rgba(0,0,0,0.88) 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.88) 8%, #000000 20%, #000000 80%, rgba(0,0,0,0.88) 92%, transparent 100%);
+  transition: transform 0.5s ease;
+}
+
+/* Glass Text Card on Far Left Margin */
+.hero-center-text-card {
+  position: absolute;
+  left: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  max-width: 350px;
+  padding: 22px 24px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(165, 0, 52, 0.2);
+  box-shadow: 0 16px 40px rgba(165, 0, 52, 0.18);
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: flex-start;
-  padding: 0 80px;
-  color: #ffffff;
+  gap: 14px;
+}
+
+@media (max-width: 1024px) {
+  .anniversary-hero-banner-light-center {
+    flex-direction: column-reverse;
+    height: auto;
+    padding: 30px 20px;
+  }
+  .hero-photo-centered-banner {
+    position: relative;
+    width: 100%;
+    height: 260px;
+  }
+  .hero-center-text-card {
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+.lg-vn-hero-section.anniversary-hero-banner-light-split {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 480px;
+  width: 100%;
+  padding: 0 40px 0 60px;
+  background: linear-gradient(135deg, #ffffff 0%, #fff2f5 50%, #fce8ec 100%);
+  border-bottom: 1px solid #f2d6dc;
   overflow: hidden;
-  box-shadow: inset 0 -40px 80px rgba(0, 0, 0, 0.35);
+  gap: 20px;
+}
+
+.anniversary-hero-banner-light-split .hero-split-text {
+  flex: 0 0 42%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  z-index: 10;
+}
+
+.anniversary-hero-banner-light-split .hero-split-photo {
+  flex: 0 0 56%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.anniversary-hero-banner-light-split .hero-photo-img {
+  max-width: 100%;
+  max-height: 94%;
+  object-fit: contain;
+  object-position: center center;
+  filter: drop-shadow(0 10px 25px rgba(165, 0, 52, 0.15));
+  border-radius: 12px;
+}
+
+@media (max-width: 1024px) {
+  .anniversary-hero-banner-light-split {
+    flex-direction: column-reverse;
+    height: auto;
+    padding: 30px 20px;
+  }
+  .anniversary-hero-banner-light-split .hero-split-text {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+  .anniversary-hero-banner-light-split .hero-split-photo {
+    flex: 1 1 100%;
+    width: 100%;
+    height: 260px;
+    justify-content: center;
+  }
+}
+
+.lg-vn-hero-section.master-cover-banner {
+  position: relative;
+  height: 520px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 45px;
+  overflow: hidden;
+  background: #140306;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.master-cover-banner .master-cover-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  transition: transform 0.8s ease;
+}
+
+.master-cover-banner:hover .master-cover-bg {
+  transform: scale(1.015);
+}
+
+.master-cover-banner .master-cover-content {
+  position: relative;
+  z-index: 10;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.lifes-good-badge-glow {
+  display: inline-flex;
+  align-items: center;
+  background: #A50034;
+  color: #ffffff;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 800;
+  box-shadow: 0 4px 14px rgba(253, 49, 46, 0.4);
+}
+
+.hero-anniversary-tag-glow {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(253, 49, 46, 0.18);
+  color: #ffffff;
+  border: 1px solid rgba(253, 49, 46, 0.4);
+  padding: 5px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  backdrop-filter: blur(10px);
+}
+
+.master-hero-title {
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  color: #ffffff;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+  margin: 0;
+}
+
+.text-gradient-gold-red {
+  background: linear-gradient(135deg, #ffffff 0%, #ffcbd1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.master-hero-desc {
+  font-size: 15px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.88);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
+  margin: 0;
+}
+
+.btn-pill-primary-master {
+  background: linear-gradient(135deg, #A50034 0%, #FD312E 100%);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 13px 32px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(253, 49, 46, 0.4);
+  transition: all 0.3s ease;
+}
+
+.btn-pill-primary-master:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 12px 28px rgba(253, 49, 46, 0.6);
+}
+
+.btn-pill-outline-master {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 12px 30px;
+  border-radius: 30px;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-pill-outline-master:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.lg-vn-hero-section.anniversary-hero-banner-harmonized {
+  position: relative;
+  height: 480px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px 0 80px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #ffffff 0%, #fff4f6 40%, #fce8ec 100%);
+  border-bottom: 1px solid #f2d6dc;
+}
+
+.anniversary-hero-banner-harmonized .hero-content-left {
+  position: relative;
+  z-index: 5;
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.lifes-good-badge-light {
+  display: inline-flex;
+  align-items: center;
+  background: #A50034;
+  color: #ffffff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 800;
+  box-shadow: 0 4px 12px rgba(165, 0, 52, 0.25);
+}
+
+.hero-anniversary-tag-light {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(165, 0, 52, 0.08);
+  color: #A50034;
+  border: 1px solid rgba(165, 0, 52, 0.2);
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.hero-main-title-light {
+  font-size: 38px;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+  color: #1c1b18;
+  margin: 0;
+}
+
+.text-highlight-red {
+  color: #A50034;
+}
+
+.hero-desc-light {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #4a4740;
+  margin: 0;
+}
+
+.btn-pill-primary-lg {
+  background: linear-gradient(135deg, #A50034 0%, #d60040 100%);
+  color: #ffffff;
+  font-weight: 700;
+  padding: 12px 28px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(165, 0, 52, 0.3);
+  transition: all 0.25s ease;
+}
+
+.btn-pill-primary-lg:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(165, 0, 52, 0.4);
+}
+
+.btn-pill-outline-lg {
+  background: transparent;
+  color: #A50034;
+  font-weight: 700;
+  padding: 11px 26px;
+  border-radius: 30px;
+  border: 2px solid #A50034;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn-pill-outline-lg:hover {
+  background: rgba(165, 0, 52, 0.06);
+  transform: translateY(-2px);
+}
+
+.hero-photo-stage-harmonized {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 58%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  pointer-events: none;
+}
+
+.hero-celebration-photo-seamless {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: right center;
+  mix-blend-mode: multiply;
+  filter: contrast(1.04) brightness(1.02);
+}
+
+.anniversary-hero-banner-artistic .hero-ambient-glow {
+  position: absolute;
+  top: -15%;
+  left: -15%;
+  width: 130%;
+  height: 130%;
+  filter: blur(45px) brightness(0.9) saturate(1.4);
+  opacity: 0.88;
+  z-index: 1;
+}
+
+.anniversary-hero-banner-artistic .hero-photo-stage.hero-photo-left {
+  position: absolute;
+  left: 30px;
+  top: 0;
+  width: 65%;
+  height: 100%;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  pointer-events: none;
+}
+
+.anniversary-hero-banner-artistic .hero-photo-left .hero-celebration-photo {
+  max-width: 100%;
+  max-height: 96%;
+  object-fit: contain;
+  object-position: left center;
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.45));
+  transition: transform 0.5s ease;
+}
+
+.anniversary-hero-banner-artistic .hero-glass-card.hero-card-right {
+  position: relative;
+  z-index: 5;
+  margin-left: auto;
+  max-width: 480px;
+  padding: 26px 30px;
+  background: rgba(18, 5, 9, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+@media (max-width: 1024px) {
+  .anniversary-hero-banner-artistic {
+    height: auto;
+    min-height: 480px;
+    padding: 30px 20px;
+    flex-direction: column-reverse;
+  }
+  .anniversary-hero-banner-artistic .hero-photo-stage {
+    position: relative;
+    right: 0;
+    width: 100%;
+    height: 240px;
+    justify-content: center;
+  }
+  .anniversary-hero-banner-artistic .hero-celebration-photo {
+    max-width: 100%;
+    max-height: 100%;
+    object-position: center;
+  }
+  .anniversary-hero-banner-artistic .hero-glass-card {
+    max-width: 100%;
+    width: 100%;
+  }
 }
 
 .lg-vn-hero-section.anniversary-hero-banner .hero-content-container {

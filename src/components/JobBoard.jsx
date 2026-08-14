@@ -27,26 +27,30 @@ import {
 } from 'lucide-react';
 
 // Import Activity & Media Assets
-import lg31stBannerImg from '../assets/lg_31st_anniversary_banner.jpg';
-import talentSeedsImg from '../assets/talent_seeds_drawing_sharp.jpg';
-import aiSpecialistImg from '../assets/ai_specialist_sharp.png';
-import warroomContestImg from '../assets/warroom_contest_sharp.jpg';
-import lgGramLaunchImg from '../assets/media__1786502028937.png';
-import lgBestCareImg from '../assets/media__1786502073031.png';
-import affectionateAiImg from '../assets/media__1786501969961.png';
+import lg31stBannerImg from '../assets/lg_31st_anniversary_banner.webp';
+import lg31stMasterCoverImg from '../assets/lg_31st_master_cover.webp';
+import lg31stBannerBlurImg from '../assets/lg_31st_anniversary_blur.webp';
+import talentSeedsImg from '../assets/talent_seeds_drawing_sharp.webp';
+import aiSpecialistImg from '../assets/ai_specialist_sharp.webp';
+import warroomContestImg from '../assets/warroom_contest_sharp.webp';
+import lgTeamGroupImg from '../assets/lg_team_group.webp';
+import lgTechnicianImg from '../assets/lg_technician.webp';
+import lgGramLaunchImg from '../assets/media__1786502028937.webp';
+import lgBestCareImg from '../assets/media__1786502073031.webp';
+import affectionateAiImg from '../assets/media__1786501969961.webp';
 
-import lgAnniversaryThumb from '../assets/lg_anniversary_youtube_thumb.jpg';
-import lgInsiderEp1Thumb from '../assets/lg_insider_youtube_thumb.jpg';
-import lgInsiderEp2Thumb from '../assets/lg_insider_ep2_thumb.jpg';
-import lgInsiderEp3Thumb from '../assets/lg_insider_ep3_thumb.jpg';
+import lgAnniversaryThumb from '../assets/lg_anniversary_youtube_thumb.webp';
+import lgInsiderEp1Thumb from '../assets/lg_insider_youtube_thumb.webp';
+import lgInsiderEp2Thumb from '../assets/lg_insider_ep2_thumb.webp';
+import lgInsiderEp3Thumb from '../assets/lg_insider_ep3_thumb.webp';
 
-import post01Img from '../assets/post_01.png';
-import post02Img from '../assets/post_02.png';
-import post03Img from '../assets/post_03.png';
-import post04Img from '../assets/post_04.png';
-import post05Img from '../assets/post_05.png';
-import post06Img from '../assets/post_06.png';
-import post07Img from '../assets/post_07.png';
+import post01Img from '../assets/post_01.webp';
+import post02Img from '../assets/post_02.webp';
+import post03Img from '../assets/post_03.webp';
+import post04Img from '../assets/post_04.webp';
+import post05Img from '../assets/post_05.webp';
+import post06Img from '../assets/post_06.webp';
+import post07Img from '../assets/post_07.webp';
 
 // LG Vietnam Activities Data — sourced from Monthly Newsletter July 2026
 const lgActivities = [
@@ -197,7 +201,8 @@ export default function JobBoard({ jobs, onSelectJob }) {
     }
 
     return jobs.filter(job => {
-      const fullJobText = `${job.title} ${job.company} ${job.description} ${job.industry} ${job.location} ${(job.requirements || []).join(' ')}`.toLowerCase();
+      const reqText = Array.isArray(job.requirements) ? job.requirements.join(' ') : (job.requirements || '');
+      const fullJobText = `${job.title} ${job.company} ${job.description} ${job.industry} ${job.location} ${reqText}`.toLowerCase();
       const matchesKeyword = !kw || searchTerms.some(term => fullJobText.includes(term));
 
       const matchesLocation = location === 'All' || job.location === location;
@@ -213,45 +218,48 @@ export default function JobBoard({ jobs, onSelectJob }) {
   return (
     <div className="job-board-wrapper">
 
-      {/* Hero lifestyle Banner (LG Vietnam 31st Anniversary Style) */}
-      <section 
-        className="lg-vn-hero-section anniversary-hero-banner"
-        style={{
-          backgroundImage: `linear-gradient(to right, rgba(15, 15, 18, 0.92) 0%, rgba(15, 15, 18, 0.72) 48%, rgba(15, 15, 18, 0.25) 100%), url(${lg31stBannerImg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center 30%',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
-        <div className="hero-content-container">
+      {/* Hero lifestyle Banner (Bright Pearl Centered Banner Style) */}
+      <section className="lg-vn-hero-section anniversary-hero-banner-light-center">
+        {/* Centered Photo Layer: Dead Center of Entire Banner */}
+        <div className="hero-photo-centered-banner">
+          <img 
+            src={lg31stBannerImg} 
+            alt="LG Vietnam 31st Anniversary Celebration" 
+            className="hero-centered-photo-img" 
+          />
+        </div>
+
+        {/* Compact Glass Content Card on Left */}
+        <div className="hero-center-text-card">
           <div className="hero-tagline-container">
-            <span className="lifes-good-badge">
+            <span className="lifes-good-badge-light">
               <span className="brand-text-lifes">Life's</span>
               <span className="brand-text-good">Good</span>
               <span className="brand-text-dot">.</span>
             </span>
-            <span className="hero-anniversary-tag">
+            <span className="hero-anniversary-tag-light">
               🎉 LG Vietnam 31st Anniversary
             </span>
           </div>
-          <h1 className="hero-main-title">
-            CÙNG LG KIẾN TẠO<br />CUỘC SỐNG TỐT ĐẸP HƠN
+          <h1 className="hero-main-title-light">
+            CÙNG LG KIẾN TẠO<br />
+            <span className="text-highlight-red">CUỘC SỐNG TỐT ĐẸP HƠN</span>
           </h1>
-          <p className="hero-desc">
-            Kỷ niệm 31 năm LG đồng hành cùng Việt Nam! Khám phá cơ hội nghề nghiệp bứt phá tại Tập đoàn công nghệ hàng đầu thế giới — nơi năng lực của bạn được thăng hoa và trân trọng.
+          <p className="hero-desc-light">
+            Kỷ niệm 31 năm LG đồng hành cùng Việt Nam! Khám phá cơ hội nghề nghiệp bứt phá tại Tập đoàn công nghệ hàng đầu thế giới.
           </p>
           <div className="hero-btn-row">
             <button 
-              className="btn-pill-primary"
+              className="btn-pill-primary-lg"
               onClick={() => {
-                window.scrollTo({ top: 600, behavior: 'smooth' });
+                window.scrollTo({ top: 650, behavior: 'smooth' });
               }}
             >
               Tìm việc ngay
             </button>
             <button 
-              className="btn-pill-secondary"
-              onClick={() => alert('Chào mừng bạn đến với LG! Với sứ mệnh "Life\'s Good", chúng tôi không ngừng cải tiến công nghệ và mang đến không gian làm việc đa văn hóa, sáng tạo vượt trội.')}
+              className="btn-pill-outline-lg"
+              onClick={() => alert('Văn hóa LG "Life\'s Good" chào đón bạn đến với môi trường làm việc sáng tạo, cởi mở và tràn đầy năng lượng!')}
             >
               Về văn hóa LG
             </button>
@@ -458,12 +466,12 @@ export default function JobBoard({ jobs, onSelectJob }) {
                   {/* Logo Container */}
                   <div className="lg-card-logo-container">
                     <img 
-                      src={job.logo || "https://placehold.co/100x100/0f2c59/ffffff?text=Logo"} 
+                      src={job.logo || aiSpecialistImg} 
                       alt={job.company} 
                       className="lg-card-logo"
                       onError={(e) => {
                         e.target.onerror = null;
-                        e.target.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/LG_logo_%282015%29.svg/200px-LG_logo_%282015%29.svg.png";
+                        e.target.src = aiSpecialistImg;
                       }}
                     />
                   </div>
@@ -807,7 +815,7 @@ export default function JobBoard({ jobs, onSelectJob }) {
                     style={{ objectPosition: activity.imgPosition || 'center center' }}
                     onError={(e) => {
                       e.target.onerror = null;
-                      e.target.src = 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80';
+                      e.target.src = lg31stBannerImg;
                     }}
                   />
                   <div className="activity-img-overlay" style={{ background: `linear-gradient(to bottom, transparent 40%, ${activity.color}22 100%)` }} />
@@ -833,7 +841,7 @@ export default function JobBoard({ jobs, onSelectJob }) {
       <section className="lg-promo-grid lg-promo-grid-3">
         <div
           className="lg-promo-card"
-          style={{ backgroundImage: `url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80')` }}
+          style={{ backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85)), url(${lgTeamGroupImg})` }}
         >
           <div className="promo-content">
             <span className="promo-tag">Life's Good Campaign</span>
@@ -849,7 +857,7 @@ export default function JobBoard({ jobs, onSelectJob }) {
 
         <div
           className="lg-promo-card"
-          style={{ backgroundImage: `url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80')` }}
+          style={{ backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85)), url(${lgTechnicianImg})` }}
         >
           <div className="promo-content">
             <span className="promo-tag">Global Career</span>
@@ -865,7 +873,7 @@ export default function JobBoard({ jobs, onSelectJob }) {
 
         <div
           className="lg-promo-card"
-          style={{ backgroundImage: `url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80')` }}
+          style={{ backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85)), url(${warroomContestImg})` }}
         >
           <div className="promo-content">
             <span className="promo-tag">ESG & Bền Vững</span>

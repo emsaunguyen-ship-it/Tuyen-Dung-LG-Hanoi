@@ -1,0 +1,48 @@
+{
+  "vi": {
+    "title_tag": "🚀 PROJECT OVERVIEW & AI CO-PILOT CASE STUDY • LG ELECTRONICS VIETNAM",
+    "headline": "Portal Tuyển Dụng LG Hanoi: Giải Pháp Bứt Phá Nhân Tài SVC & Bài Học Lan Tỏa Đổi Mới Sáng Tạo Từ AI",
+    "section1_title": "1. DỰ ÁN PORTAL TUYỂN DỤNG LG HANOI (PROJECT OVERVIEW)",
+    "section1_items": [
+      "Bối cảnh & Bài toán SVC: Tuyển dụng Kỹ thuật viên SVC rất khó do kênh truyền thống thiếu hình ảnh thực tế và niềm tin.",
+      "Giải pháp Portal Trực quan: Xây dựng cổng thông tin tuyển dụng chuẩn nhận diện LG (Life's Good), cập nhật văn hóa LG Insider & hình ảnh môi trường làm việc.",
+      "Tự động hóa HR Workflow: Nộp CV 1-click, tự động tổng hợp file Excel báo cáo cộng dồn & gửi email thông báo trực tiếp tới HR Manager."
+    ],
+    "section2_title": "2. CÂU CHUYỆN ỨNG DỤNG AI (AI CO-CREATION JOURNEY)",
+    "section2_items": [
+      "Đột phá giới hạn Non-Tech: Là Trưởng phòng Mua sắm (không chuyên IT), AI giúp xóa bỏ rào cản kỹ thuật để tự tay hiện thực hóa sản phẩm.",
+      "AI Co-pilot đồng hành: AI cùng phân tích nghiệp vụ, gợi ý kiến trúc UX, viết code và hiện thực hóa 100% logic ứng dụng trong vài giờ.",
+      "Tối ưu tốc độ thi hành: Chuyển đổi trực tiếp từ Ý tưởng trên giấy thành Website hoạt động thực tế (Live URL)."
+    ],
+    "section3_title": "3. THÔNG ĐIỆP LAN TỎA & KHAI THÁC (MINDSET SHIFT & 10-70-20)",
+    "section3_items": [
+      "Công thức ứng dụng AI (10 - 70 - 20): 10% Học căn bản • 70% Thực hành bài toán thật • 20% Chia sẻ cho đội ngũ.",
+      "Thông điệp gửi tới tập thể: AI không thay thế con người – AI chắp cánh cho những người chủ động cải tiến công việc.",
+      "Trải nghiệm thực tế: Hãy truy cập ngay Portal tại https://emsaunguyen-ship-it.github.io/Tuyen-Dung-LG-Hanoi/?v=12"
+    ],
+    "footer_text": "Tác giả: Trưởng phòng Mua sắm (Sales & Marketing) | Project: LG Hanoi Recruitment Portal | Web: https://emsaunguyen-ship-it.github.io/Tuyen-Dung-LG-Hanoi/?v=12"
+  },
+  "en": {
+    "title_tag": "🚀 PROJECT OVERVIEW & AI CO-PILOT CASE STUDY • LG ELECTRONICS VIETNAM",
+    "headline": "LG Hanoi Recruitment Portal: Solving SVC Hiring Bottlenecks & Empowering AI-Driven Innovation",
+    "section1_title": "1. LG HANOI TALENT PORTAL OVERVIEW",
+    "section1_items": [
+      "SVC Hiring Challenge: SVC Engineers are tough to recruit via text-only channels due to a lack of visual authenticity.",
+      "Visual Talent Portal: Dedicated portal matching LG Brand Identity (Life's Good), showcasing workplace culture & LG Insider series.",
+      "HR Workflow Automation: 1-click CV application, auto-accumulation Excel report generation & instant HR email alerts."
+    ],
+    "section2_title": "2. THE AI CO-CREATION JOURNEY",
+    "section2_items": [
+      "Breaking Non-Tech Barriers: As a Procurement Manager, AI removed coding hurdles, enabling me to build an end-to-end digital portal.",
+      "AI as Ideation & Execution Co-pilot: AI assisted in UX architecture, LG brand styling, logic building, and full-stack development.",
+      "Rapid Speed to Execution: Turned concept proposals directly into a production-ready website (Live URL) within hours."
+    ],
+    "section3_title": "3. SPREADING INNOVATION & IMPACT (MINDSET SHIFT & 10-70-20)",
+    "section3_items": [
+      "10 - 70 - 20 AI Adoption Framework: 10% Learn Fundamentals • 70% Apply to Real Work • 20% Share with Team.",
+      "Core Mindset Message: AI won't replace people; AI empowers proactive team members to solve operational pain points.",
+      "Live Portal Access: Experience the live platform at https://emsaunguyen-ship-it.github.io/Tuyen-Dung-LG-Hanoi/?v=12"
+    ],
+    "footer_text": "Author: Procurement Manager (Sales & Marketing) | Project: LG Hanoi Recruitment Portal | Web: https://emsaunguyen-ship-it.github.io/Tuyen-Dung-LG-Hanoi/?v=12"
+  }
+}
