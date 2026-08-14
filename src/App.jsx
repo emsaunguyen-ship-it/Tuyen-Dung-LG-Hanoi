@@ -5,6 +5,7 @@ import JobDetail from './components/JobDetail';
 import ApplyModal from './components/ApplyModal';
 import PostJob from './components/PostJob';
 import EmployerDashboard from './components/EmployerDashboard';
+import UrgentHiringPopup from './components/UrgentHiringPopup';
 import { initialJobs, initialApplications } from './initialData';
 
 export default function App() {
@@ -305,6 +306,15 @@ export default function App() {
           />
         )}
       </main>
+
+      {/* Urgent Hiring Auto Popup Modal */}
+      {role === 'candidate' && (
+        <UrgentHiringPopup 
+          jobs={jobs} 
+          onSelectJob={handleSelectJob} 
+          onApplyJob={handleApplyJob} 
+        />
+      )}
 
       {/* Candidate Apply Modal */}
       {isApplyModalOpen && selectedJob && (
