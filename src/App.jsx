@@ -6,6 +6,7 @@ import ApplyModal from './components/ApplyModal';
 import PostJob from './components/PostJob';
 import EmployerDashboard from './components/EmployerDashboard';
 import UrgentHiringPopup from './components/UrgentHiringPopup';
+import AIChatbot from './components/AIChatbot';
 import { initialJobs, initialApplications } from './initialData';
 import { useLanguage } from './LanguageContext';
 
@@ -503,6 +504,15 @@ Hệ thống tuyển dụng tự động LG Electronics Việt Nam.`);
           </div>
         </div>
       )}
+
+      {/* LG AI HR Assistant Chatbot */}
+      <AIChatbot 
+        onSelectJob={(jobId) => handleSelectJob(jobId)} 
+        onOpenCVSection={() => {
+          const cvEl = document.getElementById('cv-templates-hub');
+          if (cvEl) cvEl.scrollIntoView({ behavior: 'smooth' });
+        }}
+      />
     </div>
   );
 }
