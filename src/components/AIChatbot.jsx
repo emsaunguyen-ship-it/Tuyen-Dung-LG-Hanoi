@@ -6,6 +6,7 @@ import aiAvatarImg from '../assets/lg_ai_assistant_avatar.png';
 export default function AIChatbot({ onSelectJob, onOpenCVSection }) {
   const { lang } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
+  const [showProfileModal, setShowProfileModal] = useState(false);
   const [unreadCount, setUnreadCount] = useState(1);
   const [inputMessage, setInputMessage] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -180,7 +181,7 @@ export default function AIChatbot({ onSelectJob, onOpenCVSection }) {
         <div className="ai-chat-drawer-container animate-zoom-in">
           {/* Header */}
           <div className="chat-drawer-header">
-            <div className="chat-header-user-info">
+            <div className="chat-header-user-info" style={{ cursor: 'pointer' }} onClick={() => setShowProfileModal(true)} title={lang === 'vi' ? 'Xem ảnh & Hồ sơ Chuyên viên AI Minh Anh' : 'View AI Assistant Photo & Profile'}>
               <div className="header-avatar-ring">
                 <img src={aiAvatarImg} alt="Minh Anh LG AI Assistant" className="header-avatar-img" />
                 <span className="online-status-dot"></span>
@@ -190,7 +191,7 @@ export default function AIChatbot({ onSelectJob, onOpenCVSection }) {
                   Minh Anh <span className="lifes-good-tag">Life's Good.</span>
                 </h3>
                 <p className="ai-assistant-title">
-                  <Sparkles size={12} className="sparkle-icon" /> {lang === 'vi' ? 'Trợ lý AI Tuyển dụng LG' : 'LG AI Recruiter Assistant'}
+                  <Sparkles size={12} className="sparkle-icon" /> {lang === 'vi' ? 'Trợ lý AI Tuyển dụng LG (Xem ảnh)' : 'LG AI Recruiter Assistant'}
                 </p>
               </div>
             </div>
@@ -208,7 +209,7 @@ export default function AIChatbot({ onSelectJob, onOpenCVSection }) {
             {messages.map((msg) => (
               <div key={msg.id} className={`chat-message-row ${msg.sender === 'user' ? 'message-user' : 'message-ai'}`}>
                 {msg.sender === 'ai' && (
-                  <div className="msg-avatar">
+                  <div className="msg-avatar" style={{ cursor: 'pointer' }} onClick={() => setShowProfileModal(true)} title="Xem hình ảnh chân dung">
                     <img src={aiAvatarImg} alt="Minh Anh AI" />
                   </div>
                 )}
@@ -282,6 +283,142 @@ export default function AIChatbot({ onSelectJob, onOpenCVSection }) {
               <Send size={16} />
             </button>
           </form>
+        </div>
+      )}
+
+      {/* POPUP MODAL: High-Res Portrait Image & Profile of LG AI Recruiter Assistant */}
+      {showProfileModal && (
+        <div className="modal-overlay animate-fade-in" style={{ zIndex: 10000 }} onClick={() => setShowProfileModal(false)}>
+          <div 
+            className="modal-content animate-zoom-in" 
+            onClick={(e) => e.stopPropagation()}
+            style={{ maxWidth: '440px', padding: '0', overflow: 'hidden', borderRadius: '24px', border: '2px solid #A50034' }}
+          >
+            {/* Header Banner Image Container */}
+            <div style={{ position: 'relative', width: '100%', height: '320px', backgroundColor: '#7B0027', overflow: 'hidden' }}>
+              <img 
+                src={aiAvatarImg} 
+                alt="Minh Anh - Trợ lý AI Tuyển dụng LG Electronics (Áo đỏ Life's Good.)" 
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center 20%' }} 
+              />
+              <button 
+                onClick={() => setShowProfileModal(false)}
+                style={{
+                  position: 'absolute',
+                  top: '14px',
+                  right: '14px',
+                  background: 'rgba(0, 0, 0, 0.5)',
+                  color: '#ffffff',
+                  border: 'none',
+                  borderRadius: '50%',
+                  width: '34px',
+                  height: '34px',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  backdropFilter: 'blur(4px)'
+                }}
+              >
+                <X size={20} />
+              </button>
+
+              <div style={{
+                position: 'absolute',
+                bottom: '12px',
+                left: '14px',
+                background: '#A50034',
+                color: '#ffffff',
+                padding: '5px 14px',
+                borderRadius: '20px',
+                fontSize: '12px',
+                fontWeight: 800,
+                boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
+                border: '1px solid #ffffff'
+              }}>
+                Life's Good. Official HR Outfit
+              </div>
+            </div>
+
+            {/* Profile Bio Details */}
+            <div style={{ padding: '20px 22px', backgroundColor: '#ffffff' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
+                <h3 style={{ fontSize: '20px', fontWeight: 800, color: '#111111', margin: 0 }}>
+                  Minh Anh
+                </h3>
+                <span style={{ backgroundColor: '#fef2f2', color: '#A50034', padding: '4px 10px', borderRadius: '12px', fontSize: '11.5px', fontWeight: 700, border: '1px solid #fecaca' }}>
+                  🟢 {lang === 'vi' ? 'Đang hoạt động 24/7' : 'Active 24/7'}
+                </span>
+              </div>
+
+              <p style={{ fontSize: '13.5px', color: '#A50034', fontWeight: 700, margin: '0 0 14px 0' }}>
+                {lang === 'vi' ? 'Trợ lý AI Tuyển dụng LG Electronics Việt Nam' : 'LG Electronics AI Recruiter Assistant'}
+              </p>
+
+              <div style={{ backgroundColor: '#f8fafc', padding: '12px 14px', borderRadius: '14px', border: '1px solid #e2e8f0', marginBottom: '16px', fontSize: '12.5px', color: '#334155', lineHeight: '1.6' }}>
+                <div style={{ marginBottom: '6px' }}>
+                  <strong>🎯 {lang === 'vi' ? 'Khẩu hiệu:' : 'Slogan:'}</strong> <span style={{ color: '#A50034', fontWeight: 700 }}>"Life's Good. - CÙNG LG KIẾN TẠO"</span>
+                </div>
+                <div style={{ marginBottom: '6px' }}>
+                  <strong>🤖 {lang === 'vi' ? 'Nhiệm vụ:' : 'Mission:'}</strong> {lang === 'vi' ? 'Tư vấn việc làm, chế độ đãi ngộ & hỗ trợ ứng viên nộp CV 24/7.' : 'Guide candidates, benefits & 24/7 CV submission support.'}
+                </div>
+                <div>
+                  <strong>🛡 {lang === 'vi' ? 'Cam kết:' : 'Guarantee:'}</strong> {lang === 'vi' ? '100% Hồ sơ được thẩm định trực tiếp bởi HR LG (Human-In-The-Loop Audit).' : '100% Resume Human Review by LG HR Team.'}
+                </div>
+              </div>
+
+              {/* Modal Action Buttons */}
+              <div style={{ display: 'flex', gap: '10px' }}>
+                <button 
+                  onClick={() => {
+                    setShowProfileModal(false);
+                    setIsOpen(true);
+                  }}
+                  style={{
+                    flex: 1,
+                    backgroundColor: '#A50034',
+                    color: '#ffffff',
+                    border: 'none',
+                    borderRadius: '25px',
+                    padding: '11px 0',
+                    fontSize: '13.5px',
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '6px'
+                  }}
+                >
+                  <MessageSquare size={16} /> {lang === 'vi' ? 'Trò chuyện ngay' : 'Start Chat'}
+                </button>
+                <button 
+                  onClick={() => {
+                    setShowProfileModal(false);
+                    const el = document.getElementById('jobs-board-anchor');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  style={{
+                    flex: 1,
+                    backgroundColor: '#ffffff',
+                    color: '#334155',
+                    border: '1px solid #cbd5e1',
+                    borderRadius: '25px',
+                    padding: '11px 0',
+                    fontSize: '13.5px',
+                    fontWeight: 700,
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '6px'
+                  }}
+                >
+                  <Briefcase size={16} /> {lang === 'vi' ? 'Xem việc làm HOT' : 'View Hot Jobs'}
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </div>
