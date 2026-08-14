@@ -234,16 +234,16 @@ export default function JobBoard({ jobs, onSelectJob }) {
         <div className="hero-center-text-card">
           <div className="hero-tagline-container">
             <span className="lifes-good-badge-light">
-              <span className="brand-text-lifes">Life's</span>
-              <span className="brand-text-good">Good</span>
-              <span className="brand-text-dot">.</span>
+              <span className="brand-text-white">Life's</span>
+              <span className="brand-text-white">Good</span>
+              <span className="brand-text-white">.</span>
             </span>
             <span className="hero-anniversary-tag-light">
               🎉 LG Vietnam 31st Anniversary
             </span>
           </div>
           <h1 className="hero-main-title-light">
-            CÙNG LG KIẾN TẠO<br />
+            <span className="hero-title-single-line">CÙNG LG KIẾN TẠO</span>
             <span className="text-highlight-red">CUỘC SỐNG TỐT ĐẸP HƠN</span>
           </h1>
           <p className="hero-desc-light">
