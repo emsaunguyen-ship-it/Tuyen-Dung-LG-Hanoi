@@ -27,6 +27,7 @@ import {
 } from 'lucide-react';
 
 // Import Activity & Media Assets
+import lg31stBannerImg from '../assets/lg_31st_anniversary_banner.jpg';
 import talentSeedsImg from '../assets/talent_seeds_drawing_sharp.jpg';
 import aiSpecialistImg from '../assets/ai_specialist_sharp.png';
 import warroomContestImg from '../assets/warroom_contest_sharp.jpg';
@@ -212,37 +213,49 @@ export default function JobBoard({ jobs, onSelectJob }) {
   return (
     <div className="job-board-wrapper">
 
-      {/* Hero lifestyle Banner (LG Vietnam Style) */}
-      <section className="lg-vn-hero-section seonhaeng-banner">
-        <div className="hero-tagline-container">
-          <span className="lifes-good-badge">
-            <span className="brand-text-lifes">Life's</span>
-            <span className="brand-text-good">Good</span>
-            <span className="brand-text-dot">.</span>
-          </span>
-          <span className="hero-tagline-sub">Join the Leader</span>
-        </div>
-        <h1 className="hero-main-title">
-          CÙNG LG KIẾN TẠO<br />CUỘC SỐNG TỐT ĐẸP HƠN
-        </h1>
-        <p className="hero-desc">
-          Khám phá những cơ hội nghề nghiệp đột phá tại Tập đoàn công nghệ hàng đầu thế giới. Nơi năng lực của bạn được thăng hoa và ghi nhận xứng đáng.
-        </p>
-        <div className="hero-btn-row">
-          <button 
-            className="btn-pill-primary"
-            onClick={() => {
-              window.scrollTo({ top: 600, behavior: 'smooth' });
-            }}
-          >
-            Tìm việc ngay
-          </button>
-          <button 
-            className="btn-pill-secondary"
-            onClick={() => alert('Chào mừng bạn đến với LG! Với sứ mệnh "Life\'s Good", chúng tôi không ngừng cải tiến công nghệ và mang đến không gian làm việc đa văn hóa, sáng tạo vượt trội.')}
-          >
-            Về văn hóa LG
-          </button>
+      {/* Hero lifestyle Banner (LG Vietnam 31st Anniversary Style) */}
+      <section 
+        className="lg-vn-hero-section anniversary-hero-banner"
+        style={{
+          backgroundImage: `linear-gradient(to right, rgba(15, 15, 18, 0.92) 0%, rgba(15, 15, 18, 0.72) 48%, rgba(15, 15, 18, 0.25) 100%), url(${lg31stBannerImg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center 30%',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <div className="hero-content-container">
+          <div className="hero-tagline-container">
+            <span className="lifes-good-badge">
+              <span className="brand-text-lifes">Life's</span>
+              <span className="brand-text-good">Good</span>
+              <span className="brand-text-dot">.</span>
+            </span>
+            <span className="hero-anniversary-tag">
+              🎉 LG Vietnam 31st Anniversary
+            </span>
+          </div>
+          <h1 className="hero-main-title">
+            CÙNG LG KIẾN TẠO<br />CUỘC SỐNG TỐT ĐẸP HƠN
+          </h1>
+          <p className="hero-desc">
+            Kỷ niệm 31 năm LG đồng hành cùng Việt Nam! Khám phá cơ hội nghề nghiệp bứt phá tại Tập đoàn công nghệ hàng đầu thế giới — nơi năng lực của bạn được thăng hoa và trân trọng.
+          </p>
+          <div className="hero-btn-row">
+            <button 
+              className="btn-pill-primary"
+              onClick={() => {
+                window.scrollTo({ top: 600, behavior: 'smooth' });
+              }}
+            >
+              Tìm việc ngay
+            </button>
+            <button 
+              className="btn-pill-secondary"
+              onClick={() => alert('Chào mừng bạn đến với LG! Với sứ mệnh "Life\'s Good", chúng tôi không ngừng cải tiến công nghệ và mang đến không gian làm việc đa văn hóa, sáng tạo vượt trội.')}
+            >
+              Về văn hóa LG
+            </button>
+          </div>
         </div>
       </section>
 
