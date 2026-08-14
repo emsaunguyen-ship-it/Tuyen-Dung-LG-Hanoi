@@ -12,8 +12,8 @@ export default function AIChatbot({ onSelectJob, onOpenCVSection }) {
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
 
-  const initialGreetingVi = "Xin chào! Mình là **Minh Hiền** - Trợ lý AI Tuyển dụng LG Electronics 🇻🇳. Mình mặc áo Life's Good. đỏ và rất sẵn sàng đồng hành cùng bạn! Bạn cần tư vấn vị trí công việc, chế độ đãi ngộ hay mẫu CV chuẩn LG?";
-  const initialGreetingEn = "Hello! I am **Minh Hien** - LG Electronics AI Career Assistant 🇬🇧. Wearing my red 'Life's Good.' tee, I'm excited to help you! How can I assist you with job openings, benefits, or LG CV templates?";
+  const initialGreetingVi = "Xin chào! Mình là **Như Anh** - Trợ lý AI Tuyển dụng LG Electronics 🇻🇳. Mình rất sẵn sàng đồng hành cùng bạn! Bạn cần tư vấn vị trí công việc, chế độ đãi ngộ hay mẫu CV chuẩn LG?";
+  const initialGreetingEn = "Hello! I am **Nhu Anh** - LG Electronics AI Career Assistant 🇬🇧. I'm excited to help you! How can I assist you with job openings, benefits, or LG CV templates?";
 
   const [messages, setMessages] = useState([
     {
@@ -95,8 +95,8 @@ export default function AIChatbot({ onSelectJob, onOpenCVSection }) {
     // Default friendly response
     return {
       text: lang === 'vi'
-        ? `Cảm ơn bạn! Minh Hiền đã ghi nhận thắc mắc: "${userText}". Bạn có muốn Minh Hiền kết nối trực tiếp với Chị Nguyễn Khánh Thuỷ (Trưởng nhóm Tuyển dụng LG) hay tư vấn chi tiết vị trí công việc phù hợp?`
-        : `Thank you! Minh Hien noted your question: "${userText}". Would you like me to connect you directly with Ms. Nguyen Khanh Thuy (LG Lead Recruiter) or guide you to relevant jobs?`,
+        ? `Cảm ơn bạn! Như Anh đã ghi nhận thắc mắc: "${userText}". Bạn có muốn Như Anh kết nối trực tiếp với Chị Nguyễn Khánh Thuỷ (Trưởng nhóm Tuyển dụng LG) hay tư vấn chi tiết vị trí công việc phù hợp?`
+        : `Thank you! Nhu Anh noted your question: "${userText}". Would you like me to connect you directly with Ms. Nguyen Khanh Thuy (LG Lead Recruiter) or guide you to relevant jobs?`,
       options: [
         { id: 'opt-jobs', label: lang === 'vi' ? '🔍 Xem danh sách việc làm' : '🔍 Browse Vacancies', action: 'show_jobs' },
         { id: 'opt-perks', label: lang === 'vi' ? '🎁 Xem chế độ đãi ngộ' : '🎁 View Benefits', action: 'show_perks' }
@@ -165,11 +165,11 @@ export default function AIChatbot({ onSelectJob, onOpenCVSection }) {
       {!isOpen && (
         <button className="ai-chatbot-trigger-btn animate-bounce-subtle" onClick={toggleChat} aria-label="Open AI Recruiter Assistant">
           <div className="trigger-avatar-wrapper">
-            <img src={aiAvatarImg} alt="Minh Hiền - LG AI Assistant" className="trigger-avatar-img" />
+            <img src={aiAvatarImg} alt="Như Anh - LG AI Assistant" className="trigger-avatar-img" />
             <span className="online-status-dot"></span>
           </div>
           <div className="trigger-text-box">
-            <span className="trigger-name">Minh Hiền LG AI</span>
+            <span className="trigger-name">Như Anh LG AI</span>
             <span className="trigger-sub">Life's Good. HR</span>
           </div>
           {unreadCount > 0 && <span className="trigger-unread-badge">{unreadCount}</span>}
@@ -181,14 +181,14 @@ export default function AIChatbot({ onSelectJob, onOpenCVSection }) {
         <div className="ai-chat-drawer-container animate-zoom-in">
           {/* Header */}
           <div className="chat-drawer-header">
-            <div className="chat-header-user-info" style={{ cursor: 'pointer' }} onClick={() => setShowProfileModal(true)} title={lang === 'vi' ? 'Xem ảnh & Hồ sơ Chuyên viên AI Minh Hiền' : 'View AI Assistant Photo & Profile'}>
+            <div className="chat-header-user-info" style={{ cursor: 'pointer' }} onClick={() => setShowProfileModal(true)} title={lang === 'vi' ? 'Xem ảnh & Hồ sơ Chuyên viên AI Như Anh' : 'View AI Assistant Photo & Profile'}>
               <div className="header-avatar-ring">
-                <img src={aiAvatarImg} alt="Minh Hiền LG AI Assistant" className="header-avatar-img" />
+                <img src={aiAvatarImg} alt="Như Anh LG AI Assistant" className="header-avatar-img" />
                 <span className="online-status-dot"></span>
               </div>
               <div className="header-user-text">
                 <h3 className="ai-assistant-name">
-                  Minh Hiền <span className="lifes-good-tag">Life's Good.</span>
+                  Như Anh <span className="lifes-good-tag">Life's Good.</span>
                 </h3>
                 <p className="ai-assistant-title">
                   <Sparkles size={12} className="sparkle-icon" /> {lang === 'vi' ? 'Trợ lý AI Tuyển dụng LG (Xem ảnh)' : 'LG AI Recruiter Assistant'}
@@ -210,7 +210,7 @@ export default function AIChatbot({ onSelectJob, onOpenCVSection }) {
               <div key={msg.id} className={`chat-message-row ${msg.sender === 'user' ? 'message-user' : 'message-ai'}`}>
                 {msg.sender === 'ai' && (
                   <div className="msg-avatar" style={{ cursor: 'pointer' }} onClick={() => setShowProfileModal(true)} title="Xem hình ảnh chân dung">
-                    <img src={aiAvatarImg} alt="Minh Hiền AI" />
+                    <img src={aiAvatarImg} alt="Như Anh AI" />
                   </div>
                 )}
                 
@@ -242,7 +242,7 @@ export default function AIChatbot({ onSelectJob, onOpenCVSection }) {
             {isTyping && (
               <div className="chat-message-row message-ai">
                 <div className="msg-avatar">
-                  <img src={aiAvatarImg} alt="Minh Hiền AI" />
+                  <img src={aiAvatarImg} alt="Như Anh AI" />
                 </div>
                 <div className="msg-bubble-content">
                   <div className="msg-bubble typing-bubble">
@@ -274,7 +274,7 @@ export default function AIChatbot({ onSelectJob, onOpenCVSection }) {
           <form className="chat-drawer-footer" onSubmit={handleSendMessage}>
             <input 
               type="text" 
-              placeholder={lang === 'vi' ? 'Hỏi Minh Hiền về việc làm LG...' : 'Ask Minh Hien about LG careers...'}
+              placeholder={lang === 'vi' ? 'Hỏi Như Anh về việc làm LG...' : 'Ask Nhu Anh about LG careers...'}
               value={inputMessage}
               onChange={(e) => setInputMessage(e.target.value)}
               className="chat-input-field"
@@ -298,7 +298,7 @@ export default function AIChatbot({ onSelectJob, onOpenCVSection }) {
             <div style={{ position: 'relative', width: '100%', height: '360px', backgroundColor: '#7B0027', overflow: 'hidden' }}>
               <img 
                 src={aiAvatarImg} 
-                alt="Minh Hiền - Trợ lý AI Tuyển dụng LG Electronics (Áo đỏ Life's Good.)" 
+                alt="Như Anh - Trợ lý AI Tuyển dụng LG Electronics (Life's Good.)" 
                 style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }} 
               />
               <button 
@@ -336,7 +336,7 @@ export default function AIChatbot({ onSelectJob, onOpenCVSection }) {
                 boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
                 border: '1px solid #ffffff'
               }}>
-                Life's Good. Official HR Outfit
+                Life's Good. Official HR Recruiter
               </div>
             </div>
 
@@ -344,7 +344,7 @@ export default function AIChatbot({ onSelectJob, onOpenCVSection }) {
             <div style={{ padding: '20px 22px', backgroundColor: '#ffffff' }}>
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '8px' }}>
                 <h3 style={{ fontSize: '20px', fontWeight: 800, color: '#111111', margin: 0 }}>
-                  Minh Hiền
+                  Như Anh
                 </h3>
                 <span style={{ backgroundColor: '#fef2f2', color: '#A50034', padding: '4px 10px', borderRadius: '12px', fontSize: '11.5px', fontWeight: 700, border: '1px solid #fecaca' }}>
                   🟢 {lang === 'vi' ? 'Đang hoạt động 24/7' : 'Active 24/7'}
