@@ -23,16 +23,19 @@ export default function Header({ currentView, onViewChange, role, onRoleChange }
             <a href="https://www.lg.com/vn" target="_blank" rel="noopener noreferrer">{t('navAboutLG')}</a>
             <a href="#" onClick={(e) => e.preventDefault()}>{t('navSupport')}</a>
 
-            {/* Language Switcher in Utility Bar */}
+            {/* Bilingual Flag Language Switcher */}
             <button 
               className="lang-switcher-pill"
               onClick={toggleLanguage}
-              title={lang === 'vi' ? 'Switch to English' : 'Chuyển sang Tiếng Việt'}
+              title={lang === 'vi' ? 'Switch to English 🇬🇧' : 'Chuyển sang Tiếng Việt 🇻🇳'}
             >
-              <Globe size={13} />
-              <span className={`lang-code ${lang === 'vi' ? 'active-lang' : ''}`}>VIE</span>
+              <span className={`lang-option ${lang === 'vi' ? 'active-lang' : ''}`}>
+                <span className="flag-emoji">🇻🇳</span> VIE
+              </span>
               <span className="lang-divider">|</span>
-              <span className={`lang-code ${lang === 'en' ? 'active-lang' : ''}`}>ENG</span>
+              <span className={`lang-option ${lang === 'en' ? 'active-lang' : ''}`}>
+                <span className="flag-emoji">🇬🇧</span> ENG
+              </span>
             </button>
           </div>
         </div>

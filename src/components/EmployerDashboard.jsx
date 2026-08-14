@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Briefcase, Users, FileCheck2, UserMinus, PlusCircle, ExternalLink, Mail, Phone, Calendar, Check, X, FileText, ChevronRight } from 'lucide-react';
+import { useLanguage } from '../LanguageContext';
 
 export default function EmployerDashboard({ jobs, applications, onUpdateAppStatus, onDeleteJob, onNavigateToPost, webhookUrl, onUpdateWebhookUrl }) {
+  const { lang, t } = useLanguage();
   const [activeTab, setActiveTab] = useState('applications'); // 'jobs' or 'applications'
   const [selectedJobFilter, setSelectedJobFilter] = useState('All');
 
@@ -134,12 +136,12 @@ Hệ thống tuyển dụng tự động LG Electronics Việt Nam.`;
       {/* Dashboard Header */}
       <div className="dashboard-header-row">
         <div>
-          <h1 className="dashboard-title">Bảng Điều Khiển Nhà Tuyển Dụng</h1>
-          <p className="dashboard-subtitle">Quản lý các chiến dịch tuyển dụng và đơn ứng tuyển của ứng viên</p>
+          <h1 className="dashboard-title">{t('dashboardTitle')}</h1>
+          <p className="dashboard-subtitle">{t('dashboardSubtitle')}</p>
         </div>
         <button className="btn-create-job-main" onClick={onNavigateToPost}>
           <PlusCircle size={18} />
-          <span>Đăng tin tuyển dụng mới</span>
+          <span>{t('btnPostJobMain')}</span>
         </button>
       </div>
 
@@ -147,7 +149,7 @@ Hệ thống tuyển dụng tự động LG Electronics Việt Nam.`;
       <div className="metrics-grid">
         <div className="metric-card bg-navy">
           <div className="metric-content">
-            <span className="metric-card-label">Tin tuyển dụng đang mở</span>
+            <span className="metric-card-label">{t('metricOpenJobs')}</span>
             <span className="metric-card-value">{totalJobs}</span>
           </div>
           <div className="metric-icon-wrap">
@@ -157,7 +159,7 @@ Hệ thống tuyển dụng tự động LG Electronics Việt Nam.`;
 
         <div className="metric-card bg-blue">
           <div className="metric-content">
-            <span className="metric-card-label">Tổng số hồ sơ ứng tuyển</span>
+            <span className="metric-card-label">{t('metricTotalApps')}</span>
             <span className="metric-card-value">{totalApps}</span>
           </div>
           <div className="metric-icon-wrap">
@@ -167,7 +169,7 @@ Hệ thống tuyển dụng tự động LG Electronics Việt Nam.`;
 
         <div className="metric-card bg-orange">
           <div className="metric-content">
-            <span className="metric-card-label">Hồ sơ chờ xem xét</span>
+            <span className="metric-card-label">{t('metricPendingApps')}</span>
             <span className="metric-card-value">{pendingApps}</span>
           </div>
           <div className="metric-icon-wrap">
@@ -177,7 +179,7 @@ Hệ thống tuyển dụng tự động LG Electronics Việt Nam.`;
 
         <div className="metric-card bg-green">
           <div className="metric-content">
-            <span className="metric-card-label">Ứng viên đã duyệt (Shortlist)</span>
+            <span className="metric-card-label">{t('metricShortlistedApps')}</span>
             <span className="metric-card-value">{shortlistedApps}</span>
           </div>
           <div className="metric-icon-wrap">
@@ -193,19 +195,19 @@ Hệ thống tuyển dụng tự động LG Electronics Việt Nam.`;
             className={`dashboard-tab-btn ${activeTab === 'applications' ? 'active' : ''}`}
             onClick={() => setActiveTab('applications')}
           >
-            Hồ Sơ Ứng Tuyển Nhận Được ({applications.length})
+            {t('tabReceivedApps')} ({applications.length})
           </button>
           <button 
             className={`dashboard-tab-btn ${activeTab === 'jobs' ? 'active' : ''}`}
             onClick={() => setActiveTab('jobs')}
           >
-            Tin Tuyển Dụng Đã Đăng ({jobs.length})
+            {t('tabManageJobs')} ({jobs.length})
           </button>
           <button 
             className={`dashboard-tab-btn ${activeTab === 'sheets' ? 'active' : ''}`}
             onClick={() => setActiveTab('sheets')}
           >
-            Đồng Bộ Google Sheets
+            {lang === 'vi' ? 'Đồng Bộ Google Sheets' : 'Google Sheets Webhook'}
           </button>
         </div>
 
