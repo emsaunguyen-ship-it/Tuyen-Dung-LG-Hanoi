@@ -1,0 +1,131 @@
+<html xmlns:o="urn:schemas-microsoft-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <!--[if gte mso 9]>
+  <xml>
+    <x:ExcelWorkbook>
+      <x:ExcelWorksheets>
+        <x:ExcelWorksheet>
+          <x:Name>Danh Sach Ung Vien LG</x:Name>
+          <x:WorksheetOptions>
+            <x:DisplayGridlines/>
+          </x:WorksheetOptions>
+        </x:ExcelWorksheet>
+      </x:ExcelWorksheets>
+    </x:ExcelWorkbook>
+  </xml>
+  <![endif]-->
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    .header-banner { background-color: #A50034; color: #ffffff; font-size: 20px; font-weight: bold; text-align: center; padding: 16px; }
+    .info-table { margin-bottom: 20px; font-size: 13px; }
+    .info-label { font-weight: bold; color: #555555; width: 180px; }
+    th { background-color: #A50034; color: #ffffff; font-weight: bold; border: 1px solid #7B0027; padding: 10px; text-align: center; font-size: 13px; }
+    td { border: 1px solid #cbd5e1; padding: 8px; font-size: 12.5px; vertical-align: middle; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    .status-pending { background-color: #fef3c7; color: #92400e; font-weight: bold; text-align: center; border-radius: 12px; padding: 4px 8px; }
+    .status-shortlisted { background-color: #dcfce7; color: #166534; font-weight: bold; text-align: center; border-radius: 12px; padding: 4px 8px; }
+    .audit-badge { color: #A50034; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="header-banner">
+    BÁO CÁO DANH SÁCH ỨNG VIÊN NỘP HỒ SƠ - CỔNG TUYỂN DỤNG LG ELECTRONICS VIỆT NAM
+  </div>
+  
+  <br/>
+  
+  <table class="info-table">
+    <tr>
+      <td class="info-label">Vị trí tuyển dụng:</td>
+      <td><strong>Chuyên viên Mua hàng Tập trung (Marketing Procurement Specialist)</strong></td>
+    </tr>
+    <tr>
+      <td class="info-label">Đơn vị quản lý:</td>
+      <td>LG Electronics Vietnam / Phòng Thu Mua General Procurement</td>
+    </tr>
+    <tr>
+      <td class="info-label">Người nhận báo cáo (HR):</td>
+      <td>Chị Nguyễn Khánh Thuỷ (khanhthuy.nguyen@lge.com)</td>
+    </tr>
+    <tr>
+      <td class="info-label">Cam kết thẩm định:</td>
+      <td class="audit-badge">100% Human-In-The-Loop Audit (Đội ngũ HR LG trực tiếp đánh giá)</td>
+    </tr>
+    <tr>
+      <td class="info-label">Ngày xuất báo cáo:</td>
+      <td>14/08/2026 11:50:00 (UTC+7)</td>
+    </tr>
+  </table>
+
+  <br/>
+
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 45px;">STT</th>
+        <th style="width: 130px;">Mã ATS ID</th>
+        <th style="width: 150px;">Họ và Tên Ứng Viên</th>
+        <th style="width: 190px;">Địa Chỉ Email</th>
+        <th style="width: 110px;">Số Điện Thoại</th>
+        <th style="width: 120px;">Số Năm Kinh Nghiệm</th>
+        <th style="width: 300px;">Kinh Nghiệm Làm Việc (Quá Trình Công Tác)</th>
+        <th style="width: 280px;">Thư Giới Thiệu (Cover Letter)</th>
+        <th style="width: 220px;">Tệp Hồ Sơ CV Đính Kèm</th>
+        <th style="width: 110px;">Ngày Ứng Tuyển</th>
+        <th style="width: 140px;">Trạng Thái Hồ Sơ</th>
+        <th style="width: 150px;">Thẩm Định HR</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align: center;">1</td>
+        <td style="text-align: center; font-weight: bold;">ATS-LG-2026-8912</td>
+        <td><strong>Nguyễn Văn An</strong></td>
+        <td>an.nguyen@gmail.com</td>
+        <td style="text-align: center;">0901234567</td>
+        <td style="text-align: center; font-weight: bold; color: #A50034;">3 - 5 năm</td>
+        <td>4 năm kinh nghiệm Buyer Hạng mục POSM, Agency sự kiện & Media Buying tại Tập đoàn Bán lẻ</td>
+        <td>Tôi có 4 năm kinh nghiệm làm mua hàng cho các hoạt động Marketing tại các tập đoàn bán lẻ lớn, rất mong muốn có cơ hội cống hiến cho LG.</td>
+        <td><a href="#" style="color: #2b6cb0; text-decoration: underline;">CV_Nguyen_Van_An_Procurement.pdf</a></td>
+        <td style="text-align: center;">2026-08-04</td>
+        <td><div class="status-pending">Chờ duyệt</div></td>
+        <td style="text-align: center; color: #A50034; font-weight: 600;">Đã phân công HR</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">2</td>
+        <td style="text-align: center; font-weight: bold;">ATS-LG-2026-4410</td>
+        <td><strong>Phan Thị Bình</strong></td>
+        <td>binh.phan@gmail.com</td>
+        <td style="text-align: center;">0987654321</td>
+        <td style="text-align: center; font-weight: bold; color: #A50034;">3 - 5 năm</td>
+        <td>3 năm kinh nghiệm chạy Quảng cáo số Performance Ads (Google, Meta Pixel, TikTok Ads)</td>
+        <td>Em ứng tuyển vị trí Digital Marketing để đồng hành cùng sự phát triển của các dòng sản phẩm gia dụng thông minh LG tại Việt Nam.</td>
+        <td><a href="#" style="color: #2b6cb0; text-decoration: underline;">Phan_Thi_Binh_Digital_MKT_Resume.pdf</a></td>
+        <td style="text-align: center;">2026-08-04</td>
+        <td><div class="status-shortlisted">Đã duyệt (Shortlist)</div></td>
+        <td style="text-align: center; color: #166534; font-weight: 600;">Chờ đặt lịch PV</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;">3</td>
+        <td style="text-align: center; font-weight: bold;">ATS-LG-2026-5593</td>
+        <td><strong>Trần Hoàng Nam</strong></td>
+        <td>nam.tran@techcompany.com</td>
+        <td style="text-align: center;">0912345678</td>
+        <td style="text-align: center; font-weight: bold; color: #A50034;">3 - 5 năm</td>
+        <td>3.5 năm kinh nghiệm Kỹ sư Phần mềm & Chuyên viên AI (Python, PyTorch, LLM Fine-tuning)</td>
+        <td>Ứng tuyển vị trí AI Specialist với 3.5 năm kinh nghiệm làm RAG Chatbot và tối ưu quy trình AX doanh nghiệp.</td>
+        <td><a href="#" style="color: #2b6cb0; text-decoration: underline;">Tran_Hoang_Nam_AI_Specialist_CV.pdf</a></td>
+        <td style="text-align: center;">2026-08-14</td>
+        <td><div class="status-pending">Chờ duyệt</div></td>
+        <td style="text-align: center; color: #A50034; font-weight: 600;">HR đang thẩm định</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <br/><br/>
+  <div style="font-size: 11px; color: #64748b; font-style: italic; text-align: center;">
+    * Báo cáo này được tự động trích xuất từ Cổng Tuyển Dụng Tự Động LG Electronics Việt Nam. 100% hồ sơ ứng viên được bảo mật và lưu trữ theo tiêu chuẩn bảo vệ dữ liệu tập đoàn LG.
+  </div>
+</body>
+</html>

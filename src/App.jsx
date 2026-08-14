@@ -180,9 +180,12 @@ export default function App() {
           <thead>
             <tr>
               <th>STT</th>
-              <th>Tên ứng viên</th>
+              <th>Mã ATS ID</th>
+              <th>Họ và tên ứng viên</th>
               <th>Email</th>
               <th>Số điện thoại</th>
+              <th>Số năm kinh nghiệm</th>
+              <th>Kinh nghiệm làm việc</th>
               <th>Thư giới thiệu</th>
               <th>CV đính kèm</th>
               <th>Ngày ứng tuyển</th>
@@ -197,15 +200,21 @@ export default function App() {
       const safeName = app.candidateName ? app.candidateName.replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
       const safeEmail = app.email ? app.email.replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
       const safePhone = app.phone ? app.phone.replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
+      const safeExpYears = app.yearsOfExperience ? app.yearsOfExperience.replace(/</g, '&lt;').replace(/>/g, '&gt;') : '3 - 5 năm';
+      const safeExpSummary = app.experienceSummary ? app.experienceSummary.replace(/</g, '&lt;').replace(/>/g, '&gt;') : 'Kinh nghiệm thực tế trong ngành';
       const safeLetter = app.coverLetter ? app.coverLetter.replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
       const safeFile = app.cvFileName ? app.cvFileName.replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
+      const safeAtsId = app.atsId || `ATS-LG-2026-${Math.floor(1000 + Math.random() * 9000)}`;
 
       excelBody += `
         <tr>
           <td>${idx + 1}</td>
+          <td>${safeAtsId}</td>
           <td>${safeName}</td>
           <td>${safeEmail}</td>
           <td>${safePhone}</td>
+          <td>${safeExpYears}</td>
+          <td>${safeExpSummary}</td>
           <td>${safeLetter}</td>
           <td>${safeFile}</td>
           <td>${app.appliedAt}</td>

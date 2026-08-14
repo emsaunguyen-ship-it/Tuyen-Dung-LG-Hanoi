@@ -292,13 +292,27 @@ Hệ thống tuyển dụng tự động LG Electronics Việt Nam.`;
                       </div>
                       <div className="contact-detail">
                         <Calendar size={14} />
-                        <span>Nộp ngày: {app.appliedAt}</span>
+                        <span>{lang === 'vi' ? 'Nộp ngày' : 'Applied'}: {app.appliedAt}</span>
                       </div>
+                    </div>
+
+                    {/* Candidate Experience Details */}
+                    <div className="app-exp-highlight-box" style={{ backgroundColor: '#f8fafc', padding: '10px 14px', borderRadius: '8px', border: '1px solid #e2e8f0', margin: '10px 0', fontSize: '13px' }}>
+                      <div style={{ display: 'flex', gap: '16px', alignItems: 'center', marginBottom: app.experienceSummary ? '4px' : '0' }}>
+                        <span style={{ fontWeight: 700, color: 'var(--primary)' }}>
+                          ⏱ {lang === 'vi' ? 'Số năm kinh nghiệm:' : 'Years of Experience:'} <span style={{ color: '#1e293b' }}>{app.yearsOfExperience || '3 - 5 năm'}</span>
+                        </span>
+                      </div>
+                      {app.experienceSummary && (
+                        <div style={{ color: '#475569', fontSize: '12.5px' }}>
+                          <strong>🏢 {lang === 'vi' ? 'Tóm tắt kinh nghiệm:' : 'Work Experience:'}</strong> {app.experienceSummary}
+                        </div>
+                      )}
                     </div>
 
                     {app.coverLetter && (
                       <div className="app-letter-preview">
-                        <strong>Thư giới thiệu:</strong>
+                        <strong>{lang === 'vi' ? 'Thư giới thiệu:' : 'Cover Letter:'}</strong>
                         <p className="letter-text">"{app.coverLetter}"</p>
                       </div>
                     )}

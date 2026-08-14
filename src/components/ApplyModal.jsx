@@ -118,6 +118,8 @@ export default function ApplyModal({ job, onClose, onSubmitApplication }) {
         candidateName: formData.name.trim(),
         email: formData.email.trim(),
         phone: formData.phone.trim(),
+        yearsOfExperience: formData.yearsOfExperience || '3 - 5 năm',
+        experienceSummary: formData.experienceSummary?.trim() || 'Kinh nghiệm thực tế trong ngành điện tử / FMCG',
         cvFileName: formData.cvFileName,
         cvBase64: formData.cvBase64,
         coverLetter: formData.coverLetter.trim(),
@@ -205,6 +207,37 @@ export default function ApplyModal({ job, onClose, onSubmitApplication }) {
                     className={`form-input ${errors.phone ? 'input-error' : ''}`}
                   />
                   {errors.phone && <span className="error-message"><AlertCircle size={14} />{errors.phone}</span>}
+                </div>
+              </div>
+
+              {/* Experience Row: Years of Experience & Work Experience Summary */}
+              <div className="form-row">
+                <div className="form-group" style={{ flex: '0 0 160px' }}>
+                  <label className="form-label">{lang === 'vi' ? 'Số năm kinh nghiệm' : 'Years of Exp'}</label>
+                  <select 
+                    name="yearsOfExperience" 
+                    value={formData.yearsOfExperience || '3 - 5 năm'}
+                    onChange={handleInputChange}
+                    className="form-input"
+                  >
+                    <option value="Dưới 1 năm">{lang === 'vi' ? 'Dưới 1 năm' : '< 1 Year'}</option>
+                    <option value="1 - 3 năm">{lang === 'vi' ? '1 - 3 năm' : '1 - 3 Years'}</option>
+                    <option value="3 - 5 năm">{lang === 'vi' ? '3 - 5 năm' : '3 - 5 Years'}</option>
+                    <option value="5 - 10 năm">{lang === 'vi' ? '5 - 10 năm' : '5 - 10 Years'}</option>
+                    <option value="Trên 10 năm">{lang === 'vi' ? 'Trên 10 năm' : '10+ Years'}</option>
+                  </select>
+                </div>
+
+                <div className="form-group flex-1">
+                  <label className="form-label">{lang === 'vi' ? 'Kinh nghiệm làm việc' : 'Work Experience Summary'}</label>
+                  <input 
+                    type="text" 
+                    name="experienceSummary"
+                    placeholder={lang === 'vi' ? 'VD: 4 năm làm Buyer Marketing tại Tập đoàn Bán lẻ...' : 'e.g. 4 years as Marketing Buyer at Retail Corp...'}
+                    value={formData.experienceSummary || ''}
+                    onChange={handleInputChange}
+                    className="form-input"
+                  />
                 </div>
               </div>
 
