@@ -4501,3 +4501,133 @@ button {
   line-height: 1.35;
   margin: 0;
 }
+
+/* ============================================
+   200% TOUCH & HOVER ZOOM EFFECT FOR CULTURE CARDS
+   ============================================ */
+.culture-activities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 30px;
+}
+
+.culture-activity-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.culture-activity-card .activity-img-wrap {
+  width: 100%;
+  height: 210px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 16px 16px 0 0;
+  background-color: #1a1718;
+}
+
+.culture-activity-card .activity-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), filter 0.5s ease;
+  transform-origin: center center;
+}
+
+/* 200% Zoom Effect on Touch & Hover */
+.culture-activity-card:hover,
+.culture-activity-card:active,
+.culture-activity-card:focus-within {
+  transform: translateY(-8px);
+  border-color: #A50034;
+  box-shadow: 0 20px 45px rgba(165, 0, 52, 0.22);
+  z-index: 10;
+}
+
+.culture-activity-card:hover .activity-img,
+.culture-activity-card:active .activity-img,
+.culture-activity-card:focus-within .activity-img {
+  transform: scale(2.0) !important;
+  filter: brightness(1.08) contrast(1.05);
+}
+
+.activity-img-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.culture-activity-card:hover .activity-img-overlay {
+  opacity: 0.4;
+}
+
+.activity-tag-overlay {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 5;
+}
+
+.activity-card-body {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.activity-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.activity-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.35;
+  margin: 0;
+}
+
+.activity-desc {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .culture-activities-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .culture-activities-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -805,7 +805,12 @@ export default function JobBoard({ jobs, onSelectJob }) {
           {lgActivities.map((activity, i) => {
             const IconComponent = activity.icon;
             return (
-              <div key={i} className="culture-activity-card">
+              <div 
+                key={i} 
+                className="culture-activity-card"
+                onClick={() => setActiveQuoteZoom(activity.img)}
+                style={{ cursor: 'zoom-in' }}
+              >
                 {/* Real photo from newsletter */}
                 <div className="activity-img-wrap">
                   <img
