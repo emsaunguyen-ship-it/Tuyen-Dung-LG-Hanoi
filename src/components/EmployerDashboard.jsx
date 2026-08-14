@@ -273,6 +273,9 @@ Hệ thống tuyển dụng tự động LG Electronics Việt Nam.`;
                           {app.status === 'Shortlisted' && 'Đã duyệt (Shortlisted)'}
                           {app.status === 'Rejected' && 'Đã từ chối'}
                         </span>
+                        <span className="ats-id-badge" title="Tự động cấp bởi Hệ thống Quản trị ATS LG Electronics">
+                          {app.atsId || `LG-ATS-2026-${app.id.slice(-4)}`}
+                        </span>
                       </div>
                     </div>
 

@@ -192,14 +192,20 @@ export default function App() {
 
     let excelBody = '';
     jobApps.forEach((app, idx) => {
+      const safeName = app.candidateName ? app.candidateName.replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
+      const safeEmail = app.email ? app.email.replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
+      const safePhone = app.phone ? app.phone.replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
+      const safeLetter = app.coverLetter ? app.coverLetter.replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
+      const safeFile = app.cvFileName ? app.cvFileName.replace(/</g, '&lt;').replace(/>/g, '&gt;') : '';
+
       excelBody += `
         <tr>
           <td>${idx + 1}</td>
-          <td>${app.candidateName}</td>
-          <td>${app.email}</td>
-          <td>${app.phone}</td>
-          <td>${app.coverLetter || ''}</td>
-          <td>${app.cvFileName}</td>
+          <td>${safeName}</td>
+          <td>${safeEmail}</td>
+          <td>${safePhone}</td>
+          <td>${safeLetter}</td>
+          <td>${safeFile}</td>
           <td>${app.appliedAt}</td>
           <td>${app.status === 'Pending' ? 'Chờ duyệt' : app.status}</td>
         </tr>
