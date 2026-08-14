@@ -10,6 +10,7 @@ import { initialJobs, initialApplications } from './initialData';
 import { useLanguage } from './LanguageContext';
 
 export default function App() {
+  const { lang, t } = useLanguage();
   // Initialize state from LocalStorage or fallback to initial mockup data
   const [jobs, setJobs] = useState(() => {
     const savedJobs = localStorage.getItem('lg_careers_jobs');
