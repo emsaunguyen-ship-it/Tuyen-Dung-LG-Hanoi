@@ -413,13 +413,13 @@ ${template.sections.education}
             <div className="cv-preview-body-content">
               {/* Objective */}
               <div className="cv-preview-block">
-                <h4 className="block-label">1. CAREER OBJECTIVE / MỤC TIÊU NGHỀ NGHIỆP</h4>
+                <h4 className="block-label">{lang === 'vi' ? '1. MỤC TIÊU NGHỀ NGHIỆP' : '1. CAREER OBJECTIVE'}</h4>
                 <p className="block-p">{activeModalTemplate.sections.objective}</p>
               </div>
 
               {/* Skills */}
               <div className="cv-preview-block">
-                <h4 className="block-label">2. CORE SKILLS / KỸ NĂNG CỐT LÕI</h4>
+                <h4 className="block-label">{lang === 'vi' ? '2. KỸ NĂNG CỐT LÕI' : '2. CORE SKILLS'}</h4>
                 <ul className="block-ul">
                   {activeModalTemplate.sections.skills.map((skill, idx) => (
                     <li key={idx}>✓ {skill}</li>
@@ -429,14 +429,14 @@ ${template.sections.education}
 
               {/* Experience */}
               <div className="cv-preview-block">
-                <h4 className="block-label">3. WORK EXPERIENCE / KINH NGHIỆM LÀM VIỆC</h4>
+                <h4 className="block-label">{lang === 'vi' ? '3. KINH NGHIỆM LÀM VIỆC' : '3. WORK EXPERIENCE'}</h4>
                 {activeModalTemplate.sections.experience.map((exp, idx) => (
                   <div key={idx} className="experience-item-box">
                     <div className="exp-role-row">
                       <strong>{exp.role}</strong>
                       <span className="exp-period">{exp.period}</span>
                     </div>
-                    <div className="exp-company-name">Company / Công ty: {exp.company}</div>
+                    <div className="exp-company-name">{lang === 'vi' ? 'Công ty' : 'Company'}: {exp.company}</div>
                     <ul className="exp-details-ul">
                       {exp.details.map((detail, dIdx) => (
                         <li key={dIdx}>• {detail}</li>
@@ -448,7 +448,7 @@ ${template.sections.education}
 
               {/* Education */}
               <div className="cv-preview-block">
-                <h4 className="block-label">4. EDUCATION / TRÌNH ĐỘ HỌC VẤN</h4>
+                <h4 className="block-label">{lang === 'vi' ? '4. TRÌNH ĐỘ HỌC VẤN' : '4. EDUCATION'}</h4>
                 <p className="block-p">{activeModalTemplate.sections.education}</p>
               </div>
             </div>

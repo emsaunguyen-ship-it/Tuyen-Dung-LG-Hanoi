@@ -7,11 +7,15 @@ import PostJob from './components/PostJob';
 import EmployerDashboard from './components/EmployerDashboard';
 import UrgentHiringPopup from './components/UrgentHiringPopup';
 import AIChatbot from './components/AIChatbot';
+import AuthModal from './components/AuthModal';
 import { initialJobs, initialApplications } from './initialData';
 import { useLanguage } from './LanguageContext';
+import { useAuth } from './AuthContext';
 
 export default function App() {
   const { lang, t } = useLanguage();
+  const { currentUser } = useAuth();
+  const [authModalRole, setAuthModalRole] = useState(null); // null | 'candidate' | 'employer'
   // Initialize state from LocalStorage or fallback to initial mockup data
   const [jobs, setJobs] = useState(() => {
     const savedJobs = localStorage.getItem('lg_careers_jobs');
@@ -129,6 +133,15 @@ export default function App() {
   const handleRoleChange = (newRole) => {
     setRole(newRole);
   };
+
+  // Safety net: if somehow in employer role/dashboard without an authenticated
+  // employer account (e.g. logged out from another tab), bounce back to candidate view.
+  useEffect(() => {
+    if (role === 'employer' && (!currentUser || currentUser.role !== 'employer')) {
+      setRole('candidate');
+      setCurrentView('jobs');
+    }
+  }, [currentUser, role]);
 
   const handleSelectJob = (job) => {
     setSelectedJob(job);
@@ -275,11 +288,12 @@ export default function App() {
   return (
     <div className="app-wrapper">
       {/* Navigation Header */}
-      <Header 
-        currentView={currentView} 
-        onViewChange={handleViewChange} 
-        role={role} 
-        onRoleChange={handleRoleChange} 
+      <Header
+        currentView={currentView}
+        onViewChange={handleViewChange}
+        role={role}
+        onRoleChange={handleRoleChange}
+        onRequestLogin={(preferredRole) => setAuthModalRole(preferredRole || 'candidate')}
       />
 
       {/* Main Content Router */}
@@ -325,6 +339,21 @@ export default function App() {
           jobs={jobs} 
           onSelectJob={handleSelectJob} 
           onApplyJob={handleApplyJob} 
+        />
+      )}
+
+      {/* Login / Register Modal (Candidate & Employer) */}
+      {authModalRole && (
+        <AuthModal
+          initialRole={authModalRole}
+          onClose={() => setAuthModalRole(null)}
+          onSuccess={(user) => {
+            setAuthModalRole(null);
+            if (user.role === 'employer') {
+              setRole('employer');
+              handleViewChange('dashboard');
+            }
+          }}
         />
       )}
 
@@ -381,7 +410,7 @@ export default function App() {
               <h4 className="footer-col-title">{t('navDiscover')}</h4>
               <div className="footer-col-links">
                 <a href="https://www.lg.com/vn" target="_blank" rel="noopener noreferrer">{t('navAboutLG')}</a>
-                <a href="https://www.lg.com/global/about-lg/brand-story/" target="_blank" rel="noopener noreferrer">"Life's Good" Brand Campaign</a>
+                <a href="https://www.lg.com/global/about-lg/brand-story/" target="_blank" rel="noopener noreferrer">{lang === 'vi' ? 'Câu Chuyện Thương Hiệu LG' : 'LG Brand Story'}</a>
                 <a href="https://www.lg.com/global/sustainability" target="_blank" rel="noopener noreferrer">{lang === 'vi' ? 'Phát Triển Bền Vững' : 'Sustainability'}</a>
                 <a href="https://www.lg.com/vn/tin-tuc-va-truyen-thong" target="_blank" rel="noopener noreferrer">{lang === 'vi' ? 'Trang Tin Tức LG' : 'LG Newsroom'}</a>
               </div>
@@ -403,8 +432,8 @@ export default function App() {
               <svg viewBox="0 6.709 10.582 10.582" width="24" height="24" style={{ display: 'block' }}>
                 <path fill="#FFFFFF" d="M5.291 6.709a5.29 5.29 0 1 1 0 10.582 5.291 5.291 0 1 1 0-10.582m3.16 8.457a4.445 4.445 0 0 0 1.31-3.161v-.242l-.22.001H6.596v.494h2.662l-.001.015a3.985 3.985 0 0 1-3.965 3.708 3.95 3.95 0 0 1-2.811-1.165 3.952 3.952 0 0 1-1.164-2.811c0-1.061.414-2.059 1.164-2.81a3.951 3.951 0 0 1 2.81-1.164l.252.003v-.495l-.251-.003a4.475 4.475 0 0 0-4.47 4.469c0 1.194.465 2.316 1.309 3.161a4.444 4.444 0 0 0 3.16 1.31 4.444 4.444 0 0 0 3.162-1.31m-2.91-1.297V9.644H5.04v4.72h1.556v-.495H5.543zm-1.265-3.552a.676.676 0 1 0-.675.674.676.676 0 0 0 .675-.674"/>
               </svg>
-              <span style={{ color: '#FFFFFF', fontSize: '18px', fontWeight: '800', letterSpacing: '-0.5px', fontFamily: "'Inter', sans-serif", lineHeight: '1' }}>
-                LG
+              <span style={{ color: '#FFFFFF', fontSize: '16px', fontWeight: '400', letterSpacing: '0', fontFamily: "sans-serif", lineHeight: '1' }}>
+                LG Electronics
               </span>
               <span style={{ fontSize: '13px', fontWeight: '700', color: '#a1a1aa', borderLeft: '1px solid #3f3f46', paddingLeft: '8px', marginLeft: '2px' }}>
                 Careers

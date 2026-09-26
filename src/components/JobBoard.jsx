@@ -59,8 +59,11 @@ const lgActivities = [
   {
     icon: Award,
     tag: 'Ươm mầm tài năng',
+    tagEn: 'Nurturing Talent',
     title: 'Talent Seeds — Ươm mầm tương lai xanh',
+    titleEn: 'Talent Seeds — Nurturing a Greener Future',
     desc: 'Cuộc thi nghệ thuật dành cho con em nhân viên LG. Tác phẩm đoạt giải Nhất của con gái chị Tuyết Nhung (bộ phận Mua hàng) mang thông điệp đầy cảm xúc "LG 2040 - Kiến tạo tương lai xanh cho hành tinh", mang lại niềm tự hào to lớn cho gia đình và tập thể LG.',
+    descEn: 'An art contest for the children of LG employees. The first-prize entry by the daughter of Ms. Tuyet Nhung (Procurement) carried the moving message "LG 2040 - Building a Greener Future for the Planet", bringing great pride to her family and the LG community.',
     color: '#e74c3c',
     img: talentSeedsImg,
     imgPosition: 'center 40%'
@@ -68,8 +71,11 @@ const lgActivities = [
   {
     icon: Users,
     tag: 'Đào tạo & AI',
+    tagEn: 'Training & AI',
     title: 'AI Sharing — Lan tỏa tri thức, cùng nhau phát triển',
+    titleEn: 'AI Sharing — Spreading Knowledge, Growing Together',
     desc: 'Dự án đào tạo AI nội bộ (AX Project) do anh Bảo Nguyễn giảng dạy thu hút hơn 102 nhân viên tham gia qua 7 buổi học. Lớp học giúp nhân viên hiểu cách áp dụng AI để nâng tầm kinh nghiệm thực tế, giải tỏa nỗi lo bị thay thế và tăng hiệu suất làm việc.',
+    descEn: 'The internal AI training initiative (AX Project) led by Mr. Bao Nguyen drew over 102 employees across 7 sessions. The program helped staff apply AI in real work, ease concerns about being replaced, and boost productivity.',
     color: '#2980b9',
     img: aiSpecialistImg,
     imgPosition: 'center 40%'
@@ -77,8 +83,11 @@ const lgActivities = [
   {
     icon: Trophy,
     tag: 'Innovation Contest',
+    tagEn: 'Innovation Contest',
     title: '1H 2026 WAR ROOM Contest',
+    titleEn: '1H 2026 WAR ROOM Contest',
     desc: 'Cuộc thi nội bộ kéo dài 8 tuần — nơi mọi nhân viên đều có thể gửi ý tưởng đột phá để cải thiện hiệu quả vận hành và kinh doanh. Hàng chục giải thưởng được trao trực tiếp từ Ban Giám Đốc. Đây là phong trào hiện thực hóa tinh thần "Bring Ideas Together, Change Our Actions."',
+    descEn: 'An 8-week internal contest where every employee can submit breakthrough ideas to improve operations and business performance. Dozens of prizes were awarded directly by the Board of Directors, bringing the spirit of "Bring Ideas Together, Change Our Actions" to life.',
     color: '#e67e22',
     img: warroomContestImg,
     imgPosition: 'center 20%'
@@ -86,8 +95,11 @@ const lgActivities = [
   {
     icon: Zap,
     tag: 'Sự kiện sản phẩm',
+    tagEn: 'Product Launch',
     title: 'Ra mắt LG gram AI 2026 — TP. Hồ Chí Minh',
+    titleEn: 'LG gram AI 2026 Launch — Ho Chi Minh City',
     desc: 'Ngày 29/07/2026, LG Electronics Vietnam ra mắt dòng laptop LG gram AI tại TP. HCM — chiếc laptop đầu tiên tích hợp Dual AI và vật liệu aerominium siêu nhẹ. Nhân viên được tham gia sự kiện, trải nghiệm sản phẩm và là những người đại diện đầu tiên giới thiệu công nghệ đến khách hàng.',
+    descEn: 'On July 29, 2026, LG Electronics Vietnam launched the LG gram AI laptop line in Ho Chi Minh City — the first laptop with Dual AI and ultra-light aerominium material. Employees joined the event, experienced the product first-hand, and were the first to introduce the technology to customers.',
     color: '#8e44ad',
     img: lgGramLaunchImg,
     imgPosition: 'center 15%'
@@ -95,8 +107,11 @@ const lgActivities = [
   {
     icon: Heart,
     tag: 'Trải nghiệm khách hàng',
+    tagEn: 'Customer Experience',
     title: 'LG Best Care — Khám phá dịch vụ tại Hà Nội',
-    desc: `Ngày 18–19/07/2026, LG tổ chức sự kiện LG Best Care tại Vincom Mega Mall Royal City (Hà Nội): demo sản phẩm thực tế, tư vấn kỹ thuật trực tiếp, workshop không bán hàng và trải nghiệm Life's Good đích thực. Nhân viên đồng hành cùng đội ngũ Customer-Centric đem lại giá trị thực cho người tiêu dùng.`,
+    titleEn: 'LG Best Care — Service Experience in Hanoi',
+    desc: `Ngày 18–19/07/2026, LG tổ chức sự kiện LG Best Care tại Vincom Mega Mall Royal City (Hà Nội): demo sản phẩm thực tế, tư vấn kỹ thuật trực tiếp, workshop không bán hàng và trải nghiệm dịch vụ đích thực. Nhân viên đồng hành cùng đội ngũ Customer-Centric đem lại giá trị thực cho người tiêu dùng.`,
+    descEn: `On July 18-19, 2026, LG held the LG Best Care event at Vincom Mega Mall Royal City (Hanoi): live product demos, direct technical consultation, a no-selling workshop, and an authentic service experience. Employees joined the Customer-Centric team to deliver real value to consumers.`,
     color: '#27ae60',
     img: lgBestCareImg,
     imgPosition: 'center 5%'
@@ -104,8 +119,11 @@ const lgActivities = [
   {
     icon: Globe,
     tag: 'AI & Đổi mới',
+    tagEn: 'AI & Innovation',
     title: 'Affectionate Intelligence — AI vào thực chiến',
+    titleEn: 'Affectionate Intelligence — AI in Action',
     desc: 'LG Electronics triển khai ứng dụng AI nội bộ "Affectionate Intelligence" — cho phép nhân viên quét sản phẩm, tra cứu thông tin kỹ thuật và cá nhân hóa trải nghiệm bán hàng theo thời gian thực. Đây là bước cụ thể hóa chiến lược AI toàn cầu của LG ngay tại thị trường Việt Nam.',
+    descEn: 'LG Electronics rolled out the internal "Affectionate Intelligence" app — letting employees scan products, look up technical information, and personalize the sales experience in real time. It is a concrete step in bringing LG\'s global AI strategy to the Vietnam market.',
     color: '#c0392b',
     img: affectionateAiImg,
     imgPosition: 'center 30%'
@@ -114,10 +132,10 @@ const lgActivities = [
 
 // LG Vietnam Stats — Q2 2026
 const lgStats = [
-  { number: 'REINVENT', label: 'Chương trình văn hóa 2026' },
-  { number: '8 tuần', label: 'WAR ROOM Contest 1H/2026' },
-  { number: 'Dual AI', label: 'Công nghệ LG gram AI 2026' },
-  { number: 'C-A-P', label: 'Khung chiến lược toàn tổ chức' }
+  { number: 'REINVENT', label: 'Chương trình văn hóa 2026', labelEn: '2026 Culture Program' },
+  { number: '8 tuần', numberEn: '8 weeks', label: 'WAR ROOM Contest 1H/2026', labelEn: 'WAR ROOM Contest 1H/2026' },
+  { number: 'Dual AI', label: 'Công nghệ LG gram AI 2026', labelEn: 'LG gram AI 2026 Technology' },
+  { number: 'C-A-P', label: 'Khung chiến lược toàn tổ chức', labelEn: 'Company-wide Strategy Framework' }
 ];
 
 export default function JobBoard({ jobs, onSelectJob }) {
@@ -232,11 +250,6 @@ export default function JobBoard({ jobs, onSelectJob }) {
         {/* Compact Glass Content Card on Left */}
         <div className="hero-center-text-card">
           <div className="hero-tagline-container">
-            <span className="lifes-good-badge-light">
-              <span className="brand-text-white">Life's</span>
-              <span className="brand-text-white">Good</span>
-              <span className="brand-text-white">.</span>
-            </span>
             <span className="hero-anniversary-tag-light">
               {t('anniversaryTag')}
             </span>
@@ -302,14 +315,14 @@ export default function JobBoard({ jobs, onSelectJob }) {
             }}
             style={{ height: '40px', borderRadius: '30px' }}
           >
-            Tìm kiếm
+            {t('btnSearchSubmit')}
           </button>
         </div>
       </div>
 
       {/* Category Circles (LG VN Category Icons Style) */}
       <section className="category-circle-section">
-        <h2 className="category-circle-title">Tìm kiếm cơ hội theo lĩnh vực</h2>
+        <h2 className="category-circle-title">{lang === 'vi' ? 'Tìm kiếm cơ hội theo lĩnh vực' : 'Search Opportunities by Field'}</h2>
         <div className="category-circle-grid">
           {departmentCircles.map((circle) => {
             const IconComponent = circle.icon;
@@ -320,7 +333,7 @@ export default function JobBoard({ jobs, onSelectJob }) {
                 className={`category-circle-item ${isActive ? 'active' : ''}`}
                 role="button"
                 tabIndex={0}
-                aria-label={`Lọc theo ngành ${circle.label}`}
+                aria-label={lang === 'vi' ? `Lọc theo ngành ${circle.label}` : `Filter by ${circle.label}`}
                 onClick={() => {
                   setIndustry(circle.value);
                   window.scrollTo({ top: 950, behavior: 'smooth' });
@@ -349,72 +362,72 @@ export default function JobBoard({ jobs, onSelectJob }) {
           <div className="sidebar-header">
             <div className="sidebar-title-group">
               <Filter size={16} />
-              <h3 style={{ fontSize: '15px' }}>Bộ lọc tìm kiếm</h3>
+              <h3 style={{ fontSize: '15px' }}>{lang === 'vi' ? 'Bộ lọc tìm kiếm' : 'Search Filters'}</h3>
             </div>
             <button className="btn-reset-filters" onClick={handleResetFilters}>
               <RefreshCw size={12} />
-              Đặt lại
+              {lang === 'vi' ? 'Đặt lại' : 'Reset'}
             </button>
           </div>
 
           <div className="filter-section">
             <h4 className="filter-title">
-              <DollarSign size={14} /> Mức lương tháng
+              <DollarSign size={14} /> {lang === 'vi' ? 'Mức lương tháng' : 'Monthly Salary'}
             </h4>
             <div className="filter-options">
               <label className="radio-label">
-                <input 
-                  type="radio" 
-                  name="salary" 
-                  checked={salaryFilter === 'All'} 
-                  onChange={() => setSalaryFilter('All')} 
+                <input
+                  type="radio"
+                  name="salary"
+                  checked={salaryFilter === 'All'}
+                  onChange={() => setSalaryFilter('All')}
                 />
-                Tất cả mức lương
+                {lang === 'vi' ? 'Tất cả mức lương' : 'All Salaries'}
               </label>
               <label className="radio-label">
-                <input 
-                  type="radio" 
-                  name="salary" 
-                  checked={salaryFilter === 'under-1000'} 
-                  onChange={() => setSalaryFilter('under-1000')} 
+                <input
+                  type="radio"
+                  name="salary"
+                  checked={salaryFilter === 'under-1000'}
+                  onChange={() => setSalaryFilter('under-1000')}
                 />
-                Dưới 1,000 USD
+                {lang === 'vi' ? 'Dưới 1,000 USD' : 'Under 1,000 USD'}
               </label>
               <label className="radio-label">
-                <input 
-                  type="radio" 
-                  name="salary" 
-                  checked={salaryFilter === '1000-2000'} 
-                  onChange={() => setSalaryFilter('1000-2000')} 
+                <input
+                  type="radio"
+                  name="salary"
+                  checked={salaryFilter === '1000-2000'}
+                  onChange={() => setSalaryFilter('1000-2000')}
                 />
                 1,000 - 2,000 USD
               </label>
               <label className="radio-label">
-                <input 
-                  type="radio" 
-                  name="salary" 
-                  checked={salaryFilter === 'above-2000'} 
-                  onChange={() => setSalaryFilter('above-2000')} 
+                <input
+                  type="radio"
+                  name="salary"
+                  checked={salaryFilter === 'above-2000'}
+                  onChange={() => setSalaryFilter('above-2000')}
                 />
-                Trên 2,000 USD
+                {lang === 'vi' ? 'Trên 2,000 USD' : 'Above 2,000 USD'}
               </label>
             </div>
           </div>
 
           <div className="filter-section">
             <h4 className="filter-title">
-              <Briefcase size={14} /> Hình thức làm việc
+              <Briefcase size={14} /> {lang === 'vi' ? 'Hình thức làm việc' : 'Employment Type'}
             </h4>
             <div className="filter-options">
               {['All', 'Full-time', 'Part-time', 'Remote', 'Contract'].map(type => (
                 <label key={type} className="radio-label">
-                  <input 
-                    type="radio" 
-                    name="type" 
-                    checked={typeFilter === type} 
-                    onChange={() => setTypeFilter(type)} 
+                  <input
+                    type="radio"
+                    name="type"
+                    checked={typeFilter === type}
+                    onChange={() => setTypeFilter(type)}
                   />
-                  {type === 'All' ? 'Tất cả hình thức' : type}
+                  {type === 'All' ? (lang === 'vi' ? 'Tất cả hình thức' : 'All Types') : type}
                 </label>
               ))}
             </div>
@@ -425,14 +438,21 @@ export default function JobBoard({ jobs, onSelectJob }) {
         <main className="job-listings-main">
           {/* Tab Selection Row (LG VN Product Tab Bar Style) */}
           <div className="lg-tabs-container">
-            {[
+            {(lang === 'vi' ? [
               { label: 'Tất cả cấp bậc', value: 'All' },
               { label: 'Thực tập sinh', value: 'Intern' },
               { label: 'Chuyên viên / Junior', value: 'Junior' },
               { label: 'Chuyên viên chính / Middle', value: 'Middle' },
               { label: 'Chuyên viên cao cấp / Senior', value: 'Senior' },
               { label: 'Quản lý / Manager', value: 'Manager' }
-            ].map(tab => (
+            ] : [
+              { label: 'All Levels', value: 'All' },
+              { label: 'Intern', value: 'Intern' },
+              { label: 'Junior', value: 'Junior' },
+              { label: 'Middle', value: 'Middle' },
+              { label: 'Senior', value: 'Senior' },
+              { label: 'Manager', value: 'Manager' }
+            ]).map(tab => (
               <div 
                 key={tab.value}
                 className={`lg-tab-btn ${levelFilter === tab.value ? 'active' : ''}`}
@@ -445,7 +465,9 @@ export default function JobBoard({ jobs, onSelectJob }) {
 
           <div className="listings-info-bar" style={{ marginBottom: '16px' }}>
             <p className="results-count">
-              Tìm thấy <strong className="highlight-text">{filteredJobs.length}</strong> cơ hội việc làm phù hợp
+              {lang === 'vi'
+                ? <>Tìm thấy <strong className="highlight-text">{filteredJobs.length}</strong> cơ hội việc làm phù hợp</>
+                : <>Found <strong className="highlight-text">{filteredJobs.length}</strong> matching job opportunities</>}
             </p>
           </div>
 
@@ -542,10 +564,8 @@ export default function JobBoard({ jobs, onSelectJob }) {
       <section className="lg-media-center-section">
         <div className="media-section-header">
           <span className="media-eyebrow">LG Vietnam Media Center</span>
-          <h2 className="media-main-title">Góc Truyền Thông LG Vietnam</h2>
-          <p className="media-subtitle">
-            Khám phá chặng đường lịch sử đầy tự hào và môi trường làm việc năng động, sáng tạo thông qua các thước phim tư liệu thực tế từ tập đoàn LG.
-          </p>
+          <h2 className="media-main-title">{t('mediaCenterTitle')}</h2>
+          <p className="media-subtitle">{t('mediaCenterSubtitle')}</p>
         </div>
 
         <div className="media-grid">
@@ -561,110 +581,118 @@ export default function JobBoard({ jobs, onSelectJob }) {
               <div className="media-play-overlay">
                 <Play size={28} fill="#ffffff" />
               </div>
-              <span className="media-badge">Clip 30 Năm Thành Lập</span>
+              <span className="media-badge">{lang === 'vi' ? 'Clip 30 Năm Thành Lập' : '30th Anniversary Clip'}</span>
             </a>
             <div className="media-card-body">
-              <h3 className="media-card-title">Hành trình 30 năm LG Electronics Việt Nam</h3>
+              <h3 className="media-card-title">{lang === 'vi' ? 'Hành trình 30 năm LG Electronics Việt Nam' : '30 Years of LG Electronics Vietnam'}</h3>
               <p className="media-card-desc">
-                Thước phim tư liệu "Thấu cảm chạm Thương yêu" ghi dấu hành trình 30 năm đồng hành cùng người Việt, không ngừng cải tiến công nghệ và kiến tạo cuộc sống tốt đẹp hơn.
+                {lang === 'vi'
+                  ? 'Thước phim tư liệu "Thấu cảm chạm Thương yêu" ghi dấu hành trình 30 năm đồng hành cùng người Việt, không ngừng cải tiến công nghệ và kiến tạo cuộc sống tốt đẹp hơn.'
+                  : 'The documentary "Empathy Touches Love" traces 30 years alongside Vietnamese people, continuously innovating technology and building a better life.'}
               </p>
-              <a 
-                href="https://www.youtube.com/watch?v=Nk1IcfRCo3A" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://www.youtube.com/watch?v=Nk1IcfRCo3A"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="media-watch-link"
               >
-                Xem trên YouTube <ChevronRight size={14} />
+                {lang === 'vi' ? 'Xem trên YouTube' : 'Watch on YouTube'} <ChevronRight size={14} />
               </a>
             </div>
           </div>
 
           {/* Video 2: LG Insider Ep 1 */}
           <div className="media-video-card">
-            <a 
-              href="https://www.youtube.com/watch?v=rhnMLslvvsA" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href="https://www.youtube.com/watch?v=rhnMLslvvsA"
+              target="_blank"
+              rel="noopener noreferrer"
               className="media-video-mockup"
             >
               <img src={lgInsiderEp1Thumb} alt="LG Insider Ep 1" className="media-thumbnail" />
               <div className="media-play-overlay">
                 <Play size={28} fill="#ffffff" />
               </div>
-              <span className="media-badge">LG Insider - Tập 1</span>
+              <span className="media-badge">{lang === 'vi' ? 'LG Insider - Tập 1' : 'LG Insider - Ep 1'}</span>
             </a>
             <div className="media-card-body">
-              <h3 className="media-card-title">LG Insider - Tập 1: Hoạt động văn phòng</h3>
+              <h3 className="media-card-title">{lang === 'vi' ? 'LG Insider - Tập 1: Hoạt động văn phòng' : 'LG Insider - Ep 1: Office Life'}</h3>
               <p className="media-card-desc">
-                Tìm hiểu văn hóa doanh nghiệp cởi mở, các phòng ban làm việc năng động và câu chuyện của nhân viên tại văn phòng LG Electronics Việt Nam.
+                {lang === 'vi'
+                  ? 'Tìm hiểu văn hóa doanh nghiệp cởi mở, các phòng ban làm việc năng động và câu chuyện của nhân viên tại văn phòng LG Electronics Việt Nam.'
+                  : 'Discover an open corporate culture, dynamic departments, and employee stories at LG Electronics Vietnam offices.'}
               </p>
-              <a 
-                href="https://www.youtube.com/watch?v=rhnMLslvvsA" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://www.youtube.com/watch?v=rhnMLslvvsA"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="media-watch-link"
               >
-                Xem trên YouTube <ChevronRight size={14} />
+                {lang === 'vi' ? 'Xem trên YouTube' : 'Watch on YouTube'} <ChevronRight size={14} />
               </a>
             </div>
           </div>
 
           {/* Video 3: LG Insider Ep 2 */}
           <div className="media-video-card">
-            <a 
-              href="https://www.youtube.com/watch?v=AJyg8JB6xeU" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href="https://www.youtube.com/watch?v=AJyg8JB6xeU"
+              target="_blank"
+              rel="noopener noreferrer"
               className="media-video-mockup"
             >
               <img src={lgInsiderEp2Thumb} alt="LG Insider Ep 2" className="media-thumbnail" />
               <div className="media-play-overlay">
                 <Play size={28} fill="#ffffff" />
               </div>
-              <span className="media-badge">LG Insider - Tập 2</span>
+              <span className="media-badge">{lang === 'vi' ? 'LG Insider - Tập 2' : 'LG Insider - Ep 2'}</span>
             </a>
             <div className="media-card-body">
-              <h3 className="media-card-title">LG Insider - Tập 2: Môi trường làm việc</h3>
+              <h3 className="media-card-title">{lang === 'vi' ? 'LG Insider - Tập 2: Môi trường làm việc' : 'LG Insider - Ep 2: Work Environment'}</h3>
               <p className="media-card-desc">
-                Theo chân nhân viên LG trải nghiệm văn phòng làm việc hiện đại, các khu vực tiện ích giải trí và không khí làm việc tràn đầy cảm hứng.
+                {lang === 'vi'
+                  ? 'Theo chân nhân viên LG trải nghiệm văn phòng làm việc hiện đại, các khu vực tiện ích giải trí và không khí làm việc tràn đầy cảm hứng.'
+                  : 'Follow LG employees through a modern workplace, recreational amenities, and an inspiring working atmosphere.'}
               </p>
-              <a 
-                href="https://www.youtube.com/watch?v=AJyg8JB6xeU" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://www.youtube.com/watch?v=AJyg8JB6xeU"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="media-watch-link"
               >
-                Xem trên YouTube <ChevronRight size={14} />
+                {lang === 'vi' ? 'Xem trên YouTube' : 'Watch on YouTube'} <ChevronRight size={14} />
               </a>
             </div>
           </div>
 
           {/* Video 4: LG Insider Ep 3 */}
           <div className="media-video-card">
-            <a 
-              href="https://www.youtube.com/watch?v=f2EfpcAKKWg" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href="https://www.youtube.com/watch?v=f2EfpcAKKWg"
+              target="_blank"
+              rel="noopener noreferrer"
               className="media-video-mockup"
             >
               <img src={lgInsiderEp3Thumb} alt="LG Insider Ep 3" className="media-thumbnail" />
               <div className="media-play-overlay">
                 <Play size={28} fill="#ffffff" />
               </div>
-              <span className="media-badge">LG Insider - Tập 3</span>
+              <span className="media-badge">{lang === 'vi' ? 'LG Insider - Tập 3' : 'LG Insider - Ep 3'}</span>
             </a>
             <div className="media-card-body">
-              <h3 className="media-card-title">LG Insider - Tập 3: Phúc lợi & Hoạt động</h3>
+              <h3 className="media-card-title">{lang === 'vi' ? 'LG Insider - Tập 3: Phúc lợi & Hoạt động' : 'LG Insider - Ep 3: Benefits & Activities'}</h3>
               <p className="media-card-desc">
-                Tìm hiểu các chế độ đãi ngộ hấp dẫn, căng-tin phục vụ bữa ăn đa dạng và các hoạt động nâng cao sức khỏe thể chất & tinh thần của nhân viên LG.
+                {lang === 'vi'
+                  ? 'Tìm hiểu các chế độ đãi ngộ hấp dẫn, căng-tin phục vụ bữa ăn đa dạng và các hoạt động nâng cao sức khỏe thể chất & tinh thần của nhân viên LG.'
+                  : 'Discover attractive benefits, a diverse in-house cafeteria, and activities that boost the physical and mental wellbeing of LG employees.'}
               </p>
-              <a 
-                href="https://www.youtube.com/watch?v=f2EfpcAKKWg" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://www.youtube.com/watch?v=f2EfpcAKKWg"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="media-watch-link"
               >
-                Xem trên YouTube <ChevronRight size={14} />
+                {lang === 'vi' ? 'Xem trên YouTube' : 'Watch on YouTube'} <ChevronRight size={14} />
               </a>
             </div>
           </div>
@@ -674,7 +702,7 @@ export default function JobBoard({ jobs, onSelectJob }) {
         <div className="lg-insiders-quotes-section">
           <div className="media-section-header" style={{ marginTop: '50px', marginBottom: '25px', textAlign: 'center' }}>
             <h3 style={{ fontSize: '20px', fontWeight: '800', color: '#ffffff', textTransform: 'uppercase', letterSpacing: '0.5px', margin: '10px 0' }}>
-              Chia sẻ từ các thành viên LG (Insiders)
+              {lang === 'vi' ? 'Chia sẻ từ các thành viên LG (Insiders)' : 'Stories from LG Insiders'}
             </h3>
           </div>
 
@@ -804,10 +832,11 @@ export default function JobBoard({ jobs, onSelectJob }) {
         {/* Section Header */}
         <div className="culture-section-header">
           <span className="culture-eyebrow">Life At LG Vietnam</span>
-          <h2 className="culture-main-title">Cuộc Sống Tại LG Vietnam</h2>
+          <h2 className="culture-main-title">{lang === 'vi' ? 'Cuộc Sống Tại LG Vietnam' : 'Life at LG Vietnam'}</h2>
           <p className="culture-subtitle">
-            Hơn là một nơi làm việc — LG là nơi bạn phát triển, kết nối và tạo ra tác động thực sự.
-            Khám phá văn hóa sống động khiến hàng nghìn nhân viên tự hào gắn bó.
+            {lang === 'vi'
+              ? 'Hơn là một nơi làm việc — LG là nơi bạn phát triển, kết nối và tạo ra tác động thực sự. Khám phá văn hóa sống động khiến hàng nghìn nhân viên tự hào gắn bó.'
+              : "More than a workplace — LG is where you grow, connect, and make a real impact. Discover the vibrant culture that thousands of employees are proud to be part of."}
           </p>
         </div>
 
@@ -828,7 +857,7 @@ export default function JobBoard({ jobs, onSelectJob }) {
                 <div className="activity-img-wrap">
                   <img
                     src={activity.img}
-                    alt={activity.title}
+                    alt={lang === 'vi' ? activity.title : activity.titleEn}
                     className="activity-img"
                     style={{ objectPosition: activity.imgPosition || 'center center' }}
                     onError={(e) => {
@@ -838,7 +867,7 @@ export default function JobBoard({ jobs, onSelectJob }) {
                   />
                   <div className="activity-img-overlay" style={{ background: `linear-gradient(to bottom, transparent 40%, ${activity.color}22 100%)` }} />
                   <div className="activity-tag-overlay" style={{ color: activity.color, background: `${activity.color}18`, border: `1px solid ${activity.color}40` }}>
-                    {activity.tag}
+                    {lang === 'vi' ? activity.tag : activity.tagEn}
                   </div>
                 </div>
                 {/* Card body */}
@@ -846,8 +875,8 @@ export default function JobBoard({ jobs, onSelectJob }) {
                   <div className="activity-icon-wrap" style={{ background: `${activity.color}18`, border: `1.5px solid ${activity.color}40` }}>
                     <IconComponent size={22} style={{ color: activity.color }} />
                   </div>
-                  <h3 className="activity-title">{activity.title}</h3>
-                  <p className="activity-desc">{activity.desc}</p>
+                  <h3 className="activity-title">{lang === 'vi' ? activity.title : activity.titleEn}</h3>
+                  <p className="activity-desc">{lang === 'vi' ? activity.desc : activity.descEn}</p>
                 </div>
               </div>
             );
@@ -862,13 +891,15 @@ export default function JobBoard({ jobs, onSelectJob }) {
           style={{ backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85)), url(${lgTeamGroupImg})` }}
         >
           <div className="promo-content">
-            <span className="promo-tag">Life's Good Campaign</span>
-            <h3 className="promo-title">Không gian phát triển toàn diện</h3>
+            <span className="promo-tag">{lang === 'vi' ? 'Văn Hoá LG' : 'LG Culture'}</span>
+            <h3 className="promo-title">{lang === 'vi' ? 'Không gian phát triển toàn diện' : 'A Space for All-Round Growth'}</h3>
             <p className="promo-desc">
-              Tại LG, chúng tôi tin rằng mỗi cá nhân đều ẩn chứa tài năng độc đáo. Chương trình mentoring 1-on-1 cùng quản lý cấp cao, và văn hóa phản hồi liên tục giúp bạn tiến bộ từng ngày.
+              {lang === 'vi'
+                ? 'Tại LG, chúng tôi tin rằng mỗi cá nhân đều ẩn chứa tài năng độc đáo. Chương trình mentoring 1-on-1 cùng quản lý cấp cao, và văn hóa phản hồi liên tục giúp bạn tiến bộ từng ngày.'
+                : 'At LG, we believe every individual holds unique talent. 1-on-1 mentoring with senior managers and a culture of continuous feedback help you grow every day.'}
             </p>
-            <a href="#" className="promo-btn" onClick={(e) => { e.preventDefault(); alert('Chiến dịch "Life\'s Good" truyền cảm hứng về thái độ sống tích cực và sự tận tâm tạo nên giá trị tốt đẹp cho cộng đồng.'); }}>
-              Khám phá thêm <ChevronRight size={16} />
+            <a href="#" className="promo-btn" onClick={(e) => { e.preventDefault(); alert(lang === 'vi' ? 'Chiến dịch "Life\'s Good" truyền cảm hứng về thái độ sống tích cực và sự tận tâm tạo nên giá trị tốt đẹp cho cộng đồng.' : 'The "Life\'s Good" campaign inspires a positive attitude and dedication to creating real value for the community.'); }}>
+              {lang === 'vi' ? 'Khám phá thêm' : 'Explore more'} <ChevronRight size={16} />
             </a>
           </div>
         </div>
@@ -878,13 +909,15 @@ export default function JobBoard({ jobs, onSelectJob }) {
           style={{ backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85)), url(${lgTechnicianImg})` }}
         >
           <div className="promo-content">
-            <span className="promo-tag">Global Career</span>
-            <h3 className="promo-title">Môi trường làm việc đa quốc gia</h3>
+            <span className="promo-tag">{lang === 'vi' ? 'Sự Nghiệp Toàn Cầu' : 'Global Career'}</span>
+            <h3 className="promo-title">{lang === 'vi' ? 'Môi trường làm việc đa quốc gia' : 'A Multinational Work Environment'}</h3>
             <p className="promo-desc">
-              Làm việc trực tiếp với Expat Manager người Hàn Quốc và đội ngũ quốc tế. Cơ hội luân chuyển sang văn phòng LG tại Seoul, Singapore và hơn 120 quốc gia trên thế giới.
+              {lang === 'vi'
+                ? 'Làm việc trực tiếp với Expat Manager người Hàn Quốc và đội ngũ quốc tế. Cơ hội luân chuyển sang văn phòng LG tại Seoul, Singapore và hơn 120 quốc gia trên thế giới.'
+                : 'Work directly with Korean expat managers and international teams. Opportunities to transfer to LG offices in Seoul, Singapore, and over 120 countries worldwide.'}
             </p>
-            <a href="#" className="promo-btn" onClick={(e) => { e.preventDefault(); alert('LG mang lại lộ trình thăng tiến rõ ràng, kết nối toàn cầu và cơ hội luân chuyển công tác nước ngoài.'); }}>
-              Xem chính sách nhân sự <ChevronRight size={16} />
+            <a href="#" className="promo-btn" onClick={(e) => { e.preventDefault(); alert(lang === 'vi' ? 'LG mang lại lộ trình thăng tiến rõ ràng, kết nối toàn cầu và cơ hội luân chuyển công tác nước ngoài.' : 'LG offers a clear career path, global connections, and overseas transfer opportunities.'); }}>
+              {lang === 'vi' ? 'Xem chính sách nhân sự' : 'View HR policy'} <ChevronRight size={16} />
             </a>
           </div>
         </div>
@@ -894,13 +927,15 @@ export default function JobBoard({ jobs, onSelectJob }) {
           style={{ backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.85)), url(${warroomContestImg})` }}
         >
           <div className="promo-content">
-            <span className="promo-tag">ESG & Bền Vững</span>
-            <h3 className="promo-title">Kiến tạo tương lai xanh cùng LG</h3>
+            <span className="promo-tag">{lang === 'vi' ? 'ESG & Bền Vững' : 'ESG & Sustainability'}</span>
+            <h3 className="promo-title">{lang === 'vi' ? 'Kiến tạo tương lai xanh cùng LG' : 'Building a Greener Future with LG'}</h3>
             <p className="promo-desc">
-              LG cam kết đạt Carbon Neutral vào 2030. Tham gia đội ngũ tiên phong sản xuất sản phẩm thân thiện môi trường và chương trình CSR trao học bổng, xây dựng cộng đồng tại Việt Nam.
+              {lang === 'vi'
+                ? 'LG cam kết đạt Carbon Neutral vào 2030. Tham gia đội ngũ tiên phong sản xuất sản phẩm thân thiện môi trường và chương trình CSR trao học bổng, xây dựng cộng đồng tại Việt Nam.'
+                : 'LG is committed to Carbon Neutrality by 2030. Join a team pioneering eco-friendly products and CSR programs offering scholarships and building communities in Vietnam.'}
             </p>
-            <a href="#" className="promo-btn" onClick={(e) => { e.preventDefault(); alert('LG cam kết Net Zero Carbon vào 2030 và đầu tư mạnh vào ESG tại Việt Nam.'); }}>
-              Xem cam kết ESG <ChevronRight size={16} />
+            <a href="#" className="promo-btn" onClick={(e) => { e.preventDefault(); alert(lang === 'vi' ? 'LG cam kết Net Zero Carbon vào 2030 và đầu tư mạnh vào ESG tại Việt Nam.' : 'LG is committed to Net Zero Carbon by 2030 and is investing heavily in ESG in Vietnam.'); }}>
+              {lang === 'vi' ? 'Xem cam kết ESG' : 'View ESG commitment'} <ChevronRight size={16} />
             </a>
           </div>
         </div>

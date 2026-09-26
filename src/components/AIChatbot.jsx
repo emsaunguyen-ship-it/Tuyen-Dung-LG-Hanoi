@@ -61,8 +61,8 @@ export default function AIChatbot({ onSelectJob, onOpenCVSection }) {
     if (actionTrigger === 'show_perks' || textLower.includes('lương') || textLower.includes('quyền lợi') || textLower.includes('bảo hiểm') || textLower.includes('salary') || textLower.includes('benefit')) {
       return {
         text: lang === 'vi' 
-          ? "🎁 **Chế độ đãi ngộ đẳng cấp tại LG Electronics Việt Nam:**\n\n• **Lương & Thưởng**: Lương cơ bản cạnh tranh + Thưởng KPI bán hàng + Thưởng tháng 13 & 14.\n• **Bảo hiểm sức khỏe**: Gói bảo hiểm cao cấp LG PVI Care dành riêng cho nhân viên và gia đình.\n• **Trang thiết bị**: Cung cấp Laptop, điện thoại công vụ, đồng phục cao cấp Life's Good.\n• **Môi trường**: Văn hóa làm việc cởi mở, cơ hội đào tạo tại trụ sở LG Hàn Quốc."
-          : "🎁 **Premium Benefits Package at LG Electronics:**\n\n• **Salary & Bonus**: Competitive base pay + Performance KPI bonus + 13th & 14th month bonuses.\n• **Health Care**: Premium LG PVI Care insurance for employees & relatives.\n• **Equipment**: Corporate Laptop, mobile allowance, official Life's Good uniform.\n• **Environment**: Open global culture, training opportunities at LG HQ Korea.",
+          ? "🎁 **Chế độ đãi ngộ đẳng cấp tại LG Electronics Việt Nam:**\n\n• **Lương & Thưởng**: Lương cơ bản cạnh tranh + Thưởng KPI bán hàng + Thưởng tháng 13 & 14.\n• **Bảo hiểm sức khỏe**: Gói bảo hiểm cao cấp LG PVI Care dành riêng cho nhân viên và gia đình.\n• **Trang thiết bị**: Cung cấp Laptop, điện thoại công vụ, đồng phục LG chính hãng.\n• **Môi trường**: Văn hóa làm việc cởi mở, cơ hội đào tạo tại trụ sở LG Hàn Quốc."
+          : "🎁 **Premium Benefits Package at LG Electronics:**\n\n• **Salary & Bonus**: Competitive base pay + Performance KPI bonus + 13th & 14th month bonuses.\n• **Health Care**: Premium LG PVI Care insurance for employees & relatives.\n• **Equipment**: Corporate Laptop, mobile allowance, official LG uniform.\n• **Environment**: Open global culture, training opportunities at LG HQ Korea.",
         options: [
           { id: 'opt-apply-now', label: lang === 'vi' ? '📝 Đăng ký ứng tuyển' : '📝 Submit Application', action: 'apply_now' }
         ]
@@ -170,7 +170,7 @@ export default function AIChatbot({ onSelectJob, onOpenCVSection }) {
           </div>
           <div className="trigger-text-box">
             <span className="trigger-name">Như Anh LG AI</span>
-            <span className="trigger-sub">Life's Good. HR</span>
+            <span className="trigger-sub">LG Careers HR</span>
           </div>
           {unreadCount > 0 && <span className="trigger-unread-badge">{unreadCount}</span>}
         </button>
@@ -188,7 +188,7 @@ export default function AIChatbot({ onSelectJob, onOpenCVSection }) {
               </div>
               <div className="header-user-text">
                 <h3 className="ai-assistant-name">
-                  Như Anh <span className="lifes-good-tag">Life's Good.</span>
+                  Như Anh <span className="lifes-good-tag">LG AI</span>
                 </h3>
                 <p className="ai-assistant-title">
                   <Sparkles size={12} className="sparkle-icon" /> {lang === 'vi' ? 'Trợ lý AI Tuyển dụng LG (Xem ảnh)' : 'LG AI Recruiter Assistant'}
@@ -336,7 +336,7 @@ export default function AIChatbot({ onSelectJob, onOpenCVSection }) {
                 boxShadow: '0 4px 12px rgba(0,0,0,0.3)',
                 border: '1px solid #ffffff'
               }}>
-                Life's Good. Official HR Outfit
+                LG Electronics · Official HR Outfit
               </div>
             </div>
 
@@ -356,9 +356,6 @@ export default function AIChatbot({ onSelectJob, onOpenCVSection }) {
               </p>
 
               <div style={{ backgroundColor: '#f8fafc', padding: '12px 14px', borderRadius: '14px', border: '1px solid #e2e8f0', marginBottom: '16px', fontSize: '12.5px', color: '#334155', lineHeight: '1.6' }}>
-                <div style={{ marginBottom: '6px' }}>
-                  <strong>🎯 {lang === 'vi' ? 'Khẩu hiệu:' : 'Slogan:'}</strong> <span style={{ color: '#A50034', fontWeight: 700 }}>"Life's Good. - CÙNG LG KIẾN TẠO"</span>
-                </div>
                 <div style={{ marginBottom: '6px' }}>
                   <strong>🤖 {lang === 'vi' ? 'Nhiệm vụ:' : 'Mission:'}</strong> {lang === 'vi' ? 'Tư vấn việc làm, chế độ đãi ngộ & hỗ trợ ứng viên nộp CV 24/7.' : 'Guide candidates, benefits & 24/7 CV submission support.'}
                 </div>

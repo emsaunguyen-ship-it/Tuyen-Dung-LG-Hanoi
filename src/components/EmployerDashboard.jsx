@@ -27,7 +27,7 @@ export default function EmployerDashboard({ jobs, applications, onUpdateAppStatu
     // Get all applications for this job position
     const jobApps = applications.filter(app => app.jobId === selectedJobFilter);
     if (jobApps.length === 0) {
-      alert('Chưa có ứng viên nào ứng tuyển vào vị trí này để xuất báo cáo.');
+      alert(lang === 'vi' ? 'Chưa có ứng viên nào ứng tuyển vào vị trí này để xuất báo cáo.' : 'No candidates have applied for this position yet to export a report.');
       return;
     }
 
@@ -49,19 +49,19 @@ export default function EmployerDashboard({ jobs, applications, onUpdateAppStatu
         </style>
       </head>
       <body>
-        <h2>Báo cáo cộng dồn ứng viên vị trí: ${selectedJob.title}</h2>
-        <p>Ngày xuất báo cáo: ${new Date().toLocaleDateString('vi-VN')}</p>
+        <h2>${lang === 'vi' ? 'Báo cáo cộng dồn ứng viên vị trí' : 'Cumulative candidate report for position'}: ${selectedJob.title}</h2>
+        <p>${lang === 'vi' ? 'Ngày xuất báo cáo' : 'Report date'}: ${new Date().toLocaleDateString(lang === 'vi' ? 'vi-VN' : 'en-US')}</p>
         <table>
           <thead>
             <tr>
-              <th>STT</th>
-              <th>Tên ứng viên</th>
+              <th>${lang === 'vi' ? 'STT' : 'No.'}</th>
+              <th>${lang === 'vi' ? 'Tên ứng viên' : 'Candidate Name'}</th>
               <th>Email</th>
-              <th>Số điện thoại</th>
-              <th>Thư giới thiệu</th>
-              <th>CV đính kèm</th>
-              <th>Ngày ứng tuyển</th>
-              <th>Trạng thái</th>
+              <th>${lang === 'vi' ? 'Số điện thoại' : 'Phone Number'}</th>
+              <th>${lang === 'vi' ? 'Thư giới thiệu' : 'Cover Letter'}</th>
+              <th>${lang === 'vi' ? 'CV đính kèm' : 'Attached CV'}</th>
+              <th>${lang === 'vi' ? 'Ngày ứng tuyển' : 'Applied Date'}</th>
+              <th>${lang === 'vi' ? 'Trạng thái' : 'Status'}</th>
             </tr>
           </thead>
           <tbody>
@@ -78,7 +78,7 @@ export default function EmployerDashboard({ jobs, applications, onUpdateAppStatu
           <td>${app.coverLetter || ''}</td>
           <td>${app.cvFileName}</td>
           <td>${app.appliedAt}</td>
-          <td>${app.status === 'Pending' ? 'Chờ duyệt' : app.status}</td>
+          <td>${app.status === 'Pending' ? (lang === 'vi' ? 'Chờ duyệt' : 'Pending') : (app.status === 'Shortlisted' ? (lang === 'vi' ? 'Đã duyệt' : 'Shortlisted') : (app.status === 'Rejected' ? (lang === 'vi' ? 'Đã từ chối' : 'Rejected') : app.status))}</td>
         </tr>
       `;
     });
@@ -98,7 +98,7 @@ export default function EmployerDashboard({ jobs, applications, onUpdateAppStatu
     const url = URL.createObjectURL(blob);
     downloadLink.href = url;
     const safeJobTitle = selectedJob.title.replace(/[^a-zA-Z0-9]/g, '_');
-    downloadLink.download = `Bao_cao_cong_don_${safeJobTitle}_${new Date().toISOString().split('T')[0]}.xls`;
+    downloadLink.download = `${lang === 'vi' ? 'Bao_cao_cong_don' : 'Cumulative_Report'}_${safeJobTitle}_${new Date().toISOString().split('T')[0]}.xls`;
     document.body.appendChild(downloadLink);
     downloadLink.click();
     document.body.removeChild(downloadLink);
@@ -106,9 +106,11 @@ export default function EmployerDashboard({ jobs, applications, onUpdateAppStatu
 
     // 3. Open mail client
     const to = 'khanhthuy.nguyen@lge.com';
-    const subject = encodeURIComponent(`[LG Careers] Báo cáo ứng tuyển cộng dồn - Vị trí: ${selectedJob.title}`);
-    
-    const emailBody = `Kính gửi Chị Khánh Thuỷ (HR Department),
+    const subject = encodeURIComponent(lang === 'vi'
+      ? `[LG Careers] Báo cáo ứng tuyển cộng dồn - Vị trí: ${selectedJob.title}`
+      : `[LG Careers] Cumulative Application Report - Position: ${selectedJob.title}`);
+
+    const emailBody = lang === 'vi' ? `Kính gửi Chị Khánh Thuỷ (HR Department),
 
 Hệ thống LG Careers xin gửi báo cáo cộng dồn hồ sơ ứng tuyển của vị trí: ${selectedJob.title}.
 
@@ -125,7 +127,24 @@ Thông tin ứng viên mới phát sinh gần nhất (để trên bề mặt ema
 * Đã đính kèm tệp Excel báo cáo cộng dồn (${sortedApps.length} ứng viên) từ đầu ngày tuyển dụng cho đến nay. Bạn hãy kiểm tra thư mục Download trên máy tính để đính kèm tệp này.
 
 Trân trọng,
-Hệ thống tuyển dụng tự động LG Electronics Việt Nam.`;
+Hệ thống tuyển dụng tự động LG Electronics Việt Nam.` : `Dear Ms. Khanh Thuy (HR Department),
+
+The LG Careers system is sending the cumulative candidate report for the position: ${selectedJob.title}.
+
+Most recent candidate information (highlighted here):
+--------------------------------------------------
+- Full Name: ${newApp.candidateName}
+- Email: ${newApp.email}
+- Phone Number: ${newApp.phone}
+- Cover Letter: ${newApp.coverLetter || 'None'}
+- CV File: ${newApp.cvFileName}
+- Applied Date: ${newApp.appliedAt}
+--------------------------------------------------
+
+* The cumulative Excel report (${sortedApps.length} candidates) since the start of the recruitment period is attached. Please check your computer's Downloads folder to attach this file.
+
+Best regards,
+LG Electronics Vietnam Automated Recruitment System.`;
 
     const body = encodeURIComponent(emailBody);
     window.open(`mailto:${to}?subject=${subject}&body=${body}`, '_self');
@@ -217,14 +236,14 @@ Hệ thống tuyển dụng tự động LG Electronics Việt Nam.`;
             {/* Filter bar */}
             <div className="dashboard-filter-bar">
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexGrow: 1 }}>
-                <label htmlFor="jobFilter" className="filter-bar-label">Lọc hồ sơ theo tin tuyển dụng:</label>
-                <select 
-                  id="jobFilter" 
-                  value={selectedJobFilter} 
+                <label htmlFor="jobFilter" className="filter-bar-label">{lang === 'vi' ? 'Lọc hồ sơ theo tin tuyển dụng:' : 'Filter applications by job posting:'}</label>
+                <select
+                  id="jobFilter"
+                  value={selectedJobFilter}
                   onChange={(e) => setSelectedJobFilter(e.target.value)}
                   className="filter-bar-select"
                 >
-                  <option value="All">Tất cả tin tuyển dụng</option>
+                  <option value="All">{lang === 'vi' ? 'Tất cả tin tuyển dụng' : 'All job postings'}</option>
                   {jobs.map(job => (
                     <option key={job.id} value={job.id}>{job.title} ({job.company})</option>
                   ))}
@@ -252,7 +271,7 @@ Hệ thống tuyển dụng tự động LG Electronics Việt Nam.`;
                   onMouseOver={(e) => e.currentTarget.style.backgroundColor = 'var(--primary-hover)'}
                   onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'var(--primary)'}
                 >
-                  <Mail size={16} /> Gửi Báo Cáo & Email (Khánh Thuỷ)
+                  <Mail size={16} /> {lang === 'vi' ? 'Gửi Báo Cáo & Email (Khánh Thuỷ)' : 'Send Report & Email (Khanh Thuy)'}
                 </button>
               )}
             </div>
@@ -266,16 +285,16 @@ Hệ thống tuyển dụng tự động LG Electronics Việt Nam.`;
                       <div className="app-candidate-info">
                         <h3 className="candidate-name">{app.candidateName}</h3>
                         <p className="applied-for-text">
-                          Ứng tuyển: <span className="highlight-job-title">{app.jobTitle}</span>
+                          {lang === 'vi' ? 'Ứng tuyển' : 'Applied for'}: <span className="highlight-job-title">{app.jobTitle}</span>
                         </p>
                       </div>
                       <div className="app-status-indicator">
                         <span className={`status-badge status-${app.status.toLowerCase()}`}>
-                          {app.status === 'Pending' && 'Chờ duyệt'}
-                          {app.status === 'Shortlisted' && 'Đã duyệt (Shortlisted)'}
-                          {app.status === 'Rejected' && 'Đã từ chối'}
+                          {app.status === 'Pending' && (lang === 'vi' ? 'Chờ duyệt' : 'Pending')}
+                          {app.status === 'Shortlisted' && (lang === 'vi' ? 'Đã duyệt (Shortlisted)' : 'Shortlisted')}
+                          {app.status === 'Rejected' && (lang === 'vi' ? 'Đã từ chối' : 'Rejected')}
                         </span>
-                        <span className="ats-id-badge" title="Tự động cấp bởi Hệ thống Quản trị ATS LG Electronics">
+                        <span className="ats-id-badge" title={lang === 'vi' ? 'Tự động cấp bởi Hệ thống Quản trị ATS LG Electronics' : 'Auto-assigned by LG Electronics ATS Management System'}>
                           {app.atsId || `LG-ATS-2026-${app.id.slice(-4)}`}
                         </span>
                       </div>
@@ -325,16 +344,16 @@ Hệ thống tuyển dụng tự động LG Electronics Việt Nam.`;
                       <a 
                         href={app.cvBase64 || '#'} 
                         download={app.cvFileName}
-                        onClick={(e) => { 
+                        onClick={(e) => {
                           if (!app.cvBase64) {
-                            e.preventDefault(); 
-                            alert(`Đang mở xem hồ sơ CV đính kèm: ${app.cvFileName}`); 
+                            e.preventDefault();
+                            alert(lang === 'vi' ? `Đang mở xem hồ sơ CV đính kèm: ${app.cvFileName}` : `Opening attached CV file: ${app.cvFileName}`);
                           }
-                        }} 
-                        className="btn-download-cv" 
-                        title="Tải xuống CV"
+                        }}
+                        className="btn-download-cv"
+                        title={lang === 'vi' ? 'Tải xuống CV' : 'Download CV'}
                       >
-                        Tải xuống CV
+                        {lang === 'vi' ? 'Tải xuống CV' : 'Download CV'}
                       </a>
                     </div>
 
@@ -345,13 +364,13 @@ Hệ thống tuyển dụng tự động LG Electronics Việt Nam.`;
                           className="btn-action-reject" 
                           onClick={() => onUpdateAppStatus(app.id, 'Rejected')}
                         >
-                          <X size={16} /> Từ chối
+                          <X size={16} /> {lang === 'vi' ? 'Từ chối' : 'Reject'}
                         </button>
-                        <button 
-                          className="btn-action-approve" 
+                        <button
+                          className="btn-action-approve"
                           onClick={() => onUpdateAppStatus(app.id, 'Shortlisted')}
                         >
-                          <Check size={16} /> Duyệt hồ sơ (Shortlist)
+                          <Check size={16} /> {lang === 'vi' ? 'Duyệt hồ sơ (Shortlist)' : 'Shortlist Candidate'}
                         </button>
                       </div>
                     )}
@@ -359,7 +378,7 @@ Hệ thống tuyển dụng tự động LG Electronics Việt Nam.`;
                 ))
               ) : (
                 <div className="empty-dashboard-state">
-                  <p>Không có hồ sơ ứng tuyển nào được gửi tới hoặc phù hợp với bộ lọc hiện tại.</p>
+                  <p>{lang === 'vi' ? 'Không có hồ sơ ứng tuyển nào được gửi tới hoặc phù hợp với bộ lọc hiện tại.' : 'No applications have been received or match the current filter.'}</p>
                 </div>
               )}
             </div>
@@ -374,12 +393,12 @@ Hệ thống tuyển dụng tự động LG Electronics Việt Nam.`;
                 <table className="posted-jobs-table">
                   <thead>
                     <tr>
-                      <th>Tin tuyển dụng</th>
-                      <th>Địa điểm</th>
-                      <th>Lương</th>
-                      <th>Nhóm ngành</th>
-                      <th>Ngày đăng</th>
-                      <th>Thao tác</th>
+                      <th>{lang === 'vi' ? 'Tin tuyển dụng' : 'Job Posting'}</th>
+                      <th>{lang === 'vi' ? 'Địa điểm' : 'Location'}</th>
+                      <th>{lang === 'vi' ? 'Lương' : 'Salary'}</th>
+                      <th>{lang === 'vi' ? 'Nhóm ngành' : 'Industry'}</th>
+                      <th>{lang === 'vi' ? 'Ngày đăng' : 'Posted Date'}</th>
+                      <th>{lang === 'vi' ? 'Thao tác' : 'Actions'}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -391,7 +410,7 @@ Hệ thống tuyển dụng tự động LG Electronics Việt Nam.`;
                             <div className="table-job-info">
                               <span className="table-job-title">{job.title}</span>
                               <span className="table-company-name">{job.company}</span>
-                              <span className="table-apps-count">Hồ sơ ứng tuyển: <strong>{jobAppsCount}</strong></span>
+                              <span className="table-apps-count">{lang === 'vi' ? 'Hồ sơ ứng tuyển' : 'Applications'}: <strong>{jobAppsCount}</strong></span>
                             </div>
                           </td>
                           <td>{job.location}</td>
@@ -403,12 +422,12 @@ Hệ thống tuyển dụng tự động LG Electronics Việt Nam.`;
                               <button 
                                 className="btn-table-delete"
                                 onClick={() => {
-                                  if(confirm(`Bạn có chắc chắn muốn xoá tin tuyển dụng "${job.title}"?`)) {
+                                  if(confirm(lang === 'vi' ? `Bạn có chắc chắn muốn xoá tin tuyển dụng "${job.title}"?` : `Are you sure you want to delete the job posting "${job.title}"?`)) {
                                     onDeleteJob(job.id);
                                   }
                                 }}
                               >
-                                Xoá tin
+                                {lang === 'vi' ? 'Xoá tin' : 'Delete'}
                               </button>
                             </div>
                           </td>
@@ -419,9 +438,9 @@ Hệ thống tuyển dụng tự động LG Electronics Việt Nam.`;
                 </table>
               ) : (
                 <div className="empty-dashboard-state">
-                  <p>Bạn chưa đăng tuyển vị trí công việc nào.</p>
+                  <p>{lang === 'vi' ? 'Bạn chưa đăng tuyển vị trí công việc nào.' : 'You have not posted any job openings yet.'}</p>
                   <button className="btn-create-job-main" onClick={onNavigateToPost} style={{ margin: '15px auto 0' }}>
-                    <PlusCircle size={18} /> Đăng tin tuyển dụng ngay
+                    <PlusCircle size={18} /> {lang === 'vi' ? 'Đăng tin tuyển dụng ngay' : 'Post a job now'}
                   </button>
                 </div>
               )}
@@ -434,10 +453,12 @@ Hệ thống tuyển dụng tự động LG Electronics Việt Nam.`;
           <div className="tab-pane-content">
             <div className="sheets-config-container">
               <h2 className="sheets-title">
-                田 Cấu hình đồng bộ ứng viên sang Google Sheets
+                田 {lang === 'vi' ? 'Cấu hình đồng bộ ứng viên sang Google Sheets' : 'Configure Candidate Sync to Google Sheets'}
               </h2>
               <p style={{ fontSize: '13.5px', color: '#555', marginBottom: '20px', lineHeight: '1.5' }}>
-                Đơn ứng tuyển từ ứng viên nộp tại website sẽ tự động đồng bộ sang Google Sheets trên tài khoản Google Drive của bạn dưới dạng hàng (row) dữ liệu trong thời gian thực.
+                {lang === 'vi'
+                  ? 'Đơn ứng tuyển từ ứng viên nộp tại website sẽ tự động đồng bộ sang Google Sheets trên tài khoản Google Drive của bạn dưới dạng hàng (row) dữ liệu trong thời gian thực.'
+                  : "Applications submitted by candidates on the website will automatically sync to Google Sheets in your Google Drive account as real-time data rows."}
               </p>
 
               {/* Banner chứa link Google Sheets */}
@@ -445,27 +466,37 @@ Hệ thống tuyển dụng tự động LG Electronics Việt Nam.`;
                 <div className="sheets-link-banner-left">
                   <div style={{ backgroundColor: '#107c41', color: '#fff', width: '40px', height: '40px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '18px' }}>田</div>
                   <div className="sheets-link-banner-text">
-                    <span className="sheets-link-banner-title">Google Spreadsheet của bạn đã sẵn sàng</span>
-                    <span className="sheets-link-banner-desc">Tên file: <strong>LG_Careers_Applications</strong> (ID: 1sH23eUrOc0qgmUlH9K-sh7knAtaTCdlv47j3pb51rBY)</span>
+                    <span className="sheets-link-banner-title">{lang === 'vi' ? 'Google Spreadsheet của bạn đã sẵn sàng' : 'Your Google Spreadsheet is ready'}</span>
+                    <span className="sheets-link-banner-desc">{lang === 'vi' ? 'Tên file' : 'File name'}: <strong>LG_Careers_Applications</strong> (ID: 1sH23eUrOc0qgmUlH9K-sh7knAtaTCdlv47j3pb51rBY)</span>
                   </div>
                 </div>
-                <a 
-                  href="https://docs.google.com/spreadsheets/d/1sH23eUrOc0qgmUlH9K-sh7knAtaTCdlv47j3pb51rBY/edit" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href="https://docs.google.com/spreadsheets/d/1sH23eUrOc0qgmUlH9K-sh7knAtaTCdlv47j3pb51rBY/edit"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn-open-sheet"
                 >
-                  Mở Google Sheet <ExternalLink size={14} />
+                  {lang === 'vi' ? 'Mở Google Sheet' : 'Open Google Sheet'} <ExternalLink size={14} />
                 </a>
               </div>
 
               {/* Hướng dẫn cài đặt */}
               <div className="sheets-instructions">
-                <h4 style={{ margin: '0 0 12px 0', fontSize: '15px' }}>Hướng dẫn liên kết trong 1 phút:</h4>
+                <h4 style={{ margin: '0 0 12px 0', fontSize: '15px' }}>{lang === 'vi' ? 'Hướng dẫn liên kết trong 1 phút:' : '1-minute setup guide:'}</h4>
                 <ol style={{ paddingLeft: '20px', margin: '0' }}>
-                  <li>Bấm nút <strong>"Mở Google Sheet"</strong> ở trên để truy cập bảng tính của bạn.</li>
-                  <li>Tại bảng tính, bấm chọn <strong>Tiện ích mở rộng (Extensions)</strong> &gt; <strong>Apps Script</strong>.</li>
-                  <li>Xóa toàn bộ mã code hiện tại trong cửa sổ Apps Script và dán đoạn mã code dưới đây vào:</li>
+                  {lang === 'vi' ? (
+                    <>
+                      <li>Bấm nút <strong>"Mở Google Sheet"</strong> ở trên để truy cập bảng tính của bạn.</li>
+                      <li>Tại bảng tính, bấm chọn <strong>Tiện ích mở rộng (Extensions)</strong> &gt; <strong>Apps Script</strong>.</li>
+                      <li>Xóa toàn bộ mã code hiện tại trong cửa sổ Apps Script và dán đoạn mã code dưới đây vào:</li>
+                    </>
+                  ) : (
+                    <>
+                      <li>Click the <strong>"Open Google Sheet"</strong> button above to access your spreadsheet.</li>
+                      <li>In the spreadsheet, click <strong>Extensions</strong> &gt; <strong>Apps Script</strong>.</li>
+                      <li>Delete all the existing code in the Apps Script window and paste the code below:</li>
+                    </>
+                  )}
                 </ol>
 
                 <pre className="code-snippet-box">
@@ -497,44 +528,61 @@ Hệ thống tuyển dụng tự động LG Electronics Việt Nam.`;
                 </pre>
 
                 <ol style={{ paddingLeft: '20px', margin: '0' }} start="4">
-                  <li>Bấm biểu tượng <strong>Lưu (Save - hình đĩa mềm)</strong> ở phía trên.</li>
-                  <li>Bấm chọn nút <strong>Triển khai (Deploy)</strong> &gt; <strong>Triển khai mới (New deployment)</strong>.</li>
-                  <li>Chọn cấu hình (bánh răng) &gt; chọn <strong>Ứng dụng web (Web app)</strong>.
-                    <ul>
-                      <li>Cấu hình quyền truy cập (Who has access): chọn <strong>Bất kỳ ai (Anyone)</strong>.</li>
-                    </ul>
-                  </li>
-                  <li>Bấm <strong>Triển khai (Deploy)</strong> và copy đoạn URL Ứng dụng web được cấp (Web app URL).</li>
+                  {lang === 'vi' ? (
+                    <>
+                      <li>Bấm biểu tượng <strong>Lưu (Save - hình đĩa mềm)</strong> ở phía trên.</li>
+                      <li>Bấm chọn nút <strong>Triển khai (Deploy)</strong> &gt; <strong>Triển khai mới (New deployment)</strong>.</li>
+                      <li>Chọn cấu hình (bánh răng) &gt; chọn <strong>Ứng dụng web (Web app)</strong>.
+                        <ul>
+                          <li>Cấu hình quyền truy cập (Who has access): chọn <strong>Bất kỳ ai (Anyone)</strong>.</li>
+                        </ul>
+                      </li>
+                      <li>Bấm <strong>Triển khai (Deploy)</strong> và copy đoạn URL Ứng dụng web được cấp (Web app URL).</li>
+                    </>
+                  ) : (
+                    <>
+                      <li>Click the <strong>Save (floppy disk icon)</strong> button above.</li>
+                      <li>Click <strong>Deploy</strong> &gt; <strong>New deployment</strong>.</li>
+                      <li>Select the configuration (gear icon) &gt; choose <strong>Web app</strong>.
+                        <ul>
+                          <li>Access configuration (Who has access): select <strong>Anyone</strong>.</li>
+                        </ul>
+                      </li>
+                      <li>Click <strong>Deploy</strong> and copy the generated Web app URL.</li>
+                    </>
+                  )}
                 </ol>
               </div>
 
               {/* Ô nhập Webhook */}
               <div className="webhook-input-group">
-                <label htmlFor="webhookUrl">Dán Web app URL (Webhook) đã copy vào đây:</label>
+                <label htmlFor="webhookUrl">{lang === 'vi' ? 'Dán Web app URL (Webhook) đã copy vào đây:' : 'Paste the copied Web app URL (Webhook) here:'}</label>
                 <div className="webhook-input-row">
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     id="webhookUrl"
                     placeholder="https://script.google.com/macros/s/.../exec"
                     value={webhookUrl}
                     onChange={(e) => onUpdateWebhookUrl(e.target.value)}
                     className="webhook-text-input"
                   />
-                  <button 
+                  <button
                     className={`btn-save-webhook ${webhookUrl ? 'configured' : ''}`}
                     onClick={() => {
                       if (webhookUrl) {
-                        alert('Lưu Webhook cấu hình Google Sheet thành công! Website đã được kết nối với trang tính của bạn.');
+                        alert(lang === 'vi' ? 'Lưu Webhook cấu hình Google Sheet thành công! Website đã được kết nối với trang tính của bạn.' : 'Google Sheet webhook configuration saved successfully! The website is now connected to your spreadsheet.');
                       } else {
-                        alert('Vui lòng dán Web app URL của bạn vào ô trống.');
+                        alert(lang === 'vi' ? 'Vui lòng dán Web app URL của bạn vào ô trống.' : 'Please paste your Web app URL into the field.');
                       }
                     }}
                   >
-                    {webhookUrl ? 'Đang Kết Nối' : 'Lưu URL'}
+                    {webhookUrl ? (lang === 'vi' ? 'Đang Kết Nối' : 'Connected') : (lang === 'vi' ? 'Lưu URL' : 'Save URL')}
                   </button>
                 </div>
                 <span style={{ fontSize: '12px', color: '#71717a', marginTop: '4px' }}>
-                  {webhookUrl ? '✅ Dữ liệu tuyển dụng sẽ tự động ghi sang Google Sheet vĩnh viễn khi ứng viên đăng ký.' : '⚠️ Cần dán URL để kích hoạt đồng bộ hóa tự động.'}
+                  {webhookUrl
+                    ? (lang === 'vi' ? '✅ Dữ liệu tuyển dụng sẽ tự động ghi sang Google Sheet vĩnh viễn khi ứng viên đăng ký.' : '✅ Recruitment data will automatically be written to Google Sheet permanently whenever a candidate applies.')
+                    : (lang === 'vi' ? '⚠️ Cần dán URL để kích hoạt đồng bộ hóa tự động.' : '⚠️ Paste a URL to enable automatic syncing.')}
                 </span>
               </div>
             </div>

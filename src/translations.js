@@ -20,8 +20,8 @@ export const translations = {
 
     // Hero Banner
     anniversaryTag: "🎉 Kỷ niệm 31 năm LG Việt Nam",
-    heroTitleLine1: "CÙNG LG KIẾN TẠO",
-    heroTitleLine2: "CUỘC SỐNG TỐT ĐẸP HƠN",
+    heroTitleLine1: "Cùng LG kiến tạo",
+    heroTitleLine2: "cuộc sống tốt đẹp hơn",
     heroDesc: "Kỷ niệm 31 năm LG đồng hành cùng Việt Nam! Khám phá cơ hội nghề nghiệp bứt phá tại Tập đoàn công nghệ hàng đầu thế giới.",
     btnFindJobsNow: "Tìm việc ngay",
     btnAboutCulture: "Về văn hóa LG",
@@ -92,7 +92,7 @@ export const translations = {
     mediaCenterSubtitle: "Khám phá chặng đường lịch sử đầy tự hào và môi trường làm việc năng động, sáng tạo thông qua các thước phim tư liệu thực tế từ tập đoàn LG.",
     insidersEyebrow: "LG Insiders & Testimonials",
     insidersTitle: "Góc Nhân Viên LG chia sẻ",
-    insidersSubtitle: "Rê chuột vào hình ảnh nhân viên LG để xem chia sẻ thực tế và trải nghiệm môi trường làm việc 'Life's Good'.",
+    insidersSubtitle: "Rê chuột vào hình ảnh nhân viên LG để xem chia sẻ thực tế và trải nghiệm văn hoá làm việc tại LG.",
 
     // Employer Dashboard
     dashboardTitle: "Bảng Điều Khiển Nhà Tuyển Dụng",
@@ -127,8 +127,8 @@ export const translations = {
 
     // Hero Banner
     anniversaryTag: "🎉 Celebrating LG Vietnam 31st Anniversary",
-    heroTitleLine1: "BUILDING A BETTER LIFE",
-    heroTitleLine2: "TOGETHER WITH LG",
+    heroTitleLine1: "Building a better life",
+    heroTitleLine2: "together with LG",
     heroDesc: "Celebrating 31 years of LG partnering with Vietnam! Discover breakthrough career opportunities at the world's leading technology corporation.",
     btnFindJobsNow: "Find Jobs Now",
     btnAboutCulture: "LG Culture",
@@ -199,7 +199,7 @@ export const translations = {
     mediaCenterSubtitle: "Explore our proud history and creative working environment through authentic documentary films from LG Group.",
     insidersEyebrow: "LG Insiders & Testimonials",
     insidersTitle: "LG Employee Voices",
-    insidersSubtitle: "Hover over LG employee photos to read real stories and experience the 'Life's Good' workplace culture.",
+    insidersSubtitle: "Hover over LG employee photos to read real stories and experience LG's workplace culture.",
 
     // Employer Dashboard
     dashboardTitle: "Recruiter Management Dashboard",

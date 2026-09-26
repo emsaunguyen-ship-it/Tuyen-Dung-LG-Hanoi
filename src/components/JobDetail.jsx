@@ -36,7 +36,7 @@ export default function JobDetail({ job, onBack, onApply }) {
       <div className="detail-side-banner frame-right">
         <img src={lgTeamGroupImg} alt="LG Team" />
         <div className="side-banner-caption">
-          <span className="side-banner-tag">Life's Good</span>
+          <span className="side-banner-tag">{lang === 'vi' ? 'Con Người LG' : 'LG People'}</span>
           <p>{lang === 'vi' ? 'Môi trường Làm việc Chuyên nghiệp & Tận tâm' : 'Professional & Dedicated Work Culture'}</p>
         </div>
       </div>
